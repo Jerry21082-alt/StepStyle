@@ -1,5 +1,3 @@
-const { red } = require('@mui/material/colors');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -14,9 +12,9 @@ module.exports = {
       heroColor: "#06142e",
       snow: "#fff",
       cardBg: "#edede9",
-      greenBg: '#008000',
-      dangerColor: 'red',
-      darkOverlay: 'rgba(0,0,0,0.5)'
+      greenBg: "#008000",
+      dangerColor: "red",
+      darkOverlay: "rgba(0,0,0,0.5)",
     },
     extend: {
       backgroundImage: {
