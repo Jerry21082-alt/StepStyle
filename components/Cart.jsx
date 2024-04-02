@@ -6,7 +6,6 @@ import { stateFunc } from "./stateContent/UseStateContext";
 import { BiSolidLeftArrow } from "react-icons/bi";
 import { AiOutlineShopping, AiFillDelete } from "react-icons/ai";
 import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
-import { bag } from "@/public/sneaker-assets";
 import Image from "next/image";
 
 export default function Cart() {
@@ -23,20 +22,20 @@ export default function Cart() {
     deleteFromCart,
   } = stateFunc();
 
-  useEffect(() => {
-    if (cartItems.length > 0) {
-      for (let element of cartItems) {
-        let newItems = [];
-        const cartProducts = products.find((product) => product.id === element);
-        newItems.push(cartProducts);
-        setNewProduct([...newProduct, cartProducts]);
-        const productInCart = newProduct.find((item) => item.id === element);
-        if (productInCart) {
-          setNewProduct(newProduct);
-        }
-      }
-    }
-  }, [cartItems]);
+  // useEffect(() => {
+  //   if (cartItems.length > 0) {
+  //     for (let element of cartItems) {
+  //       let newItems = [];
+  //       const cartProducts = products.find((product) => product.id === element);
+  //       newItems.push(cartProducts);
+  //       setNewProduct([...newProduct, cartProducts]);
+  //       const productInCart = newProduct.find((item) => item.id === element);
+  //       if (productInCart) {
+  //         setNewProduct(newProduct);
+  //       }
+  //     }
+  //   }
+  // }, [cartItems]);
 
   let total = 0;
 
@@ -72,9 +71,8 @@ export default function Cart() {
       {!newProduct.length ? (
         <div className="flex justify-center items-center h-[70vh]">
           <div className="flex flex-col items-center">
-            <div className="w-[30%]">
-              <Image src={bag} alt="shopping bag image" />
-            </div>
+            {/*
+             */}
             <p className="text-xl font-bold my-2">Your Bag is Empty</p>
             <button
               onClick={() => setToggleCart(false)}
@@ -94,7 +92,7 @@ export default function Cart() {
               <div className="flex justify-center items-center p-2 rounded-md bg-primaryColor w-[120px]">
                 <Image src={item.product_photo} alt="product photo" />
               </div>
-              <div className="flex flex-col justify-between items-start flex-col">
+              <div className="flex justify-between items-start flex-col">
                 <p className="text-md">
                   {item.product_description.length > 30
                     ? `${item.product_description.substring(0, 30)}...`
