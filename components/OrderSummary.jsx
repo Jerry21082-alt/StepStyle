@@ -200,10 +200,10 @@ export default function OrderSummary({
       <h3 className="mt-5 text-lg font-bold">Payment Details</h3>
       <div className="flex items-center mt-5 gap-2 border-t border-primaryColor">
         <div className="w-[50px]">
-          <Image src={visa_logo} alt="visacard logo" width={50} />
+          <Image src='pngwing.com (3).png' alt="visacard logo" width={50} />
         </div>
         <div className="w-[50px]">
-          <Image src={masterCard_logo} alt="mastercard logo" width={50} />
+          <Image src='pngwing.com (2).png' alt="mastercard logo" width={50} />
         </div>
       </div>
       <form className="mt-5 flex flex-col gap-2">
