@@ -11,24 +11,28 @@ const products = [
     product_photo: "pngegg (1).png",
     product_description: "Nike Precision 6 Mens Basketball Shoes",
     product_price: 109,
+    rating: [1, 2, 3],
   },
   {
     id: 2,
     product_photo: "pngegg (2).png",
     product_description: "Nike Men's Air Monarch IV Cross Trainer",
     product_price: 69,
+    rating: [1, 2, 3],
   },
   {
     id: 3,
     product_photo: "pngegg (3).png",
     product_description: "Nike Men's Air Max Correlate Running Shoe",
     product_price: 74,
+    rating: [1],
   },
   {
     id: 4,
     product_photo: "pngegg (4).png",
     product_description: "TRETORN Women's Loyola Lace Up Sneakers",
     product_price: 54,
+    rating: [1, 2],
   },
   {
     id: 5,
@@ -36,12 +40,14 @@ const products = [
     product_description:
       "Alicegana Women's Athletic Road Running Lace up Walking Shoes Comfort Lightweight Fashion Sneakers Breathable",
     product_price: 22,
+    rating: [1, 2, 3, 4],
   },
   {
     id: 6,
     product_photo: "pngegg (16).png",
     product_description: "Steel toe shoes men and women breathable sneaker",
     product_price: 40,
+    rating: [1, 2, 3, 4, 5],
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ const products = [
     product_description:
       "Nike Air Monarch IV (4E) Extra-Wide Men's Shoes White/Black-Varsity Red 416355-101",
     product_price: 123,
+    rating: [1, 2, 3],
   },
   {
     id: 8,
@@ -56,31 +63,36 @@ const products = [
     product_description:
       "Nike Air Max 270 White/ Industrial Blue/ Citron FJ400 Running Shoes",
     product_price: 200,
+    rating: [1, 2],
   },
   {
     id: 9,
     product_photo: "pngwing.com (4).png",
     product_description: "PUMA Womens Prowl Alt Sneaker",
     product_price: 200,
+    rating: [1, 2, 3, 4, 5],
   },
   {
     id: 10,
     product_photo: "pngwing.com (5).png",
     product_description: "New Balance Women's 460 V3 Running Shoe",
     product_price: 54,
+    rating: [1, 2, 3],
   },
   {
     id: 11,
     product_photo: "pngwing.com (6).png",
     product_description: "Blowfish Malibu Women's Mamba Canvas Sneaker",
     product_price: 102,
+    rating: [1, 2, 3],
   },
   {
     id: 13,
-    product_photo: 'pngegg(21).png',
+    product_photo: "pngegg(21).png",
     product_description:
       "Nike Air Max 90 Men's Shoes Size - 12, Wolf Grey/Burgundy Crush",
     product_price: 104,
+    rating: [1, 2],
   },
   // {
   //   id: 12,

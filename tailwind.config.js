@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     colors: {
       primaryColor: "#edede9;",
-      secondaryColor: "#fe5d26;",
+      secondaryColor: "#fe5d26",
       heroColor: "#06142e",
       snow: "#fff",
       cardBg: "#edede9",
