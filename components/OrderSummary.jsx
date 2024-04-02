@@ -1,8 +1,6 @@
 import Image from "next/image";
-import { visa_logo, masterCard_logo } from "@/public/sneaker-assets";
-import { useState, useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { CgDanger } from "react-icons/cg";
-import { FaCreditCard } from "react-icons/fa";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 const NAME_REGEX = /^[A-Za-z\s']+$/;
@@ -14,7 +12,6 @@ export default function OrderSummary({
   productDetails,
   quantity,
   isCustomer,
-  orderSuccess,
   setOrderSuccess,
 }) {
   const product = productDetails;
