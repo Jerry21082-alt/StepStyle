@@ -18,7 +18,7 @@ export default function ProductList({ product }) {
       <div className="flex flex-col w-full group">
         <div
           className="relative group aspect-square
-     bg-cardBg overflow-hidden rounded-xl p-4"
+     bg-cardBg overflow-hidden rounded-xl p-4 w-full h-full"
         >
           <Image
             src="/pngegg (4).png"
