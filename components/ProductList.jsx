@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import ImageSlider from "./ImageSlider";
 
 export default function ProductList({ product }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,20 +14,8 @@ export default function ProductList({ product }) {
       className={`h-full cursor-pointer group/main`}
     >
       <div className="flex flex-col w-full group">
-        <div
-          className="relative group aspect-square
-   bg-cardColor overflow-hidden rounded-xl bg-cardBg"
-        >
-          <div className="relative h-full w-full">
-            <Image
-              src={`/${product.product_photo}`}
-              alt="product image"
-              fill
-              className="z-10 w-full h-full p-4"
-            />
-          </div>
-        </div>
-        <h3 className="mt-4 font-medium text-red-600 group-hover:text-white">
+        <ImageSlider url={product.product_photo}/>
+        <h3 className="mt-4 font-medium text-sm">
           {product.product_description.length > 25
             ? product.product_description.substring(0, 25).concat("...")
             : product.product_description}
