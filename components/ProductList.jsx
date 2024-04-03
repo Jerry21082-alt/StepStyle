@@ -15,15 +15,14 @@ export default function ProductList({ product }) {
       <div className="flex flex-col w-full group">
         <div
           className="relative group aspect-square
-   bg-cardColor overflow-hidden rounded-xl"
+   bg-cardColor overflow-hidden rounded-xl bg-cardBg"
         >
-          <div className="relative -z-10 h-full w-full">
+          <div className="relative h-full w-full">
             <Image
               src={`/${product.product_photo}`}
               alt="product image"
               fill
-              loading="eager"
-              className="-z-10 h-6 w-6 bg-cardBg p-4"
+              className="z-10 w-full h-full p-4"
             />
           </div>
         </div>
