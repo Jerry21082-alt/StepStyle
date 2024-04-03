@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import ImageSlider from "./ImageSlider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function ProductList({ product }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +16,22 @@ export default function ProductList({ product }) {
       className={`h-full cursor-pointer group/main`}
     >
       <div className="flex flex-col w-full group">
-        <ImageSlider url={product.product_photo}/>
+        <div
+          className="relative group aspect-square
+     bg-cardBg overflow-hidden rounded-xl p-4"
+        >
+          <Swiper className="w-full h-full">
+            <SwiperSlide className="relative -z-10 h-full w-full">
+              <Image
+                src={product.product_photo}
+                alt="product image"
+                fill
+                loading="eager"
+                className="-z-10 h-full w-full object-cover object-center"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
         <h3 className="mt-4 font-medium text-sm">
           {product.product_description.length > 25
             ? product.product_description.substring(0, 25).concat("...")
