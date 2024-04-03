@@ -23,11 +23,11 @@ export default function ProductList({ product }) {
           <Swiper className="w-full h-full">
             <SwiperSlide className="relative -z-10 h-full w-full">
               <Image
-                src={product.product_photo}
+                src="/pngegg (4).png"
                 alt="product image"
                 fill
                 loading="eager"
-                className="-z-10 h-full w-full object-cover object-center"
+                className="-z-10 h-full w-full"
               />
             </SwiperSlide>
           </Swiper>
