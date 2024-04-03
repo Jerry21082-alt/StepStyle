@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -18,7 +17,7 @@ export default function ProductList({ product }) {
       <div className="flex flex-col w-full group">
         <div className="relative group bg-cardBg overflow-hidden rounded-xl aspect-square p-4">
           <Image
-            src="/pngegg (4).png"
+            src={product.product_photo}
             alt="product image"
             loading="eager"
             width={500}
