@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import ImageSlider from "./ImageSlider";
 
 export default function ProductList({ product }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,20 @@ export default function ProductList({ product }) {
       className={`h-full cursor-pointer group/main`}
     >
       <div className="flex flex-col w-full group">
-        <ImageSlider urls={[product.product_photo]} />
+        <div
+          className="relative group aspect-square
+   bg-cardColor overflow-hidden rounded-xl"
+        >
+          <div className="relative -z-10 h-full w-full">
+            <Image
+              src={`/${product.product_photo}`}
+              alt="product image"
+              fill
+              loading="eager"
+              className="-z-10 h-6 w-6 bg-cardBg p-4"
+            />
+          </div>
+        </div>
         <h3 className="mt-4 font-medium text-red-600 group-hover:text-white">
           {product.product_description.length > 25
             ? product.product_description.substring(0, 25).concat("...")
