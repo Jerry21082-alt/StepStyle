@@ -20,17 +20,13 @@ export default function ProductList({ product }) {
           className="relative group aspect-square
      bg-cardBg overflow-hidden rounded-xl p-4"
         >
-          <Swiper className="w-full h-full">
-            <SwiperSlide className="relative -z-10 h-full w-full">
-              <Image
-                src="/pngegg (4).png"
-                alt="product image"
-                fill
-                loading="eager"
-                className="-z-10 h-full w-full"
-              />
-            </SwiperSlide>
-          </Swiper>
+          <Image
+            src="/pngegg (4).png"
+            alt="product image"
+            fill
+            loading="eager"
+            className="z-10 h-full w-full"
+          />
         </div>
         <h3 className="mt-4 font-medium text-sm">
           {product.product_description.length > 25
