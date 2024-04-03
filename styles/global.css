@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-::-webkit-scrollbar { 
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -23,10 +23,10 @@ body {
   gap: 1rem;
 }
 
-.snaps { 
+.snaps {
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: 1rem;
 }
-.snaps > * { 
+.snaps > * {
   scroll-snap-align: start;
 }
