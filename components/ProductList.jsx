@@ -16,15 +16,13 @@ export default function ProductList({ product }) {
       className={`h-full cursor-pointer group/main`}
     >
       <div className="flex flex-col w-full group">
-        <div
-          className="relative group aspect-square
-     bg-cardBg overflow-hidden rounded-xl p-4 w-full h-full"
-        >
+        <div className="relative group bg-cardBg overflow-hidden rounded-xl aspect-square p-4">
           <Image
             src="/pngegg (4).png"
             alt="product image"
-            fill
             loading="eager"
+            width={500}
+            height={500}
             className="z-10 h-full w-full"
           />
         </div>
