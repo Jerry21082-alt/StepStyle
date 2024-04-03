@@ -19,12 +19,8 @@ export default function ProductList({ product }) {
             ? product.product_description.substring(0, 25).concat("...")
             : product.product_description}
         </h3>
-        <p className="mt-1 text-sm text-red-600 group-hover:text-white">
-          {/* {newLabel} */}
-        </p>
-        <p className="mt-1 font-medium text-sm text-red-500 group-hover:text-white">
-          ${product.product_price}
-        </p>
+
+        <p className="mt-1 font-medium text-sm">${product.product_price}</p>
       </div>
 
       <div className="flex items-center mt-1">
@@ -33,8 +29,8 @@ export default function ProductList({ product }) {
             key={star}
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="18"
+            height="18"
             viewBox="0 0 24 24"
             fill="#fe5d26"
           >
@@ -44,7 +40,7 @@ export default function ProductList({ product }) {
         ))}
       </div>
 
-      <button className="mt-4 bg-secondaryColor py-2 px-4 rounded-3xl text-snow">
+      <button className="mt-2 bg-secondaryColor py-2 px-4 rounded-3xl text-snow text-sm">
         Add to cart
       </button>
     </Link>

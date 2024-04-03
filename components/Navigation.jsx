@@ -1,19 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import Cart from "./Cart";
-import { BiSearch } from "react-icons/bi";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function Navigation() {
   const {
     setToggleCart,
-    newProduct,
-    searchInput,
-    searchForProduct,
-    products,
-    setSearchFocus,
     orderSuccess,
   } = stateFunc();
 
@@ -27,7 +19,7 @@ export default function Navigation() {
         <Link href={`/`}>Xtra</Link>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center space-x-4">
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
