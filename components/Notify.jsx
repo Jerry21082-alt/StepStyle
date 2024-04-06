@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function Notify() {
