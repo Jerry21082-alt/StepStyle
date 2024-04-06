@@ -2,58 +2,87 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import { FaStar, FaPlus, FaMinus, FaAngleDown } from "react-icons/fa";
 import { TbTruckDelivery, TbTruckReturn } from "react-icons/tb";
 import SimilarProducts from "@/components/SimilaProducts";
+import Layout from "@/components/Layout";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
-  const { products, incQty, quantity, decQty, setQuantity } = stateFunc();
+  const { incQty, quantity, decQty, setQuantity, products } = stateFunc();
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
   );
 
-  const [shoeSizes, setShoeSizes] = useState(0);
+  const [shoeSizes, setShoeSizes] = useState(8);
   const [toggleShoeSize, setToggleShoeSize] = useState(false);
+
+  const sizeRef = useRef();
 
   const selectSize = (size) => {
     setShoeSizes(size);
     setToggleShoeSize(false);
   };
 
+  const handleShoeSizeModal = (ev) => {
+    const closeModal = () => setToggleShoeSize(false);
+
+    if (sizeRef.current && !sizeRef.current.contains(ev.target)) {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    if (toggleShoeSize) {
+      document.addEventListener("click", handleShoeSizeModal);
+    }
+
+    return () => document.removeEventListener("click", handleShoeSizeModal);
+  }, [toggleShoeSize]);
+
   const ShoeSizes = () => (
-    <div className="w-[120px] relative">
-      <div
-        onClick={() => setToggleShoeSize((prev) => !prev)}
-        className="bg-primaryColor mt-5 flex justify-between items-center gap-2 rounded-md px-4 py-1 cursor-pointer"
-      >
-        <span className="font-bold">{shoeSizes}</span>
-        <FaAngleDown />
-      </div>
-      {toggleShoeSize && (
-        <div className="p-2 w-full flex flex-col absolute bg-primaryColor rounded-md mt-2">
-          {[8, 9, 10, 11, 12].map((size) => (
-            <span
-              key={size}
-              onClick={() => selectSize(size)}
-              className="px-2 hover:bg-snow rounded-md cursor-pointer"
-            >
-              {size}
-            </span>
-          ))}
+    <div className="w-[120px] relative" ref={sizeRef}>
+      <div className="flex items-center gap-2 mt-5 w-full">
+        <span>size:</span>
+        <div
+          onClick={() => setToggleShoeSize((prev) => !prev)}
+          className="bg-primaryColor flex justify-between items-center gap-2 rounded-md px-4 py-1 cursor-pointer"
+        >
+          <span className="font-bold">{shoeSizes}</span>
+          <FaAngleDown />
         </div>
-      )}
+      </div>
+      <div
+        className={`p-2 w-full flex flex-col absolute bg-primaryColor rounded-md mt-2 ${
+          toggleShoeSize ? "open-size-modal" : "close-size-modal"
+        }`}
+      >
+        {[8, 9, 10, 11, 12].map((size) => (
+          <span
+            key={size}
+            onClick={() => selectSize(size)}
+            className="px-2 hover:bg-snow rounded-md cursor-pointer"
+          >
+            {size}
+          </span>
+        ))}
+      </div>
     </div>
   );
 
   return (
-    <section className=" w-full p-5 mt-[3rem]">
+    <Layout>
       <div className="flex flex-col md:flex-row gap-[3rem]">
         <div className="w-full md:w-[50%]">
           <div className="rounded-lg overflow-hidden bg-primaryColor px-10">
-            <Image src={productDetails.product_photo} alt="product photo" />
+            <Image
+              src={productDetails.product_photo}
+              alt="product photo"
+              width={500}
+              height={500}
+            />
           </div>
           <div className="hidden md:flex justify-start item-center gap-2">
             {[1, 2, 3, 4].map((num) => (
@@ -61,6 +90,8 @@ export default function ProductDetails({ params }) {
                 <Image
                   src={productDetails.product_photo}
                   alt="other product photos"
+                  width={500}
+                  height={500}
                 />
               </div>
             ))}
@@ -96,7 +127,7 @@ export default function ProductDetails({ params }) {
           </div>
           <div className="flex items-center mt-5 gap-2">
             <button
-              className="bg-heroColor py-2 px-5 text-snow rounded-3xl"
+              className="bg-heroColor py-2 px-4 text-snow rounded-3xl text-sm active:scale-90 w-36"
               onClick={() => setQuantity(1)}
             >
               <Link
@@ -112,13 +143,13 @@ export default function ProductDetails({ params }) {
                 Buy Now
               </Link>
             </button>
-            <button className="border-solid border-2 border-heroColo rounded-3xl py-2 px-5">
+            <button className="border-solid border-2 border-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 hover:bg-secondaryColor transition-all hover:text-snow w-36">
               Add to Cart
             </button>
           </div>
           <div className="flex justify-center-items-center mt-5 gap-2">
             <TbTruckDelivery size={25} color="fe5d26" />
-            <p className="font-500 text-lg">Free Delivery</p>
+            <h3 className="font-500">Free Delivery</h3>
           </div>
           <p className="text-sm">
             Enter your postalcode for delivery availability
@@ -126,12 +157,12 @@ export default function ProductDetails({ params }) {
 
           <div className="flex justify-center-items-center mt-5 gap-2">
             <TbTruckReturn size={25} color="fe5d26" />
-            <p className="font-500 text-lg">Return Delivery</p>
+            <h3 className="font-500">Return Delivery</h3>
           </div>
           <p className="text-sm">Free 30 days return. Details</p>
         </div>
       </div>
       <SimilarProducts />
-    </section>
+    </Layout>
   );
 }

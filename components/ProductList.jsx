@@ -5,25 +5,39 @@ import Link from "next/link";
 import React, { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function ProductList({ product }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const { addToCart, cartItems, setNotify, setNotifyMsg } = stateFunc();
+
+  const handleAddToCart = (product) => {
+    const itemInCart = cartItems.some((item) => item.id === product.id);
+
+    if (!itemInCart) {
+      addToCart(product);
+    } else {
+      setNotify(true);
+      setNotifyMsg("Item exist in cart");
+    }
+  };
 
   return (
-    <Link
-      href={`/productDetails/${product.id}`}
-      className={`h-full cursor-pointer group/main`}
-    >
+    <div className={`h-full cursor-pointer group/main`}>
       <div className="flex flex-col w-full group">
-        <div className="relative group bg-cardBg overflow-hidden rounded-xl aspect-square p-4 h-auto w-full">
-          <Image
-            src={product.product_photo}
-            alt="product image"
-            loading="eager"
-            width={500}
-            height={500}
-            className="z-10 h-full w-full"
-          />
+        <Link
+          href={`/products/${product.id}`}
+          className="relative group bg-cardBg overflow-hidden rounded-xl p-4 h-auto w-full"
+        >
+          <div className="aspect-square">
+            <Image
+              src={product.product_photo}
+              alt="product image"
+              loading="eager"
+              width={500}
+              height={500}
+              className="z-10 h-full w-full"
+            />
+          </div>
 
           <svg
             version="1.1"
@@ -37,7 +51,7 @@ export default function ProductList({ product }) {
             <title>heart</title>
             <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
           </svg>
-        </div>
+        </Link>
 
         <h3 className="mt-4 font-medium text-sm">
           {product.product_description.length > 25
@@ -65,9 +79,12 @@ export default function ProductList({ product }) {
         ))}
       </div>
 
-      <button className="mt-2 bg-secondaryColor py-2 px-4 rounded-3xl text-snow text-sm">
+      <button
+        onClick={() => handleAddToCart(product)}
+        className="mt-2 bg-secondaryColor py-2 px-4 rounded-3xl text-snow text-sm"
+      >
         Add to cart
       </button>
-    </Link>
+    </div>
   );
 }

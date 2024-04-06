@@ -4,11 +4,11 @@ import Link from "next/link";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function Navigation() {
-  const { setToggleCart, orderSuccess } = stateFunc();
+  const { setToggleCart, orderSuccess, cartItems, isMounted } = stateFunc();
 
   return (
     <div
-      className={`w-full flex justify-between items-center py-3 px-5 fixed top-0 z-50 left-0 bg-snow ${
+      className={`w-full h-14 flex justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed top-0 z-50 left-0 bg-snow ${
         orderSuccess ? "pointer-events-none" : null
       }`}
     >
@@ -41,7 +41,9 @@ export default function Navigation() {
             <path d="M19 19.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
           </svg>
 
-          <div className="absolute text-sm -top-1 right-1">0</div>
+          <div className="absolute text-sm -top-1 right-1">
+            {isMounted ? <span>{cartItems.length}</span> : null}
+          </div>
         </div>
       </div>
     </div>

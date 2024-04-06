@@ -14,7 +14,7 @@ module.exports = {
       cardBg: "#edede9",
       greenBg: "#008000",
       dangerColor: "red",
-      darkOverlay: "rgba(0,0,0,0.5)",
+      darkOverlay: "rgba(0,0,0,0.95)",
     },
     extend: {
       backgroundImage: {

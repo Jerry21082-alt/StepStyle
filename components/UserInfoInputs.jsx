@@ -181,8 +181,8 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
       className={`${isCustomer ? "hidden" : null} mt-5 flex flex-col gap-2`}
     >
       <div className="md:flex justify-between">
-        <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="firstname">
+        <div className="flex flex-col">
+          <label className="font-medium text-sm" htmlFor="firstname">
             First Name*
           </label>
           <div
@@ -202,13 +202,12 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.firstName}
             onChange={handleFirstNameChange}
             onFocus={handleFirstNameFocus}
-            placeholder="Type here..."
             id="firstname"
           />
-        </span>
+        </div>
 
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="lastname">
+          <label className="font-medium text-sm" htmlFor="lastname">
             Last Name*
           </label>
           <div
@@ -228,14 +227,13 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.lastName}
             onChange={handleLastNameChange}
             onFocus={handleLastNameFocus}
-            placeholder="Type here..."
             id="lastname"
           />
         </span>
       </div>
 
       <span className="flex flex-col gap-1">
-        <label className="font-[500] py" htmlFor="address">
+        <label className="font-medium text-sm" htmlFor="address">
           Address*
         </label>
         <div
@@ -255,14 +253,13 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
           value={formInput.address}
           onChange={handleAddressNameChange}
           onFocus={handleAddressFocus}
-          placeholder="Type here..."
           id="address"
         />
       </span>
 
       <div className="md:flex justify-between">
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="city">
+          <label className="font-medium text-sm" htmlFor="city">
             City/Town*
           </label>
           <div
@@ -280,13 +277,12 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.city}
             onChange={handleCityChange}
             onFocus={handleCityNameFocus}
-            placeholder="Type here..."
             id="city"
           />
         </span>
 
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="zipcode">
+          <label className="font-medium text-sm" htmlFor="zipcode">
             Zip Code*
           </label>
           <div
@@ -304,7 +300,6 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.zip}
             onChange={handleZipChange}
             onFocus={handleZipFocus}
-            placeholder="Type here..."
             id="zipcode"
           />
         </span>
@@ -312,7 +307,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
 
       <div className="md:flex justify-between">
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="phone">
+          <label className="font-medium text-sm" htmlFor="phone">
             Phone*
           </label>
           <div
@@ -331,13 +326,12 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.phone}
             onChange={handlePhoneChange}
             onFocus={handlePhoneFocus}
-            placeholder="Type here..."
             id="phone"
           />
         </span>
 
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="email">
+          <label className="font-medium text-sm" htmlFor="email">
             Email*
           </label>
           <div
@@ -357,7 +351,6 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             value={formInput.email}
             onChange={handleMailChange}
             onFocus={handleMailFocus}
-            placeholder="Type here..."
             id="email"
           />
         </span>

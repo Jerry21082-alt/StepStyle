@@ -187,28 +187,38 @@ export default function OrderSummary({
   return (
     <div className="w-full border-2 border-primaryColor border-solid rounded-md p-3">
       <h2 className="font-bold text-xl">Order Summary</h2>
-      <div className="flex justify-between items-center bg-primaryColor py-2 px-4 rounded-3xl mt-5">
+      <div className="flex relative items-center w-full bg-primaryColor h-12 rounded-3xl overflow-hidden p-2 mt-5">
         <input
           type="text"
           placeholder="Enter coupon code"
-          className="border-none outline-none bg-primaryColor"
+          className="border-none outline-none bg-primaryColor h-full w-full text-sm"
         />
-        <button className="bg-heroColor text-sm border-none outline-none rounded-3xl text-snow py-2 px-4">
+        <button className="bg-heroColor text-sm border-none outline-none rounded-3xl text-snow py-2 px-4 absolute right-1">
           Apply
         </button>
       </div>
       <h3 className="mt-5 text-lg font-bold">Payment Details</h3>
       <div className="flex items-center mt-5 gap-2 border-t border-primaryColor">
         <div className="w-[50px]">
-          <Image src='pngwing.com (3).png' alt="visacard logo" width={50} />
+          <Image
+            src="/pngwing.com (3).png"
+            alt="visacard logo"
+            width={50}
+            height={50}
+          />
         </div>
         <div className="w-[50px]">
-          <Image src='pngwing.com (2).png' alt="mastercard logo" width={50} />
+          <Image
+            src="/pngwing.com (2).png"
+            alt="mastercard logo"
+            width={50}
+            height={50}
+          />
         </div>
       </div>
       <form className="mt-5 flex flex-col gap-2">
         <span className="flex flex-col gap-1">
-          <label className="font-[500] py" htmlFor="cardholder">
+          <label className="font-medium text-sm" htmlFor="cardholder">
             Card Holder Name*
           </label>
           <div
@@ -229,13 +239,12 @@ export default function OrderSummary({
             onChange={handleNameChanged}
             onFocus={handleNameFocus}
             onBlur={handleNameBlur}
-            placeholder="Type here..."
             id="cardholder"
           />
         </span>
 
         <span className="flex flex-col gap-1 relative">
-          <label className="font-[500] py" htmlFor="cardnumber">
+          <label className="font-medium text-sm" htmlFor="cardnumber">
             Card Number*
           </label>
           <div
@@ -253,13 +262,12 @@ export default function OrderSummary({
             value={paymentInput.card}
             onChange={handleCardChanged}
             onFocus={handleCardFocus}
-            placeholder="Type here..."
             id="cardnumber"
           />
         </span>
 
         <span className="flex flex-col gap-1 relative">
-          <label className="font-[500] py" htmlFor="cardexp">
+          <label className="font-medium text-sm" htmlFor="cardexp">
             Card Exp*
           </label>
           <div
@@ -279,13 +287,12 @@ export default function OrderSummary({
             value={paymentInput.exp}
             onChange={handleExp}
             onFocus={handleExpFocus}
-            placeholder="Type here..."
             id="cardexp"
           />
         </span>
 
         <span className="flex flex-col gap-1 relative">
-          <label className="font-[500] py" htmlFor="cvc">
+          <label className="font-medium text-sm" htmlFor="cvc">
             CVC*
           </label>
           <div
@@ -303,7 +310,6 @@ export default function OrderSummary({
             value={paymentInput.cvc}
             onChange={handleCVC}
             onFocus={handleCvcFocus}
-            placeholder="Type here..."
             id="cvc"
           />
         </span>
@@ -368,8 +374,4 @@ export default function OrderSummary({
       </span>
     </div>
   );
-}
-
-{
-  /**/
 }
