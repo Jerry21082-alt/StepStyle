@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Berthold;
-  src: url("../public/Berthold-akzidenz-grotesk-be-medium-extended.ttf");
+  font-family: Poppins;
+  src: url("../public/Poppins-Regular.ttf");
 }
 
 body {
-  font-family: Berthold, sans-serif;
+  font-family: Poppins, sans-serif;
   margin: 0;
 }
 
