@@ -23,11 +23,11 @@ export default function ProductList({ product }) {
 
   return (
     <div className={`h-full cursor-pointer group/main`}>
-      <div className="flex flex-col w-full group">
-        <Link
-          href={`/products/${product.id}`}
-          className="relative group bg-cardBg overflow-hidden rounded-xl p-4 h-auto w-full"
-        >
+      <Link
+        href={`/products/${product.id}`}
+        className="flex flex-col w-full group"
+      >
+        <div className="relative group bg-cardBg overflow-hidden rounded-xl p-4 h-auto w-full">
           <div className="aspect-square">
             <Image
               src={product.product_photo}
@@ -35,7 +35,7 @@ export default function ProductList({ product }) {
               loading="eager"
               width={500}
               height={500}
-              className="z-10 h-full w-full"
+              // className="z-10 h-full w-full"
             />
           </div>
 
@@ -51,7 +51,7 @@ export default function ProductList({ product }) {
             <title>heart</title>
             <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
           </svg>
-        </Link>
+        </div>
 
         <h3 className="mt-4 font-medium text-sm">
           {product.product_description.length > 25
@@ -60,7 +60,7 @@ export default function ProductList({ product }) {
         </h3>
 
         <p className="mt-1 font-medium text-sm">${product.product_price}</p>
-      </div>
+      </Link>
 
       <div className="flex items-center mt-1">
         {product.rating.map((star) => (

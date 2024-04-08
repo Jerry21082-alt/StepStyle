@@ -44,11 +44,11 @@ export default function ProductDetails({ params }) {
 
   const ShoeSizes = () => (
     <div className="w-[120px] relative" ref={sizeRef}>
-      <div className="flex items-center gap-2 mt-5 w-full">
+      <div className="flex items-center mt-5 w-full">
         <span>size:</span>
         <div
           onClick={() => setToggleShoeSize((prev) => !prev)}
-          className="bg-primaryColor flex justify-between items-center gap-2 rounded-md px-4 py-1 cursor-pointer"
+          className="bg-primaryColor flex justify-between items-center space-x-2 rounded-md px-4 py-1 cursor-pointer ml-2"
         >
           <span className="font-bold">{shoeSizes}</span>
           <FaAngleDown />
@@ -125,12 +125,13 @@ export default function ProductDetails({ params }) {
               <FaPlus onClick={incQty} />
             </span>
           </div>
-          <div className="flex items-center mt-5 gap-2">
+          <div className="flex items-center mt-5">
             <button
-              className="bg-heroColor py-2 px-4 text-snow rounded-3xl text-sm active:scale-90 w-36"
+              className="bg-heroColor py-2 px-4 text-snow rounded-3xl text-sm active:scale-90 mr-2"
               onClick={() => setQuantity(1)}
             >
               <Link
+                className="w-full"
                 href={{
                   pathname: "/checkoutPage",
                   query: {
@@ -143,7 +144,7 @@ export default function ProductDetails({ params }) {
                 Buy Now
               </Link>
             </button>
-            <button className="border-solid border-2 border-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 hover:bg-secondaryColor transition-all hover:text-snow w-36">
+            <button className="border-solid border-2 border-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 active:bg-secondaryColor transition-all active:text-snow w-34">
               Add to Cart
             </button>
           </div>

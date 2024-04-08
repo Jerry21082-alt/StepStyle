@@ -95,6 +95,31 @@ body {
   height: calc(100vh - 56px);
 }
 
+.mobile-nav {
+  width: 1.2rem;
+  height: 2px;
+  background-color: #000;
+  position: relative;
+}
+
+.mobile-nav::before {
+  content: "";
+  width: 1.2rem;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: -6px;
+}
+
+.mobile-nav::after {
+  content: "";
+  width: 1.2rem;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 6px;
+}
+
 .circle {
   width: 5px;
   height: 5px;

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
-import { BiSolidLeftArrow } from "react-icons/bi";
 import { AiOutlineShopping, AiFillDelete } from "react-icons/ai";
 import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
 import Image from "next/image";
@@ -40,12 +39,22 @@ export default function Cart() {
       }`}
     >
       <button
-        className={`flex justify-center gap-2 items-center outline-none border-none bg-secondaryColor py-2 px-4 rounded-2xl md:m-2 ${
+        className={`flex justify-center gap-2 items-center outline-none border-none bg-secondaryColor py-2 px-4 rounded-2xl text-sm md:m-2 ${
           !toggleCart ? "animate-cart-btn" : "static-cart-btn"
         }`}
         onClick={() => setToggleCart(false)}
       >
-        <BiSolidLeftArrow color="#fff" />
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="#fff"
+        >
+          <title>arrow-long-left</title>
+          <path d="M0.75 10l5.25-5.5v3.5h13v4h-13v3.5l-5.25-5.5z"></path>
+        </svg>{" "}
         <span className="text-snow font-bold">Your</span>
         {isMounted ? (
           <span className="text-snow font-bold">
@@ -85,7 +94,7 @@ export default function Cart() {
             cartItems.map((item, index) => (
               <div
                 key={index}
-                className="flex justify-center-items-center my-4 gap-2 md:justify-around"
+                className="flex justify-center-items-center my-4 md:justify-around"
               >
                 <div className="flex justify-center items-center p-2 rounded-md bg-primaryColor w-32">
                   <Image
@@ -95,7 +104,7 @@ export default function Cart() {
                     height={500}
                   />
                 </div>
-                <div className="flex justify-between items-start flex-col">
+                <div className="flex justify-between items-start flex-col ml-2">
                   <p className="text-sm">
                     {item.product_description.length > 30
                       ? `${item.product_description.substring(0, 30)}...`
