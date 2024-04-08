@@ -12,6 +12,14 @@ body {
   margin: 0;
 }
 
+input {
+  outline: none;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
 .close-notify,
 .open-notify,
 .open-cart,
@@ -92,7 +100,7 @@ body {
 }
 
 .overlay {
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 .mobile-nav {
@@ -118,6 +126,10 @@ body {
   background-color: #000;
   position: absolute;
   top: 6px;
+}
+
+.mobile-nav.mobile-nav-close {
+  visibility: hidden;
 }
 
 .circle {

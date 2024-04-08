@@ -8,7 +8,7 @@ export default function DeliveryInfo({ isCustomer, setIscustomer }) {
 
   return (
     <div
-      className={`w-full border-2 border-primaryColor border-solid rounded-md p-3 mt-5`}
+      className={`w-full border-2 border-primaryColor border-solid rounded-md p-3 my-5`}
     >
       <div className="flex justify-between items-center">
         <h2 className="font-bold">Delivery Information</h2>

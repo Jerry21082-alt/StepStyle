@@ -197,7 +197,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             />
           </div>
           <input
-            className="border border-primaryColor p-2 outline-none md:w-[28vw]"
+            className="border border-primaryColor p-2 md:w-[28vw]"
             type="text"
             value={formInput.firstName}
             onChange={handleFirstNameChange}

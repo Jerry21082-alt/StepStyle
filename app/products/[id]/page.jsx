@@ -144,7 +144,7 @@ export default function ProductDetails({ params }) {
                 Buy Now
               </Link>
             </button>
-            <button className="border-solid border-2 border-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 active:bg-secondaryColor transition-all active:text-snow w-34">
+            <button className="border-solid text-snow bg-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 transition-all w-34">
               Add to Cart
             </button>
           </div>

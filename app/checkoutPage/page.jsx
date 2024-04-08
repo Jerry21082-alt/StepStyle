@@ -30,12 +30,12 @@ export default function CheckOutPage() {
 
   return (
     <Layout>
-      <div className="flex flex-col  md:flex-row gap-5">
+      <div className="flex flex-col md:flex-row">
         <div>
           <div className="w-full md:w-[55vw] border-2 border-primaryColor border-solid rounded-md p-3">
             <h2 className="font-bold text-lg">Review Item and shipping</h2>
             {_productIdDetail.map((product) => (
-              <div key={product.id} className="flex items-start gap-5 mt-5">
+              <div key={product.id} className="flex items-start mt-5">
                 <div className="bg-primaryColor rounded-md w-[130px] p-2">
                   <Image
                     src={product.product_photo}
@@ -44,13 +44,13 @@ export default function CheckOutPage() {
                     height={500}
                   />
                 </div>
-                <div className="w-full flex items-center md:justify-between flex-col md:flex-row">
+                <div className="w-full flex items-start md:justify-between flex-col md:flex-row ml-5">
                   <p className="font-medium text-sm md:w-[300px]">
-                    {product.product_description.length > 40
-                      ? `${product.product_description.substring(0, 40)}...`
+                    {product.product_description.length > 50
+                      ? `${product.product_description.substring(0, 50)}...`
                       : product.product_description}
                   </p>
-                  <div className="flex items-center gap-1  flex-row md:flex-col">
+                  <div className="flex items-center space-x-4 flex-row md:flex-col">
                     <span className="mt-5 font-medium text-sm">
                       Price: ${product.product_price}
                     </span>
@@ -67,21 +67,21 @@ export default function CheckOutPage() {
               </div>
             ))}
           </div>
-          <div className="flex items-center gap-2 mt-5">
+          <div className="flex items-center mt-5">
             <button
               onClick={() => setIscustomer((prev) => !prev)}
-              className={`w-[15px] h-[15px] border-2 border-heroColor flex justify-center items-center ${
+              className={`w-4 h-4 border border-heroColor flex justify-center items-center rounded ${
                 isCustomer ? "bg-greenBg border-none" : null
               }`}
             >
               {isCustomer && (
                 <BsCheck
-                  size={20}
+                  size={25}
                   style={{ color: isCustomer ? "#fff" : "#000" }}
                 />
               )}
             </button>
-            <p className="text-sm">Returning Customer?</p>
+            <p className="text-sm ml-2">Returning Customer?</p>
           </div>
           <DeliveryInfo isCustomer={isCustomer} setIscustomer={setIscustomer} />
         </div>

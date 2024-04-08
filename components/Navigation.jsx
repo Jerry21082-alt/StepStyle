@@ -9,6 +9,7 @@ export default function Navigation() {
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVissible, setIsVissible] = useState(true);
+  const [openMobileNav, setOpenMobileNav] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +67,7 @@ export default function Navigation() {
         </div>
 
         <div className="mobile-nav-box w-7 h-full">
-          <div className="mobile-nav" />
+          <div onClick={() => setOpenMobileNav((prev) => !prev)} className={`mobile-nav ${openMobileNav ? 'mobile-nav-open' : 'mobile-nav-close'}`} />
         </div>
       </div>
     </div>
