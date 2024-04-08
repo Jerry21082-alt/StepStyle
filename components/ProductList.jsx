@@ -27,8 +27,8 @@ export default function ProductList({ product }) {
         href={`/products/${product.id}`}
         className="flex flex-col w-full group"
       >
-        <div className="relative group bg-cardBg overflow-hidden rounded-xl p-4 h-auto w-full">
-          <div className="aspect-square">
+        <div className="relative group bg-cardBg overflow-hidden rounded-xl p-4">
+          <div className="aspect-square flex items-center justify-center">
             <Image
               src={product.product_photo}
               alt="product image"
@@ -39,18 +39,18 @@ export default function ProductList({ product }) {
             />
           </div>
 
-          <svg
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 28 28"
-            className="absolute top-4 right-4"
-            fill="#fff"
-          >
-            <title>heart</title>
-            <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
-          </svg>
+          <div className="w-7 h-7 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 28 28"
+            >
+              <title>heart-o</title>
+              <path d="M26 9.312c0-4.391-2.969-5.313-5.469-5.313-2.328 0-4.953 2.516-5.766 3.484-0.375 0.453-1.156 0.453-1.531 0-0.812-0.969-3.437-3.484-5.766-3.484-2.5 0-5.469 0.922-5.469 5.313 0 2.859 2.891 5.516 2.922 5.547l9.078 8.75 9.063-8.734c0.047-0.047 2.938-2.703 2.938-5.563zM28 9.312c0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281s-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313z"></path>
+            </svg>
+          </div>
         </div>
 
         <h3 className="mt-4 font-medium text-sm">

@@ -5,11 +5,16 @@ import { stateFunc } from "./stateContent/UseStateContext";
 import { useEffect, useState } from "react";
 
 export default function Navigation() {
-  const { setToggleCart, orderSuccess, cartItems, isMounted } = stateFunc();
+  const { setToggleCart, orderSuccess, cartItems } = stateFunc();
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVissible, setIsVissible] = useState(true);
-  const [openMobileNav, setOpenMobileNav] = useState(false);
+  const [openMobileNav, setOpenMobileNav] = useState(true);
+  const [cartLength, setCartLength] = useState(false);
+
+  useEffect(() => {
+    setCartLength(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,12 +67,22 @@ export default function Navigation() {
           </svg>
 
           <div className="relative -top-1 right-1 text-xs">
-            {isMounted ? <span>{cartItems.length}</span> : null}
+            {cartLength && <span>{cartItems.length}</span>}
           </div>
         </div>
 
         <div className="mobile-nav-box w-7 h-full">
-          <div onClick={() => setOpenMobileNav((prev) => !prev)} className={`mobile-nav ${openMobileNav ? 'mobile-nav-open' : 'mobile-nav-close'}`} />
+          <button
+            onClick={() => setOpenMobileNav((prev) => !prev)}
+            className={`button flex flex-col space-y-1 justify-center items-center outline-0 ${
+              openMobileNav ? "mobile-nav-open" : "mobile-nav-close"
+            }`}
+            id="menu-button"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>

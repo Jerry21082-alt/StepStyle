@@ -70,7 +70,7 @@ export default function CheckOutPage() {
           <div className="flex items-center mt-5">
             <button
               onClick={() => setIscustomer((prev) => !prev)}
-              className={`w-4 h-4 border border-heroColor flex justify-center items-center rounded ${
+              className={`w-4 h-4 border border-black flex justify-center items-center rounded ${
                 isCustomer ? "bg-greenBg border-none" : null
               }`}
             >

@@ -3,6 +3,7 @@
 import { Hero, ProductDisplay, Footer } from "@/components";
 import Overlay from "@/components/Overlay";
 import ProductReel from "@/components/ProductReel";
+import Slider from "@/components/Slider";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         subtitle="shop now"
         products={products}
       />
+      <Slider />
       {searchFocus && <Overlay />}
     </div>
   );
