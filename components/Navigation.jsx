@@ -9,7 +9,7 @@ export default function Navigation() {
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVissible, setIsVissible] = useState(true);
-  const [openMobileNav, setOpenMobileNav] = useState(true);
+  const [openMobileNav, setOpenMobileNav] = useState(false);
   const [cartLength, setCartLength] = useState(false);
 
   useEffect(() => {

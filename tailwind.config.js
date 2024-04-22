@@ -13,7 +13,7 @@ module.exports = {
       snow: "#fff",
       cardBg: "#edede9",
       greenBg: "#008000",
-      dangerColor: "red",
+      dangerColor: "#ff0000",
       darkOverlay: "rgba(0,0,0,0.95)",
     },
     extend: {

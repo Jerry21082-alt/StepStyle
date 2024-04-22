@@ -1,8 +1,8 @@
 import "../styles/global.css";
+import "../styles/typography.css"
 import UseStateContext from "@/components/stateContent/UseStateContext";
 import Navigation from "@/components/Navigation";
 import { Footer } from "@/components";
-import { Toaster } from "react-hot-toast";
 import Cart from "@/components/Cart";
 import Notify from "@/components/Notify";
 

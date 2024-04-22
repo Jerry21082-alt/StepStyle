@@ -2,13 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function ProductList({ product }) {
   const { addToCart, cartItems, setNotify, setNotifyMsg } = stateFunc();
+  const [height, setHeight] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setHeight((ref.current.clientWidth * 1) / 1);
+  }, [ref]);
 
   const handleAddToCart = (product) => {
     const itemInCart = cartItems.some((item) => item.id === product.id);
@@ -27,8 +33,11 @@ export default function ProductList({ product }) {
         href={`/products/${product.id}`}
         className="flex flex-col w-full group"
       >
-        <div className="relative group bg-cardBg overflow-hidden rounded-xl p-4">
-          <div className="aspect-square flex items-center justify-center">
+        <div
+          className="relative group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square "
+          ref={ref}
+        >
+          <div className="flex items-center justify-center">
             <Image
               src={product.product_photo}
               alt="product image"
