@@ -3,11 +3,11 @@ import React from "react";
 export default function ProductPrev() {
   return (
     <div className="flex items-center justify-center space-x-2">
-      <div className="w-10 h-10 p-1 rounded-full bg-secondaryColor text-snow flex items-center justify-center">
+      <div className="w-8 h-8 p-1 rounded-full bg-secondaryColor text-snow flex items-center justify-center">
         <p>1</p>
       </div>
 
-      <div className="w-10 h-10 border-2 border-secondaryColor flex items-center justify-center rounded-full">
+      <div className="w-8 h-8 border-2 border-secondaryColor flex items-center justify-center rounded-full">
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

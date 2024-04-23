@@ -34,8 +34,9 @@ export default function ProductList({ product }) {
         className="flex flex-col w-full group"
       >
         <div
-          className="relative group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square "
+          className="relative flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square"
           ref={ref}
+          style={{height: `${height}px`}}
         >
           <div className="flex items-center justify-center">
             <Image

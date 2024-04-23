@@ -1,6 +1,6 @@
 "use client";
 
-import { Hero, ProductDisplay, Footer } from "@/components";
+import { Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
 import Overlay from "@/components/Overlay";
 import ProductPrev from "@/components/ProductPrev";

@@ -44,7 +44,7 @@ label {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   grid-auto-flow: column;
-  grid-auto-columns: 41%;
+  /* grid-auto-columns: 21%; */
   overflow-x: auto;
   padding: 0 1rem;
   gap: 1rem;
@@ -62,11 +62,11 @@ label {
 .media-element {
   display: grid;
   grid-template-rows: min-content;
-  padding: 1rem;
+  /* padding: 1rem; */
   border-radius: 4px;
 }
 
-/* .media-element > img {
+/* .media-element {
   inline-size: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;

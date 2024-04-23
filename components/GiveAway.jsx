@@ -54,31 +54,40 @@ const getTimeDifference = () => {
 export default function GiveAway() {
   const initialTime = { hours: 0, minutes: 0, seconds: 0 };
   const [time, setTime] = useState(initialTime);
+  const isTimeZero =
+    time.hours === 0 && time.minutes === 0 && time.seconds === 0;
+
+  function interval() {
+    setInterval(countDown, 1000);
+  }
 
   const countDown = () => {
     const countDownResult = getTimeDifference();
-    setTime(countDownResult);
+    if (
+      countDownResult.hours === 0 &&
+      countDownResult.mins === 0 &&
+      countDownResult.secs === 0
+    ) {
+      clearInterval(interval);
+    } else {
+      setTime(countDownResult);
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(countDown, 1000);
-
+    interval();
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (time === initialTime) setTime(initialTime);
-  }, [time]);
 
   const { products } = stateFunc();
 
   return (
     <Layout>
       <div className="w-full mt-5">
-        {time !== initialTime ? (
-          <h4 className="text-xs">{`Deal ends on ${day}, ${date} ${month} ${year}, ${hour}:${mins}:${secs}pm`}</h4>
+        {isTimeZero ? (
+          <p>Closed Deal!</p>
         ) : (
-          "Closed Deal!"
+          <h4 className="text-xs">{`Deal ends on ${day}, ${date} ${month} ${year}, ${hour}:${mins}:${secs}pm`}</h4>
         )}
 
         <div className="flex items-center space-x-3">
@@ -87,7 +96,7 @@ export default function GiveAway() {
               key={key}
               className="w-10 h-10 bg-dangerColor flex items-center justify-center mt-4 rounded-md text-snow"
             >
-              {val}
+              {val < 10 ? `0${val}` : val}
             </div>
           ))}
         </div>
