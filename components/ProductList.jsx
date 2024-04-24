@@ -97,29 +97,6 @@ export default function ProductList({ product, products }) {
               </svg>
             )}
           </div>
-          {/* {watchList.some((item) => item.id !== product.id) ? (
-            <div className="w-4 h-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                id="heart"
-              >
-                <path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"></path>
-              </svg>
-            </div>
-          ) : (
-            <svg
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 28 28"
-            >
-              <title>heart</title>
-              <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
-            </svg>
-          )} */}
         </div>
 
         <h3 className="mt-4 font-medium text-sm">
@@ -128,7 +105,7 @@ export default function ProductList({ product, products }) {
             : product.product_description}
         </h3>
 
-        <p className="mt-1 font-medium text-sm">${product.product_price}</p>
+        <h4 className="mt-1 font-medium text-sm">${product.product_price}</h4>
       </div>
 
       <div className="flex items-center mt-1">

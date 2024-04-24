@@ -2,6 +2,7 @@
 
 import { Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
+import MobileSideBar from "@/components/MobileSideBar";
 import Overlay from "@/components/Overlay";
 import ProductPrev from "@/components/ProductPrev";
 import ProductReel from "@/components/ProductReel";
@@ -23,7 +24,7 @@ export default function Home() {
       <GiveAway />
       <ProductReel products={products.slice(0, 4)} subtitle='Get 50% off' title='Flash Sales!'/>
       <Slider title='Recently Search Viewed Items'products={products}/>
-
+      <MobileSideBar />
       {searchFocus && <Overlay />}
     </div>
   );

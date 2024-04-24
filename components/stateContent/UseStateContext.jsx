@@ -28,6 +28,7 @@ export default function UseStateContext({ children }) {
 
   const [quantity, setQuantity] = useState(1);
   const [toggleCart, setToggleCart] = useState(false);
+  const [openMobileNav, setOpenMobileNav] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [notifyMsg, setNotifyMsg] = useState("");
@@ -294,6 +295,8 @@ export default function UseStateContext({ children }) {
         setNotify,
         isMounted,
         products,
+        openMobileNav,
+        setOpenMobileNav
       }}
     >
       {children}

@@ -15,7 +15,7 @@ export default function Slider({ title, products }) {
   return (
     <div className="mt-8 w-full">
       <div className="flex justify-between w-full">
-        <h3 className="ml-4 mb-4 font-bold sm:text-3xl">{title}</h3>
+        <h4 className="ml-4 mb-4">{title}</h4>
         <Link href='/'  className="see relative text-xs mr-4">See All</Link>
       </div>
       <div className="media-scroller snaps-inline">

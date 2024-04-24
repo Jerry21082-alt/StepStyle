@@ -5,11 +5,10 @@ import { stateFunc } from "./stateContent/UseStateContext";
 import { useEffect, useState } from "react";
 
 export default function Navigation() {
-  const { setToggleCart, orderSuccess, cartItems } = stateFunc();
+  const { setToggleCart, orderSuccess, cartItems, openMobileNav, setOpenMobileNav } = stateFunc();
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isVissible, setIsVissible] = useState(true);
-  const [openMobileNav, setOpenMobileNav] = useState(false);
   const [cartLength, setCartLength] = useState(false);
 
   useEffect(() => {
