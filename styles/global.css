@@ -44,7 +44,6 @@ label {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   grid-auto-flow: column;
-  /* grid-auto-columns: 21%; */
   overflow-x: auto;
   padding: 0 1rem;
   gap: 1rem;
@@ -157,6 +156,16 @@ label {
 
 .animation-container div:nth-child(2) {
   animation-delay: -0.16s;
+}
+
+.see::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 1rem;
+  right: 0;
 }
 
 @keyframes scaleUp {

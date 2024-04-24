@@ -83,7 +83,7 @@ export default function GiveAway() {
 
   return (
     <Layout>
-      <div className="w-full mt-8">
+      <div className="w-full mt-12">
         {isTimeZero ? (
           <p>Closed Deal!</p>
         ) : (

@@ -21,7 +21,8 @@ export default function Home() {
       <ProductPrev />
       <Slider title="Trending" products={products} />
       <GiveAway />
-      <ProductReel products={products.slice(0, 4)} subtitle='Get 50% off'/>
+      <ProductReel products={products.slice(0, 4)} subtitle='Get 50% off' title='Flash Sales!'/>
+      <Slider title='Recently Search Viewed Items'products={products}/>
 
       {searchFocus && <Overlay />}
     </div>
