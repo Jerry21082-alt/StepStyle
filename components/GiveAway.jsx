@@ -21,7 +21,7 @@ const months = [
 
 const days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
 
-let futureDate = new Date(2024, 3, 23, 17, 30, 0);
+let futureDate = new Date(2024, 6, 23, 17, 30, 0);
 
 const year = futureDate.getFullYear();
 const month = months[futureDate.getMonth()];
@@ -83,7 +83,7 @@ export default function GiveAway() {
 
   return (
     <Layout>
-      <div className="w-full mt-5">
+      <div className="w-full mt-8">
         {isTimeZero ? (
           <p>Closed Deal!</p>
         ) : (

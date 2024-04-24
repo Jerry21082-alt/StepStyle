@@ -9,7 +9,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
 
   return (
     <Layout>
-      <section className="py-12">
+      <section className="pb-12">
         <div className="md:flex md:items-center md:justify-between mb-4">
           <div className="max-w-2xl lg:max-w-4xl lg:px-0">
             {title ? (
@@ -36,7 +36,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
           <div className="flex items-center w-full mt-6">
             <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
               {myMap.map((product, index) => (
-                <ProductList key={index} product={product} index={index} />
+                <ProductList key={index} product={product} index={index} products={products}/>
               ))}
             </div>
           </div>

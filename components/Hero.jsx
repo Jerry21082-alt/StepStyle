@@ -8,7 +8,7 @@ export default function Hero() {
   const { searchFocus, searched } = stateFunc();
 
   return (
-    <div className="w-full flex gap-5 md:gap-[10rem] items-center justify-center md:justify-start bg-secondaryColor p-4 md:px-20">
+    <div className="w-full flex gap-5 md:gap-[10rem] items-center justify-center md:justify-start bg-secondaryColor p-4 md:px-20 mb-8">
       <div className="flex-1">
         <h1 className="text-2xl md:text-[54px] md:leading-[52px] text-snow font-bold">
           Grab Upto 50% off on selected sneakers!

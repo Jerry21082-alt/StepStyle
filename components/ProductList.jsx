@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { stateFunc } from "./stateContent/UseStateContext";
+import { useRouter } from "next/navigation";
 
-export default function ProductList({ product }) {
+export default function ProductList({ product, products }) {
+  const [watchList, setWatchList] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
   const { addToCart, cartItems, setNotify, setNotifyMsg } = stateFunc();
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     setHeight((ref.current.clientWidth * 1) / 1);
@@ -27,16 +31,29 @@ export default function ProductList({ product }) {
     }
   };
 
+  const toggleWatchList = (product) => {
+    const productInWatchList = watchList.some((item) => item.id === product.id);
+
+    if (productInWatchList) {
+      setWatchList((prevWatchList) =>
+        prevWatchList.filter((item) => item.id !== product.id)
+      );
+    } else {
+      setWatchList((prevWatchList) => [...prevWatchList, product]);
+    }
+  };
+
   return (
-    <div className={`h-full cursor-pointer group/main`}>
-      <Link
-        href={`/products/${product.id}`}
+    <div className={`h-full cursor-pointer group/main relative`}>
+      <div
+        // href={`/products/${product.id}`}
         className="flex flex-col w-full group"
       >
         <div
-          className="relative flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square"
+          className="flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square"
           ref={ref}
-          style={{height: `${height}px`}}
+          style={{ height: `${height}px` }}
+          onClick={() => router.push(`/products/${product.id}`)}
         >
           <div className="flex items-center justify-center">
             <Image
@@ -45,22 +62,64 @@ export default function ProductList({ product }) {
               loading="eager"
               width={500}
               height={500}
-              // className="z-10 h-full w-full"
             />
           </div>
-
-          <div className="w-7 h-7 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center">
+        </div>
+        <div
+          className="w-8 h-8 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center z-20"
+          onClick={() => toggleWatchList(product)}
+        >
+          <div className="h-4 w-4 flex items-center justify-center">
+            {watchList.some((item) => item.id === product.id) ? (
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="#FF0000"
+              >
+                <title>heart</title>
+                <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                id="heart"
+              >
+                <path
+                  fill="#000000"
+                  d="M27.657 5.343a8 8 0 0 0-11.314 0L16 5.715l-.343-.372A8 8 0 0 0 4.343 16.657l.778.843.675.731 9.518 10.312.686.742.686-.743 9.518-10.312.675-.731.778-.843a8 8 0 0 0 0-11.313zm-.545 10.445l-.908.982-.676.73L16 27.801 6.472 17.5l-.676-.731-.908-.982a6.77 6.77 0 0 1 0-9.575l.324-.324a6.77 6.77 0 0 1 9.575 0l.527.569.686.742.686-.741.527-.569a6.77 6.77 0 0 1 9.575 0l.324.324a6.77 6.77 0 0 1 0 9.575z"
+                ></path>
+              </svg>
+            )}
+          </div>
+          {/* {watchList.some((item) => item.id !== product.id) ? (
+            <div className="w-4 h-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                id="heart"
+              >
+                <path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"></path>
+              </svg>
+            </div>
+          ) : (
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
+              width="28"
+              height="28"
               viewBox="0 0 28 28"
             >
-              <title>heart-o</title>
-              <path d="M26 9.312c0-4.391-2.969-5.313-5.469-5.313-2.328 0-4.953 2.516-5.766 3.484-0.375 0.453-1.156 0.453-1.531 0-0.812-0.969-3.437-3.484-5.766-3.484-2.5 0-5.469 0.922-5.469 5.313 0 2.859 2.891 5.516 2.922 5.547l9.078 8.75 9.063-8.734c0.047-0.047 2.938-2.703 2.938-5.563zM28 9.312c0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281s-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313z"></path>
+              <title>heart</title>
+              <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
             </svg>
-          </div>
+          )} */}
         </div>
 
         <h3 className="mt-4 font-medium text-sm">
@@ -70,7 +129,7 @@ export default function ProductList({ product }) {
         </h3>
 
         <p className="mt-1 font-medium text-sm">${product.product_price}</p>
-      </Link>
+      </div>
 
       <div className="flex items-center mt-1">
         {product.rating.map((star) => (

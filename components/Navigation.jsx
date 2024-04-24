@@ -31,13 +31,13 @@ export default function Navigation() {
 
   return (
     <div
-      style={{ top: isVissible ? "0" : "-100px", transition: "top 0.3s" }}
+      style={{ top: isVissible ? "0" : "-100px", transition: "top 0.3s ease-in-out" }}
       className={`w-full h-14 flex justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-50 left-0 bg-snow ${
         orderSuccess ? "pointer-events-none" : null
       }`}
     >
       <div className="w-28">
-        <Link href={`/`}>Xtra</Link>
+        <Link href={`/`}>StepStyle</Link>
       </div>
 
       <div className="flex items-center space-x-4 w-full justify-end">
