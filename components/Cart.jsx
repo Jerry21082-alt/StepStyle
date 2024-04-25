@@ -34,7 +34,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`w-screen min-h-screen fixed p-4 bg-snow top-0 z-[400] overflow-y-auto transition-transform ${
+      className={`w-screen min-h-screen fixed p-4 top-0 left-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
     >

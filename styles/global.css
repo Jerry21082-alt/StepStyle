@@ -178,6 +178,44 @@ label {
   transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.open-search {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.close-search {
+  visibility: hidden;
+  opacity: 0;
+  /* display: none; */
+  transform: translate3d(-100%, 0, 0);
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.show-search-input {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.hide-search-input {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(1rem, 0, 0);
+  transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.search-input {
+  background: transparent;
+  color: black;
+}
+
 @keyframes scaleUp {
   0%,
   80%,

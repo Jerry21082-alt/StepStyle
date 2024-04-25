@@ -31,7 +31,7 @@ export default function Navigation() {
   return (
     <div
       style={{ top: isVissible ? "0" : "-100px", transition: "top 0.3s ease-in-out" }}
-      className={`w-full h-14 flex justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-50 left-0 bg-snow ${
+      className={`w-full h-14 flex justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-30 left-0 bg-snow ${
         orderSuccess ? "pointer-events-none" : null
       }`}
     >
@@ -70,7 +70,7 @@ export default function Navigation() {
           </div>
         </div>
 
-        <div className="mobile-nav-box w-7 h-full">
+        <div className="mobile-nav-box w-7 h-full z-50">
           <button
             onClick={() => setOpenMobileNav((prev) => !prev)}
             className={`button flex flex-col space-y-1 justify-center items-center outline-0 ${

@@ -8,9 +8,7 @@ import { stateFunc } from "./stateContent/UseStateContext";
 import { useRouter } from "next/navigation";
 
 export default function ProductList({ product, products }) {
-  const [watchList, setWatchList] = useState([]);
-  const [isLiked, setIsLiked] = useState(false);
-  const { addToCart, cartItems, setNotify, setNotifyMsg } = stateFunc();
+  const { addToCart, cartItems, setNotify, setNotifyMsg, watchList, setWatchList } = stateFunc();
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
 

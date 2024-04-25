@@ -40,8 +40,8 @@ export default function MobileSideBar() {
   const { openMobileNav } = stateFunc();
 
   return (
-    <section className={`fixed top-14 left-0 right-0 w-full min-h-screen z-50 bg-snow p-2 ${openMobileNav ? 'open-side-bar' : 'close-side-bar'}`}>
-      <div className="flex space-x-2 bg-cardBg w-full p-2 rounded">
+    <section className={`fixed top-0 left-0 right-0 w-full min-h-screen z-20 bg-snow p-2 ${openMobileNav ? 'open-side-bar' : 'close-side-bar'}`}>
+      <div className="flex space-x-2 bg-cardBg w-full p-2 rounded mt-12">
         <div className="w-12 h-12 rounded-full">
           <svg
             version="1.1"
@@ -63,7 +63,7 @@ export default function MobileSideBar() {
         <ul className=" flex flex-col space-y-5">
           {mobileSideBarLists.map((list) => (
             <li key={list.href}>
-              <Link href={list.href} className="flex items-center space-x-3">
+              <Link href={list.href.toLocaleLowerCase()} className="flex items-center space-x-3">
                 <div className="w-7 h-7">
                   <div
                     dangerouslySetInnerHTML={{ __html: list.icon }}

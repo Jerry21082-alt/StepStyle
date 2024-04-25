@@ -33,6 +33,7 @@ export default function UseStateContext({ children }) {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [notifyMsg, setNotifyMsg] = useState("");
   const [notify, setNotify] = useState(false);
+  const [watchList, setWatchList] = useLocalStorage('watchList', []);
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -296,7 +297,9 @@ export default function UseStateContext({ children }) {
         isMounted,
         products,
         openMobileNav,
-        setOpenMobileNav
+        setOpenMobileNav,
+        watchList,
+        setWatchList,
       }}
     >
       {children}
