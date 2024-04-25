@@ -13,7 +13,7 @@ export default function page() {
     searchRef.current.focus();
   }, []);
 
-  const { watchList } = stateFunc();
+  const { watchList, isMounted } = stateFunc();
 
   const router = useRouter();
 
@@ -22,7 +22,7 @@ export default function page() {
       <h1 className="text-center">Watchlist</h1>
 
       <div
-        className="flex items-center space-x-2 absolute top-4 left-4 w-20 bg-secondaryColor rounded-md p-1"
+        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-secondaryColor rounded-md p-1"
         onClick={() => router.back()}
       >
         <div className="w-5 h-5">
@@ -105,27 +105,28 @@ export default function page() {
       </div>
 
       <div className="w-full h-full overflow-y-scroll flex flex-col space-y-3 mt-5">
-        {watchList.map((list, idx) => (
-          <div className="flex space-x-2 w-full" key={idx}>
-            <div className="w-36 aspect-square bg-cardBg rounded-xl p-2 flex justify-center items-center">
-              <Image
-                src={`${list.product_photo}`}
-                width={500}
-                height={500}
-                alt="product image"
-              />
-            </div>
-            <div className="flex flex-col space-y-1 w-full">
-              <span className="w-full">
-                {list.product_description.length > 50
-                  ? `${list.product_description.substring(0, 50)}...`
-                  : list.product_description}
-              </span>
+        {isMounted &&
+          watchList.map((list, idx) => (
+            <div className="flex space-x-2 w-full" key={idx}>
+              <div className="w-36 aspect-square bg-cardBg rounded-xl p-2 flex justify-center items-center">
+                <Image
+                  src={`${list.product_photo}`}
+                  width={500}
+                  height={500}
+                  alt="product image"
+                />
+              </div>
+              <div className="flex flex-col space-y-1 w-full">
+                <span className="w-full">
+                  {list.product_description.length > 50
+                    ? `${list.product_description.substring(0, 50)}...`
+                    : list.product_description}
+                </span>
 
-              <h4>${list.product_price}</h4>
+                <h4>${list.product_price}</h4>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </section>
   );

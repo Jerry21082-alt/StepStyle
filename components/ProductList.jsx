@@ -8,7 +8,16 @@ import { stateFunc } from "./stateContent/UseStateContext";
 import { useRouter } from "next/navigation";
 
 export default function ProductList({ product, products }) {
-  const { addToCart, cartItems, setNotify, setNotifyMsg, watchList, setWatchList } = stateFunc();
+  const {
+    addToCart,
+    cartItems,
+    setNotify,
+    setNotifyMsg,
+    watchList,
+    setWatchList,
+    isMounted,
+  } = stateFunc();
+  
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
 
@@ -68,7 +77,7 @@ export default function ProductList({ product, products }) {
           onClick={() => toggleWatchList(product)}
         >
           <div className="h-4 w-4 flex items-center justify-center">
-            {watchList.some((item) => item.id === product.id) ? (
+            {isMounted && watchList.some((item) => item.id === product.id) ? (
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"

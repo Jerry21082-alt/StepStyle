@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 
 export function useLocalStorage(key, defaultValue) {
-  const storedValue = localStorage.getItem(key);
+  const storedValue =
+    typeof window !== "undefined" ? localStorage.getItem(key) : null;
   const initialValue = storedValue ? JSON.parse(storedValue) : defaultValue;
-
   const [value, setValue] = useState(initialValue);
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
+    if (value === "undefined") {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
   }, [key, value]);
 
   return [value, setValue];
