@@ -226,6 +226,12 @@ label {
   transition: margin 0.2s ease-in-out;
 }
 
+.scroll {
+  scroll-snap-type: mandatory;
+  overflow-y: scroll;
+  height: 100%;
+}
+
 @keyframes scaleUp {
   0%,
   80%,

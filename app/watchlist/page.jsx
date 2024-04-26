@@ -9,15 +9,17 @@ export default function page() {
   const [search, setSearch] = useState(false);
   const [edit, setEdit] = useState(false);
   const [markedItem, setMarkedItem] = useState([]);
-  const searchRef = useRef(null);
 
-  useEffect(() => {
-    searchRef.current.focus();
-  }, []);
+  const searchRef = useRef(null);
 
   const { watchList, setWatchList, isMounted } = stateFunc();
 
   const router = useRouter();
+
+  const focusInput = () => {
+    setSearch((previousState) => !previousState);
+    searchRef.current.focus();
+  };
 
   const toggleMark = (index) => {
     const newMarkedItems = [...markedItem];
@@ -48,8 +50,13 @@ export default function page() {
     setEdit(false);
   };
 
+  useEffect(() => {
+    const div = document.getElementById("scroll");
+    div.scrollTop = div.scrollHeight;
+  }, [watchList]);
+
   return (
-    <section className="fixed top-0 left-0 right-0 p-2 h-screen">
+    <section className="fixed top-0 left-0 right-0 p-2 h-screen bg-snow z-[200]">
       <h1 className="text-center">Watchlist</h1>
 
       <div
@@ -88,7 +95,7 @@ export default function page() {
           </div>
         </div>
         <div
-          onClick={() => setSearch((previousState) => !previousState)}
+          onClick={focusInput}
           className={`items-center space-x-1 ${edit ? "hidden" : "flex"} ${
             search ? "close-search" : "open-search"
           }`}
@@ -163,7 +170,10 @@ export default function page() {
         )}
       </div>
 
-      <div className="w-full h-full overflow-y-scroll flex flex-col space-y-3 mt-5">
+      <div
+        id="scroll"
+        className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
+      >
         {isMounted &&
           watchList.map((list, idx) => (
             <div className="flex w-full" key={idx}>
