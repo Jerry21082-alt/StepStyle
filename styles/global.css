@@ -216,6 +216,16 @@ label {
   color: black;
 }
 
+.shift-img {
+  margin-left: 16px;
+  transition: margin 0.2s ease-in-out;
+}
+
+.unshift-img {
+  margin-left: 0px;
+  transition: margin 0.2s ease-in-out;
+}
+
 @keyframes scaleUp {
   0%,
   80%,

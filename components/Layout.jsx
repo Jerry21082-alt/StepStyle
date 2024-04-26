@@ -1,21 +1,16 @@
-import React from "react";
-import Notify from "./Notify";
-import Navigation from "./Navigation";
-import Cart from "./Cart";
-import { Footer } from ".";
+import Cart from "@/components/Cart";
+import Notify from "@/components/Notify";
+import Navigation from "@/components/Navigation";
 
 export default function Layout({ children }) {
   return (
-    <div className="p-2 md:p-20 flex flex-col w-full min-h-screen">
+    <>
       <Notify />
       <nav>
         <Navigation />
         <Cart />
       </nav>
-      {children}
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+      <div className="p-2 md:p-20 flex flex-col w-full">{children}</div>
+    </>
   );
 }

@@ -7,15 +7,46 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function page() {
   const [search, setSearch] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [markedItem, setMarkedItem] = useState([]);
   const searchRef = useRef(null);
 
   useEffect(() => {
     searchRef.current.focus();
   }, []);
 
-  const { watchList, isMounted } = stateFunc();
+  const { watchList, setWatchList, isMounted } = stateFunc();
 
   const router = useRouter();
+
+  const toggleMark = (index) => {
+    const newMarkedItems = [...markedItem];
+
+    if (newMarkedItems.includes(index)) {
+      newMarkedItems.splice(newMarkedItems.indexOf(index), 1);
+    } else {
+      newMarkedItems.push(index);
+    }
+
+    setMarkedItem(newMarkedItems);
+  };
+
+  const removeMarkedItem = () => {
+    const newItems = watchList.filter((index) => !markedItem.includes(index));
+
+    setWatchList(newItems);
+    setMarkedItem([]);
+  };
+
+  const selectAll = () => {
+    const allItems = [...watchList];
+    setMarkedItem(allItems);
+  };
+
+  const handleCancel = () => {
+    setMarkedItem([]);
+    setEdit(false);
+  };
 
   return (
     <section className="fixed top-0 left-0 right-0 p-2 h-screen">
@@ -40,10 +71,25 @@ export default function page() {
         <p className="text-snow">Back</p>
       </div>
 
-      <div className="flex items-center justify-between mt-5 space-x-2 w-full">
+      <div className="flex items-center justify-between mt-5 space-x-2 w-full h-12">
+        <div className={`items-center space-x-5 ${edit ? "flex" : "hidden"}`}>
+          <span className="text-secondaryColor" onClick={selectAll}>
+            Select All
+          </span>
+          <div
+            className={
+              markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
+            }
+          >
+            <span onClick={removeMarkedItem}>Delete</span>
+            <span>
+              {markedItem.length > 0 ? `[${markedItem.length}]` : null}
+            </span>
+          </div>
+        </div>
         <div
           onClick={() => setSearch((previousState) => !previousState)}
-          className={`flex items-center space-x-1 ${
+          className={`items-center space-x-1 ${edit ? "hidden" : "flex"} ${
             search ? "close-search" : "open-search"
           }`}
         >
@@ -100,15 +146,49 @@ export default function page() {
             Cancel
           </span>
         ) : (
-          <span className="text-secondaryColor">Edit</span>
+          <div>
+            {edit ? (
+              <span className="text-secondaryColor" onClick={handleCancel}>
+                Cancel
+              </span>
+            ) : (
+              <span
+                className="text-secondaryColor"
+                onClick={() => setEdit(true)}
+              >
+                Edit
+              </span>
+            )}
+          </div>
         )}
       </div>
 
       <div className="w-full h-full overflow-y-scroll flex flex-col space-y-3 mt-5">
         {isMounted &&
           watchList.map((list, idx) => (
-            <div className="flex space-x-2 w-full" key={idx}>
-              <div className="w-36 aspect-square bg-cardBg rounded-xl p-2 flex justify-center items-center">
+            <div className="flex w-full" key={idx}>
+              <div
+                className={`h-full items-center justify-center ${
+                  edit ? "flex" : "hidden"
+                }`}
+              >
+                {markedItem.some((item) => item.id === list.id) ? (
+                  <div
+                    className="w-6 h-6 bg-secondaryColor"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                ) : (
+                  <div
+                    className="w-6 h-6 border"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                )}
+              </div>
+              <div
+                className={`w-36 aspect-square bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                  edit ? "shift-img" : "unshift-img"
+                }`}
+              >
                 <Image
                   src={`${list.product_photo}`}
                   width={500}
@@ -116,7 +196,7 @@ export default function page() {
                   alt="product image"
                 />
               </div>
-              <div className="flex flex-col space-y-1 w-full">
+              <div className="flex flex-col space-y-1 w-full ml-2">
                 <span className="w-full">
                   {list.product_description.length > 50
                     ? `${list.product_description.substring(0, 50)}...`
