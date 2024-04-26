@@ -7,6 +7,7 @@ const mobileSideBarLists = [
   {
     href: "Watchlist",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 50 62.5" style="enable-background:new 0 0 50 50;" xml:space="preserve"><g><path d="M41.97,26.76L25,43.73L8.03,26.76c-4.69-4.69-4.69-12.29,0-16.97C12.72,5.1,20.31,5.1,25,9.79   c4.69-4.69,12.28-4.69,16.97,0C46.66,14.47,46.66,22.07,41.97,26.76z"/></g></svg>`,
+    link: 'watchlist'
   },
   {
     href: "Recently viewed",
@@ -16,6 +17,7 @@ const mobileSideBarLists = [
      <path d="m87.836 16.852c-8.8516-8.8516-20.625-13.73-33.148-13.73s-24.293 4.875-33.148 13.73c-8.4844 8.4844-13.316 19.648-13.703 31.586h-6.2734c-0.61328 0-1.1719 0.35938-1.4219 0.91797-0.25391 0.55859-0.15625 1.2109 0.24609 1.6719l10.938 12.5c0.29688 0.33984 0.72656 0.53125 1.1758 0.53125s0.87891-0.19531 1.1758-0.53125l10.938-12.5c0.40234-0.46094 0.5-1.1172 0.24609-1.6719-0.25391-0.55859-0.8125-0.91797-1.4219-0.91797h-6.2188c0.82031-19.953 17.312-35.938 37.469-35.938s37.5 16.82 37.5 37.5-16.82 37.5-37.5 37.5c-10.016 0-19.434-3.8984-26.52-10.984-0.88281-0.88281-2.0625-1.375-3.3125-1.375s-2.4297 0.48828-3.3125 1.375c-0.88281 0.88281-1.375 2.0625-1.375 3.3125 0 1.2539 0.48828 2.4297 1.375 3.3125 8.8516 8.8516 20.625 13.73 33.148 13.73 12.523 0 24.293-4.875 33.148-13.73 8.8516-8.8516 13.73-20.625 13.73-33.148 0-12.52-4.875-24.293-13.73-33.148z"/>
     </g>
    </svg>`,
+    link: "recentview",
   },
   {
     href: "Payments",
@@ -26,6 +28,7 @@ const mobileSideBarLists = [
   {
     href: "Help",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><g><path d="M45.9,11.3C28.3,13.4,14.8,26,11.6,42.6c-4,21.1,9.7,41.7,30.6,46c1.1,0.2,12.4,1.3,20.9-1.5c14.4-5.6,23.2-15.9,25.8-31.3   c0.1-0.3,1.4-12.9-3.8-23.1C78.2,18.6,63,9.2,45.9,11.3z M49.4,74c-3.2,0-5.6-2.4-5.6-5.5c0-3.4,2.3-5.8,5.6-5.8   c3.3-0.1,5.8,2.4,5.8,5.7C55.2,71.6,52.8,74,49.4,74z M61.8,47.9c-1.4,1.2-2.8,2.3-4.3,3.3C55.3,52.7,54,55,54,58c-2.9,0-6,0-9,0   c-0.4-3.2-0.2-6.8,2.7-9.1c1.7-1.3,3.5-2.4,4.9-3.8c1.3-1.4,2.6-3.1,3.2-4.8c0.7-2.2-1-4.8-2.9-5.5c-2.8-1-6.2-0.2-7.4,2.1   c-0.7,1.3-1.1,2.9-1.7,4.5c-2.8,0-5.6,0-8.4,0c-0.9-4.5,1.6-10,5.8-12.7c5.8-3.6,15.7-2.8,20.8,1.8C67.1,35,67,43.4,61.8,47.9z"/></g></svg>`,
+    link: 'help'
   },
   {
     href: "Settings",
@@ -33,6 +36,7 @@ const mobileSideBarLists = [
     <title>cog</title>
     <path d="M29.181 19.070c-1.679-2.908-0.669-6.634 2.255-8.328l-3.145-5.447c-0.898 0.527-1.943 0.829-3.058 0.829-3.361 0-6.085-2.742-6.085-6.125h-6.289c0.008 1.044-0.252 2.103-0.811 3.070-1.679 2.908-5.411 3.897-8.339 2.211l-3.144 5.447c0.905 0.515 1.689 1.268 2.246 2.234 1.676 2.903 0.672 6.623-2.241 8.319l3.145 5.447c0.895-0.522 1.935-0.82 3.044-0.82 3.35 0 6.067 2.725 6.084 6.092h6.289c-0.003-1.034 0.259-2.080 0.811-3.038 1.676-2.903 5.399-3.894 8.325-2.219l3.145-5.447c-0.899-0.515-1.678-1.266-2.232-2.226zM16 22.479c-3.578 0-6.479-2.901-6.479-6.479s2.901-6.479 6.479-6.479c3.578 0 6.479 2.901 6.479 6.479s-2.901 6.479-6.479 6.479z"></path>
     </svg>`,
+    link: 'settings'
   },
 ];
 
@@ -40,7 +44,11 @@ export default function MobileSideBar() {
   const { openMobileNav } = stateFunc();
 
   return (
-    <section className={`fixed top-0 left-0 right-0 w-full min-h-screen z-20 bg-snow p-2 ${openMobileNav ? 'open-side-bar' : 'close-side-bar'}`}>
+    <section
+      className={`fixed top-0 left-0 right-0 w-full min-h-screen z-20 bg-snow p-2 ${
+        openMobileNav ? "open-side-bar" : "close-side-bar"
+      }`}
+    >
       <div className="flex space-x-2 bg-cardBg w-full p-2 rounded mt-12">
         <div className="w-12 h-12 rounded-full">
           <svg
@@ -63,7 +71,10 @@ export default function MobileSideBar() {
         <ul className=" flex flex-col space-y-5">
           {mobileSideBarLists.map((list) => (
             <li key={list.href}>
-              <Link href={list.href.toLocaleLowerCase()} className="flex items-center space-x-3">
+              <Link
+                href={`/${list.link}`}
+                className="flex items-center space-x-3"
+              >
                 <div className="w-7 h-7">
                   <div
                     dangerouslySetInnerHTML={{ __html: list.icon }}

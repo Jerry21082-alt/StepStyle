@@ -33,7 +33,11 @@ export default function UseStateContext({ children }) {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [notifyMsg, setNotifyMsg] = useState("");
   const [notify, setNotify] = useState(false);
-  const [watchList, setWatchList] = useLocalStorage('watchList', []);
+  const [watchList, setWatchList] = useLocalStorage("watchList", []);
+  const [recentlyViewed, setRecentlyViewed] = useLocalStorage(
+    "recentlyViewed",
+    []
+  );
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -118,18 +122,6 @@ export default function UseStateContext({ children }) {
       updatedCartItems.splice(itemToDelete, 1);
       setCartItems(updatedCartItems);
     }
-  };
-
-  const searchForProduct = (array, searchTerm) => {
-    const foundProduct = [];
-    const filteredProduct = array.filter((product) =>
-      product.product_description
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    );
-    foundProduct.push(filteredProduct);
-    setSearched([...foundProduct]);
-    setSearchInput(searchTerm);
   };
 
   const finishOrder = () => {
@@ -252,6 +244,20 @@ export default function UseStateContext({ children }) {
     // },
   ];
 
+  const addToViewRecent = (product) => {
+    const updatedRecent = [...recentlyViewed];
+    const itemToAdd = updatedRecent.some((item) => item.id === product.id);
+
+    if (!itemToAdd) {
+      updatedRecent.push(product);
+      if (updatedRecent.length > 5) {
+        updatedRecent.splice(updatedRecent.length - 1, 1);
+      }
+    }
+
+    setRecentlyViewed(updatedRecent);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -280,7 +286,6 @@ export default function UseStateContext({ children }) {
         addToCart,
         cartItems,
         handleDelete,
-        searchForProduct,
         searched,
         searchFocus,
         setSearchFocus,
@@ -300,6 +305,11 @@ export default function UseStateContext({ children }) {
         setOpenMobileNav,
         watchList,
         setWatchList,
+        recentlyViewed,
+        setRecentlyViewed,
+        addToViewRecent,
+        recentlyViewed,
+        setRecentlyViewed,
       }}
     >
       {children}

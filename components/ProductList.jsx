@@ -16,12 +16,19 @@ export default function ProductList({ product, products }) {
     watchList,
     setWatchList,
     isMounted,
+    addToViewRecent,
+    recentlyViewed,
   } = stateFunc();
-  
+
   const [height, setHeight] = useState(0);
   const ref = useRef(null);
 
   const router = useRouter();
+
+  const view = (id) => {
+    router.push(`/products/${product.id}`);
+    addToViewRecent(id);
+  };
 
   useEffect(() => {
     setHeight((ref.current.clientWidth * 1) / 1);
@@ -60,7 +67,7 @@ export default function ProductList({ product, products }) {
           className="flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square"
           ref={ref}
           style={{ height: `${height}px` }}
-          onClick={() => router.push(`/products/${product.id}`)}
+          onClick={() => view(product)}
         >
           <div className="flex items-center justify-center">
             <Image
