@@ -9,8 +9,27 @@ export default function page() {
   const [search, setSearch] = useState(false);
   const [edit, setEdit] = useState(false);
   const [markedItem, setMarkedItem] = useState([]);
+  const [height, setHeight] = useState(0);
+  const [searchInput, setSearchInput] = useState("");
 
   const searchRef = useRef(null);
+  const heightRef = useRef(null);
+
+  const handleFilterSearch = () => {
+    const filterItems = watchList.filter((item) =>
+      item.product_description
+        .toLowerCase()
+        .includes(searchInput.toLocaleLowerCase())
+    );
+
+    return filterItems;
+  };
+
+  useEffect(() => {
+    if (heightRef.current) {
+      setHeight((heightRef.current.clientHeight * 1) / 1);
+    }
+  }, [height]);
 
   const { watchList, setWatchList, isMounted } = stateFunc();
 
@@ -141,6 +160,8 @@ export default function page() {
             type="text"
             placeholder="Find items"
             ref={searchRef}
+            value={searchInput}
+            onChange={(ev) => setSearchInput(ev.target.value)}
             className="search-input w-3/4"
           />
         </div>
@@ -175,8 +196,8 @@ export default function page() {
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
       >
         {isMounted &&
-          watchList.map((list, idx) => (
-            <div className="flex w-full" key={idx}>
+          handleFilterSearch().map((list, idx) => (
+            <div className="flex items-center w-full" key={idx}>
               <div
                 className={`h-full items-center justify-center ${
                   edit ? "flex" : "hidden"
@@ -194,26 +215,28 @@ export default function page() {
                   ></div>
                 )}
               </div>
-              <div
-                className={`w-36 aspect-square bg-cardBg rounded-xl p-2 flex justify-center items-center ${
-                  edit ? "shift-img" : "unshift-img"
-                }`}
-              >
-                <Image
-                  src={`${list.product_photo}`}
-                  width={500}
-                  height={500}
-                  alt="product image"
-                />
-              </div>
-              <div className="flex flex-col space-y-1 w-full ml-2">
-                <span className="w-full">
-                  {list.product_description.length > 50
-                    ? `${list.product_description.substring(0, 50)}...`
-                    : list.product_description}
-                </span>
+              <div className="flex">
+                <div
+                  className={`w-36 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                    edit ? "shift-img" : "unshift-img"
+                  }`}
+                >
+                  <Image
+                    src={`${list.product_photo}`}
+                    width={500}
+                    height={500}
+                    alt="product image"
+                  />
+                </div>
+                <div className="flex flex-col space-y-1 w-full ml-2">
+                  <span className="w-full">
+                    {list.product_description.length > 50
+                      ? `${list.product_description.substring(0, 50)}...`
+                      : list.product_description}
+                  </span>
 
-                <h4>${list.product_price}</h4>
+                  <h4>${list.product_price}</h4>
+                </div>
               </div>
             </div>
           ))}
