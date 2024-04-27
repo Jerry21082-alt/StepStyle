@@ -99,17 +99,17 @@ export default function page() {
 
       <div className="flex items-center justify-between mt-5 space-x-2 w-full h-12">
         <div className={`items-center space-x-5 ${edit ? "flex" : "hidden"}`}>
-          <h4 className="text-secondaryColor" onClick={selectAll}>
+          <span className="text-secondaryColor" onClick={selectAll}>
             Select All
-          </h4>
+          </span>
           <div
             className={
-              `flex items-center space-x-1 ${markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null}`
+              markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
             }
           >
-            <h4 className={markedItem.length ? 'text-snow text-xs' : 'text-dangerColor'} onClick={removeMarkedItem}>Delete</h4>
-            <span className={markedItem.length ? 'text-xs' : null}>
-              {markedItem.length > 0 ? `${markedItem.length}` : null}
+            <span onClick={removeMarkedItem}>Delete</span>
+            <span>
+              {markedItem.length > 0 ? `[${markedItem.length}]` : null}
             </span>
           </div>
         </div>
@@ -124,7 +124,7 @@ export default function page() {
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
               viewBox="-5.0 -10.0 110.0 135.0"
-              fill="#000000"
+              fill="#fe5d26"
               className="w-full h-full"
             >
               <g>
@@ -133,7 +133,7 @@ export default function page() {
               </g>
             </svg>
           </div>
-          <h4 className="text-secondaryColor">Find</h4>
+          <span className="text-secondaryColor">Find</span>
         </div>
 
         <div
@@ -167,25 +167,25 @@ export default function page() {
         </div>
 
         {search ? (
-          <h4
+          <span
             className="text-secondaryColor"
             onClick={() => setSearch(false)}
           >
             Cancel
-          </h4>
+          </span>
         ) : (
           <div>
             {edit ? (
-              <h4 className="text-secondaryColor" onClick={handleCancel}>
+              <span className="text-secondaryColor" onClick={handleCancel}>
                 Cancel
-              </h4>
+              </span>
             ) : (
-              <h4
+              <span
                 className="text-secondaryColor"
                 onClick={() => setEdit(true)}
               >
                 Edit
-              </h4>
+              </span>
             )}
           </div>
         )}

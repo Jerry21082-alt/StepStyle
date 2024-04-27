@@ -88,20 +88,13 @@ export default function page() {
             Select All
           </h4>
           <div
-            className={`flex items-center space-x-1 ${
+            className={
               markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
-            }`}
+            }
           >
-            <h4
-              className={
-                markedItem.length ? "text-xs text-snow" : "text-dangerColor"
-              }
-              onClick={removeMarkedItem}
-            >
-              Delete
-            </h4>
-            <span className={markedItem.length ? "text-xs" : null}>
-              {markedItem.length ? `${markedItem.length}` : null}
+            <h4 className="text-dangerColor" onClick={removeMarkedItem}>Delete</h4>
+            <span>
+              {markedItem.length > 0 ? `[${markedItem.length}]` : null}
             </span>
           </div>
         </div>
@@ -122,62 +115,52 @@ export default function page() {
       <div
         id="scroll"
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
-      >
-        {recentlyViewed.length > 0 ? (
-          <div>
-            {isMounted &&
-              recentlyViewed.map((list, idx) => (
-                <div className="flex items-center w-full" key={idx}>
+      > 
+        {isMounted &&
+          recentlyViewed.map((list, idx) => (
+            <div className="flex items-center w-full" key={idx}>
+              <div
+                className={`h-full items-center justify-center ${
+                  edit ? "flex" : "hidden"
+                }`}
+              >
+                {markedItem.some((item) => item.id === list.id) ? (
                   <div
-                    className={`h-full items-center justify-center ${
-                      edit ? "flex" : "hidden"
-                    }`}
-                  >
-                    {markedItem.some((item) => item.id === list.id) ? (
-                      <div
-                        className="w-6 h-6 bg-secondaryColor"
-                        onClick={() => toggleMark(list)}
-                      ></div>
-                    ) : (
-                      <div
-                        className="w-6 h-6 border"
-                        onClick={() => toggleMark(list)}
-                      ></div>
-                    )}
-                  </div>
-                  <div className="flex">
-                    <div
-                      className={`w-36 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
-                        edit ? "shift-img" : "unshift-img"
-                      }`}
-                    >
-                      <Image
-                        src={`/${list.photos.main}`}
-                        width={500}
-                        height={500}
-                        alt="product image"
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1 w-full ml-2">
-                      <span className="w-full">
-                        {list.name.length > 50
-                          ? `${list.name.substring(0, 50)}...`
-                          : list.name}
-                      </span>
-
-                      <h4>${list.name}</h4>
-                    </div>
-                  </div>
+                    className="w-6 h-6 bg-secondaryColor"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                ) : (
+                  <div
+                    className="w-6 h-6 border"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                )}
+              </div>
+              <div className="flex">
+                <div
+                  className={`w-36 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                    edit ? "shift-img" : "unshift-img"
+                  }`}
+                >
+                  <Image
+                    src={`/${list.photos.main}`}
+                    width={500}
+                    height={500}
+                    alt="product image"
+                  />
                 </div>
-              ))}
-          </div>
-        ) : (
-          isMounted && (
-            <div className="h-screen w-full flex justify-center items-center">
-              <h4>No Views</h4>
+                <div className="flex flex-col space-y-1 w-full ml-2">
+                  <span className="w-full">
+                    {list.name.length > 50
+                      ? `${list.name.substring(0, 50)}...`
+                      : list.name}
+                  </span>
+
+                  <h4>${list.name}</h4>
+                </div>
+              </div>
             </div>
-          )
-        )}
+          ))}
       </div>
     </section>
   );
