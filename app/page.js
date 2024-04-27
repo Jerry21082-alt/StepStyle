@@ -1,6 +1,6 @@
 "use client";
 
-import { Hero } from "@/components";
+import { Footer, Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
 import MobileSideBar from "@/components/MobileSideBar";
 import Overlay from "@/components/Overlay";
@@ -12,20 +12,28 @@ import { stateFunc } from "@/components/stateContent/UseStateContext";
 export default function Home() {
   const { searchFocus, products } = stateFunc();
   return (
-    <div>
-      <Hero />
-      <ProductReel
-        title="New Arrival"
-        subtitle="shop now"
-        products={products}
-      />
-      {/* <ProductPrev /> */}
-      <Slider title="Trending" products={products} />
-      <GiveAway />
-      <ProductReel products={products.slice(0, 4)} subtitle='Get 50% off' title='Flash Sales!'/>
-      <Slider title='Recently Search Viewed Items'products={products}/>
-      <MobileSideBar />
-      {searchFocus && <Overlay />}
-    </div>
+    <>
+      <div className="min-h-screen z-50 bg-snow overflow-hidden mb-5">
+        <Hero />
+        <ProductReel
+          title="New Arrival"
+          subtitle="shop now"
+          products={products}
+        />
+        {/* <ProductPrev /> */}
+        <Slider title="Trending" products={products} />
+        <GiveAway />
+        <ProductReel
+          products={products.slice(0, 4)}
+          subtitle="Get 50% off"
+          title="Flash Sales!"
+        />
+        <Slider title="Recently Search Viewed Items" products={products} />
+        <MobileSideBar />
+
+        {searchFocus && <Overlay />}
+      </div>
+      <Footer />
+    </>
   );
 }

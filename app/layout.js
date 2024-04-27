@@ -11,9 +11,6 @@ export default function RootLayout({ children }) {
           <main className="min-h-screen flex flex-col relative">
             <div className="flex-1 w-full mt-14">{children}</div>
           </main>
-          <footer>
-            <Footer />
-          </footer>
         </body>
       </UseStateContext>
     </html>
