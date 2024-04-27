@@ -156,7 +156,7 @@ export default function page() {
                       : list.name}
                   </span>
 
-                  <h4>${list.name}</h4>
+                  <h4>${list.price}</h4>
                 </div>
               </div>
             </div>
