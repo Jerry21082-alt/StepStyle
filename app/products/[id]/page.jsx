@@ -12,14 +12,17 @@ import Layout from "@/components/Layout";
 export default function ProductDetails({ params }) {
   const { id } = params;
   const { incQty, quantity, decQty, setQuantity, products } = stateFunc();
+
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
   );
 
   const [shoeSizes, setShoeSizes] = useState(8);
   const [toggleShoeSize, setToggleShoeSize] = useState(false);
+  const [height, setHeight] = useState(0);
 
   const sizeRef = useRef();
+  const ref = useRef(null);
 
   const selectSize = (size) => {
     setShoeSizes(size);
@@ -33,6 +36,12 @@ export default function ProductDetails({ params }) {
       closeModal();
     }
   };
+
+  useEffect(() => {
+    if (ref.current) {
+      setHeight((ref.current.clientWidth * 1) / 1);
+    }
+  }, [ref]);
 
   useEffect(() => {
     if (toggleShoeSize) {
@@ -76,7 +85,11 @@ export default function ProductDetails({ params }) {
     <Layout>
       <div className="flex flex-col md:flex-row gap-[3rem]">
         <div className="w-full md:w-[50%]">
-          <div className="rounded-lg overflow-hidden bg-primaryColor px-10 aspect-square w-full flex items-center justify-center">
+          <div
+            ref={ref}
+            style={{ height: `${height}px` }}
+            className="rounded-lg overflow-hidden bg-primaryColor px-10 aspect-square w-full flex items-center justify-center"
+          >
             <Image
               src={`/${productDetails.photos.main}`}
               alt="product photo"

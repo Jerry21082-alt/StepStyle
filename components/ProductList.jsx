@@ -138,7 +138,7 @@ export default function ProductList({ product, products }) {
 
       <button
         onClick={() => handleAddToCart(product)}
-        className="mt-2 bg-secondaryColor py-2 px-4 rounded-3xl text-snow text-sm"
+        className="mt-2 bg-lightBlack py-2 px-4 rounded-3xl text-snow text-sm"
       >
         Add to cart
       </button>

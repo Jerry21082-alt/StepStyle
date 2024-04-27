@@ -15,6 +15,7 @@ module.exports = {
       greenBg: "#008000",
       dangerColor: "#ff0000",
       darkOverlay: "rgba(0,0,0,0.95)",
+      lightBlack: '#333333'
     },
     extend: {
       backgroundImage: {

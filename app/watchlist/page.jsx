@@ -17,7 +17,7 @@ export default function page() {
 
   const handleFilterSearch = () => {
     const filterItems = watchList.filter((item) =>
-      item.product_description
+      item.name
         .toLowerCase()
         .includes(searchInput.toLocaleLowerCase())
     );
@@ -99,15 +99,15 @@ export default function page() {
 
       <div className="flex items-center justify-between mt-5 space-x-2 w-full h-12">
         <div className={`items-center space-x-5 ${edit ? "flex" : "hidden"}`}>
-          <span className="text-secondaryColor" onClick={selectAll}>
+          <h4 className="text-secondaryColor" onClick={selectAll}>
             Select All
-          </span>
+          </h4>
           <div
             className={
               markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
             }
           >
-            <span onClick={removeMarkedItem}>Delete</span>
+            <h4 className="text-dangerColor" onClick={removeMarkedItem}>Delete</h4>
             <span>
               {markedItem.length > 0 ? `[${markedItem.length}]` : null}
             </span>
@@ -124,7 +124,7 @@ export default function page() {
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
               viewBox="-5.0 -10.0 110.0 135.0"
-              fill="#fe5d26"
+              fill="#000000"
               className="w-full h-full"
             >
               <g>
@@ -133,7 +133,7 @@ export default function page() {
               </g>
             </svg>
           </div>
-          <span className="text-secondaryColor">Find</span>
+          <h4 className="text-secondaryColor">Find</h4>
         </div>
 
         <div
@@ -167,25 +167,25 @@ export default function page() {
         </div>
 
         {search ? (
-          <span
+          <h4
             className="text-secondaryColor"
             onClick={() => setSearch(false)}
           >
             Cancel
-          </span>
+          </h4>
         ) : (
           <div>
             {edit ? (
-              <span className="text-secondaryColor" onClick={handleCancel}>
+              <h4 className="text-secondaryColor" onClick={handleCancel}>
                 Cancel
-              </span>
+              </h4>
             ) : (
-              <span
+              <h4
                 className="text-secondaryColor"
                 onClick={() => setEdit(true)}
               >
                 Edit
-              </span>
+              </h4>
             )}
           </div>
         )}
@@ -222,7 +222,7 @@ export default function page() {
                   }`}
                 >
                   <Image
-                    src={`${list.product_photo}`}
+                    src={`/${list.photos.main}`}
                     width={500}
                     height={500}
                     alt="product image"
@@ -230,12 +230,12 @@ export default function page() {
                 </div>
                 <div className="flex flex-col space-y-1 w-full ml-2">
                   <span className="w-full">
-                    {list.product_description.length > 50
-                      ? `${list.product_description.substring(0, 50)}...`
-                      : list.product_description}
+                    {list.name.length > 50
+                      ? `${list.name.substring(0, 50)}...`
+                      : list.name}
                   </span>
 
-                  <h4>${list.product_price}</h4>
+                  <h4>${list.price}</h4>
                 </div>
               </div>
             </div>
