@@ -121,12 +121,6 @@ export default function ProductList({ product, products }) {
         <h4 className="mt-1 font-medium text-sm">${product.price}</h4>
       </div>
 
-      <div className="flex items-center mt-1">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <FaStar key={star} color="#fe5d26"/>
-        ))}
-      </div>
-
       <button
         onClick={() => handleAddToCart(product)}
         className="mt-2 bg-buttonColor py-2 px-4 rounded-3xl text-snow text-sm"
