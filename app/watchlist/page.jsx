@@ -104,12 +104,12 @@ export default function page() {
           </h4>
           <div
             className={
-              markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
+              `flex items-center space-x-1 ${markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null}`
             }
           >
-            <h4 className="text-dangerColor" onClick={removeMarkedItem}>Delete</h4>
-            <span>
-              {markedItem.length > 0 ? `[${markedItem.length}]` : null}
+            <h4 className={markedItem.length ? 'text-snow text-xs' : 'text-dangerColor'} onClick={removeMarkedItem}>Delete</h4>
+            <span className={markedItem.length ? 'text-xs' : null}>
+              {markedItem.length > 0 ? `${markedItem.length}` : null}
             </span>
           </div>
         </div>

@@ -88,15 +88,20 @@ export default function page() {
             Select All
           </h4>
           <div
-            className={
+            className={`flex items-center space-x-1 ${
               markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
-            }
+            }`}
           >
-            <h4 className="text-dangerColor" onClick={removeMarkedItem}>
+            <h4
+              className={
+                markedItem.length ? "text-xs text-snow" : "text-dangerColor"
+              }
+              onClick={removeMarkedItem}
+            >
               Delete
             </h4>
-            <span>
-              {markedItem.length > 0 ? `[${markedItem.length}]` : null}
+            <span className={markedItem.length ? "text-xs" : null}>
+              {markedItem.length ? `${markedItem.length}` : null}
             </span>
           </div>
         </div>
@@ -166,7 +171,13 @@ export default function page() {
                 </div>
               ))}
           </>
-        ) : isMounted && <span>No Views</span>}
+        ) : (
+          isMounted && (
+            <div className="h-screen w-full flex justify-center items-center">
+              <h4>No Views</h4>
+            </div>
+          )
+        )}
       </div>
     </section>
   );

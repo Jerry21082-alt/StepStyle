@@ -9,7 +9,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
 
   return (
     <Layout>
-      <section className="pb-12">
+      <section className="pb-12 mt-4">
         <div className="md:flex md:items-center md:justify-between mb-4">
           <div className="max-w-2xl lg:max-w-4xl lg:px-0">
             {title ? (
