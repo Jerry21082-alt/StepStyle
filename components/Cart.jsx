@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 import { AiOutlineShopping, AiFillDelete } from "react-icons/ai";
 import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
@@ -17,6 +17,15 @@ export default function Cart() {
     removeFromCart,
     isMounted,
   } = stateFunc();
+
+  const ref = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (ref.current) {
+      setHeight((ref.current.clientWidth * 1) / 1);
+    }
+  }, [ref]);
 
   useEffect(() => {
     const onClose = () => setToggleCart(false);
@@ -96,9 +105,13 @@ export default function Cart() {
                 key={index}
                 className="flex justify-center-items-center my-4 md:justify-around"
               >
-                <div className="flex justify-center items-center p-2 rounded-md bg-primaryColor w-32">
+                <div
+                  ref={ref}
+                  // style={{ height: `${height}px` }}
+                  className="flex justify-center items-center p-2 rounded-md bg-primaryColor w-32 aspect-square"
+                >
                   <Image
-                    src={item.product_photo}
+                    src={`/${item.photos.main}`}
                     alt="product photo"
                     width={500}
                     height={500}
@@ -106,9 +119,9 @@ export default function Cart() {
                 </div>
                 <div className="flex justify-between items-start flex-col ml-2">
                   <p className="text-sm">
-                    {item.product_description.length > 30
-                      ? `${item.product_description.substring(0, 30)}...`
-                      : item.product_description}
+                    {item.name.length > 30
+                      ? `${item.name.substring(0, 30)}...`
+                      : item.name}
                   </p>
                   <div className="flex justify-between w-full items-center gap-4 mt-2">
                     <div className="flex justify-center items-center py-2 px-4 bg-primaryColor gap-2">
@@ -140,7 +153,7 @@ export default function Cart() {
                       </svg>
                     </div>
                     <span className="font-bold text-sm">{`$${
-                      item.product_price *
+                      item.price *
                       cartItems?.filter((id) => id === item.id).length
                     }`}</span>
                     <AiFillDelete

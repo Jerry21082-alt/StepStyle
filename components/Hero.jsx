@@ -14,7 +14,7 @@ export default function Hero() {
 
   return (
     <div className="hero-section" ref={ref} style={{ height: `${height}px` }}>
-      <div className="absolute top-0 right-0 bottom-0 left-0 z-20 p-5">
+      <div className="absolute z-20 p-5">
         <h1 className="text-snow z-10 mt-20">
           KicksSpot: Your Ultimate Destination for Sneakerheads
         </h1>
