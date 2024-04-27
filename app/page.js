@@ -19,7 +19,7 @@ export default function Home() {
         subtitle="shop now"
         products={products}
       />
-      <ProductPrev />
+      {/* <ProductPrev /> */}
       <Slider title="Trending" products={products} />
       <GiveAway />
       <ProductReel products={products.slice(0, 4)} subtitle='Get 50% off' title='Flash Sales!'/>

@@ -20,6 +20,30 @@ label {
   margin-bottom: 5px;
 }
 
+.hero-section {
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  background-image: url("../public/fachry-zella-devandra-bNSdIkCBJOs-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
 .close-notify,
 .open-notify,
 .open-cart,

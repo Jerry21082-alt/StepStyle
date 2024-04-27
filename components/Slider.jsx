@@ -16,7 +16,9 @@ export default function Slider({ title, products }) {
     <div className="mt-8 w-full">
       <div className="flex justify-between w-full">
         <h4 className="ml-4 mb-4">{title}</h4>
-        <Link href='/'  className="see relative text-xs mr-4">See All</Link>
+        <Link href="/" className="see relative text-xs mr-4">
+          See All
+        </Link>
       </div>
       <div className="media-scroller snaps-inline">
         {products.slice(0, 8).map((product, i) => (
@@ -27,16 +29,14 @@ export default function Slider({ title, products }) {
               className="bg-cardBg w-40 h-40 aspect-square p-4 rounded-xl flex items-center justify-center"
             >
               <Image
-                src={product.product_photo}
+                src={`/${product.photos.main}`}
                 width={500}
                 height={500}
                 alt="product image"
               />
             </div>
-            <span className="truncate mt-2 text-sm">
-              {product.product_description}
-            </span>
-            <h4 className="mt-2 text-sm">${product.product_price}</h4>
+            <span className="truncate mt-2 text-sm">{product.name}</span>
+            <h4 className="mt-2 text-sm">${product.price}</h4>
           </div>
         ))}
       </div>
