@@ -94,7 +94,7 @@ export default function GiveAway() {
           {Object.entries(time).map(([key, val]) => (
             <div
               key={key}
-              className="w-10 h-10 bg-dangerColor flex items-center justify-center mt-4 rounded-md text-snow"
+              className="w-10 h-10 bg-secondaryColor flex items-center justify-center mt-4 rounded-md text-snow"
             >
               {val < 10 ? `0${val}` : val}
             </div>

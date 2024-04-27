@@ -124,7 +124,7 @@ export default function page() {
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
       >
         {recentlyViewed.length > 0 ? (
-          <>
+          <div>
             {isMounted &&
               recentlyViewed.map((list, idx) => (
                 <div className="flex items-center w-full" key={idx}>
@@ -170,7 +170,7 @@ export default function page() {
                   </div>
                 </div>
               ))}
-          </>
+          </div>
         ) : (
           isMounted && (
             <div className="h-screen w-full flex justify-center items-center">

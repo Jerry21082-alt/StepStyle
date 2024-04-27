@@ -10,7 +10,7 @@ module.exports = {
       primaryColor: "#edede9;",
       secondaryColor: "#000000",
       heroColor: "#06142e",
-      snow: "#fff",
+      snow: "#F5F5F5",
       cardBg: "#edede9",
       greenBg: "#008000",
       dangerColor: "#ff0000",
