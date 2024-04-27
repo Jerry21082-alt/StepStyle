@@ -10,7 +10,7 @@ export default function page() {
   const [markedItem, setMarkedItem] = useState([]);
   const [height, setHeight] = useState(0);
 
-  const heightRef = useRef(null)
+  const heightRef = useRef(null);
 
   useEffect(() => {
     if (heightRef.current) {
@@ -18,7 +18,8 @@ export default function page() {
     }
   }, [height]);
 
-  const { watchList, setRecentlyViewed, isMounted, recentlyViewed } = stateFunc();
+  const { watchList, setRecentlyViewed, isMounted, recentlyViewed } =
+    stateFunc();
 
   const router = useRouter();
 
@@ -35,7 +36,9 @@ export default function page() {
   };
 
   const removeMarkedItem = () => {
-    const newItems = recentlyViewed.filter((index) => !markedItem.includes(index));
+    const newItems = recentlyViewed.filter(
+      (index) => !markedItem.includes(index)
+    );
 
     setRecentlyViewed(newItems);
     setMarkedItem([]);
@@ -107,58 +110,6 @@ export default function page() {
             </span>
           )}
         </div>
-        {/* <div
-          onClick={focusInput}
-          className={`items-center space-x-1 ${edit ? "hidden" : "flex"} ${
-            search ? "close-search" : "open-search"
-          }`}
-        >
-          <div className="w-8 h-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              version="1.1"
-              viewBox="-5.0 -10.0 110.0 135.0"
-              fill="#fe5d26"
-              className="w-full h-full"
-            >
-              <g>
-                <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
-                <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
-              </g>
-            </svg>
-          </div>
-          <span className="text-secondaryColor">Find</span>
-        </div> */}
-
-        {/* <div
-          className={`bg-cardBg rounded-md p-2 flex items-center space-x-1 w-3/4 absolute left-0 right-0 ${
-            search ? "show-search-input" : "hide-search-input"
-          }`}
-        >
-          <div className="w-6 h-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              version="1.1"
-              viewBox="-5.0 -10.0 110.0 135.0"
-              fill="#fe5d26"
-              className="w-full h-full"
-            >
-              <g>
-                <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
-                <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
-              </g>
-            </svg>
-          </div>
-
-          <input
-            type="text"
-            placeholder="Find items"
-            ref={searchRef}
-            value={searchInput}
-            onChange={(ev) => setSearchInput(ev.target.value)}
-            className="search-input w-3/4"
-          />
-        </div> */}
       </div>
 
       <div
