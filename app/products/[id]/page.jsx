@@ -8,6 +8,8 @@ import { FaStar, FaPlus, FaMinus, FaAngleDown } from "react-icons/fa";
 import { TbTruckDelivery, TbTruckReturn } from "react-icons/tb";
 import SimilarProducts from "@/components/SimilaProducts";
 import Layout from "@/components/Layout";
+import AspectRatioContainer from "@/components/AspectRatioContainer";
+import Slider from "@/components/Slider";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
@@ -19,10 +21,8 @@ export default function ProductDetails({ params }) {
 
   const [shoeSizes, setShoeSizes] = useState(8);
   const [toggleShoeSize, setToggleShoeSize] = useState(false);
-  const [height, setHeight] = useState(0);
 
   const sizeRef = useRef();
-  const ref = useRef(null);
 
   const selectSize = (size) => {
     setShoeSizes(size);
@@ -36,12 +36,6 @@ export default function ProductDetails({ params }) {
       closeModal();
     }
   };
-
-  useEffect(() => {
-    if (ref.current) {
-      setHeight((ref.current.clientWidth * 1) / 1);
-    }
-  }, [ref]);
 
   useEffect(() => {
     if (toggleShoeSize) {
@@ -83,20 +77,22 @@ export default function ProductDetails({ params }) {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row gap-[3rem]">
-        <div className="w-full md:w-[50%]">
-          <div
-            ref={ref}
-            style={{ height: `${height}px` }}
-            className="rounded-lg overflow-hidden bg-primaryColor px-10 aspect-square w-full flex items-center justify-center"
+      <div className="flex flex-col space-y-12 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
+        <div className="w-full md:w-">
+          <AspectRatioContainer
+            aspectRatio={1 / 1}
+            className={`rounded-lg bg-primaryColor`}
           >
-            <Image
-              src={`/${productDetails.photos.main}`}
-              alt="product photo"
-              width={500}
-              height={500}
-            />
-          </div>
+            <div className="px-10 flex items-center justify-center h-full">
+              <Image
+                src={`/${productDetails.photos.main}`}
+                alt="product photo"
+                width={500}
+                height={500}
+                // className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
+              />
+            </div>
+          </AspectRatioContainer>
           <div className="hidden md:flex justify-start item-center gap-2">
             {[1, 2, 3, 4].map((num) => (
               <div key={num} className="bg-primaryColor mt-3 rounded-md px-2">
@@ -161,7 +157,7 @@ export default function ProductDetails({ params }) {
 
           <div className="flex items-center mt-5">
             <button
-              className="bg-heroColor py-2 px-4 text-snow rounded-3xl text-sm active:scale-90 mr-2"
+              className="w-32 bg-heroColor py-2 px-4 text-snow rounded-3xl text-sm active:scale-90 mr-2"
               onClick={() => setQuantity(1)}
             >
               <Link
@@ -178,24 +174,25 @@ export default function ProductDetails({ params }) {
                 Buy Now
               </Link>
             </button>
-            <button className="border-solid text-snow bg-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 transition-all w-34">
+            <button className="w-32 border-solid text-snow bg-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 transition-all w-34">
               Add to Cart
             </button>
           </div>
-          <div className="flex justify-center-items-center mt-5 gap-2">
+          <div className="flex justify-center-items-center mt-5 space-x-2">
             <TbTruckDelivery size={25} color="fe5d26" />
             <h4 className="font-500">Free Delivery</h4>
           </div>
           <p>Enter your postalcode for delivery availability</p>
 
-          <div className="flex justify-center-items-center mt-5 gap-2">
+          <div className="flex justify-center-items-center mt-5 space-x-2">
             <TbTruckReturn size={25} color="fe5d26" />
             <h4 className="font-500">Return Delivery</h4>
           </div>
           <p>Free 30 days return. Details</p>
         </div>
       </div>
-      <SimilarProducts />
+
+      <Slider products={products.slice(0, 8)} title='Similar products'/>
     </Layout>
   );
 }

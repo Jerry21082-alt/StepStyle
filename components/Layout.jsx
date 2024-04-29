@@ -1,11 +1,14 @@
 import Cart from "@/components/Cart";
 import Notify from "@/components/Notify";
 import Navigation from "@/components/Navigation";
+import MobileSideBar from "./MobileSideBar";
 
 export default function Layout({ children }) {
   return (
     <>
       <Notify />
+      <MobileSideBar />
+
       <nav>
         <Navigation />
         <Cart />

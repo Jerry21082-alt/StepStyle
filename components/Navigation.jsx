@@ -12,6 +12,7 @@ export default function Navigation() {
     cartItems,
     openMobileNav,
     setOpenMobileNav,
+    height
   } = stateFunc();
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -20,7 +21,7 @@ export default function Navigation() {
 
   const pathname = usePathname();
 
-  const checkScrollPos = prevScrollPos < 431 && pathname === "/";
+  const checkScrollPos = prevScrollPos < height && pathname === "/";
 
   useEffect(() => {
     setCartLength(true);

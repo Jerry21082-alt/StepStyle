@@ -2,7 +2,6 @@
 
 import { Footer, Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
-import MobileSideBar from "@/components/MobileSideBar";
 import Overlay from "@/components/Overlay";
 import ProductPrev from "@/components/ProductPrev";
 import ProductReel from "@/components/ProductReel";
@@ -29,7 +28,6 @@ export default function Home() {
           title="Flash Sales!"
         />
         <Slider title="Recently Search Viewed Items" products={products} />
-        <MobileSideBar />
 
         {searchFocus && <Overlay />}
       </div>

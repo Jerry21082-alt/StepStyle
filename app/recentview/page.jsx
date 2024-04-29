@@ -64,7 +64,7 @@ export default function page() {
       <h2 className="text-center">Recently Viewed</h2>
 
       <div
-        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-secondaryColor rounded-md p-1"
+        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-buttonColor rounded-md p-1"
         onClick={() => router.back()}
       >
         <div className="w-5 h-5">
@@ -138,7 +138,7 @@ export default function page() {
               </div>
               <div className="flex">
                 <div
-                  className={`w-36 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                  className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
                     edit ? "shift-img" : "unshift-img"
                   }`}
                 >

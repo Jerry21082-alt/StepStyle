@@ -38,6 +38,7 @@ export default function UseStateContext({ children }) {
     "recentlyViewed",
     []
   );
+  const [height, setHeight] = useState(0)
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -448,6 +449,8 @@ export default function UseStateContext({ children }) {
         addToViewRecent,
         recentlyViewed,
         setRecentlyViewed,
+        height,
+        setHeight
       }}
     >
       {children}

@@ -17,9 +17,7 @@ export default function page() {
 
   const handleFilterSearch = () => {
     const filterItems = watchList.filter((item) =>
-      item.name
-        .toLowerCase()
-        .includes(searchInput.toLocaleLowerCase())
+      item.name.toLowerCase().includes(searchInput.toLocaleLowerCase())
     );
 
     return filterItems;
@@ -79,7 +77,7 @@ export default function page() {
       <h1 className="text-center">Watchlist</h1>
 
       <div
-        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-secondaryColor rounded-md p-1"
+        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-buttonColor rounded-md p-1"
         onClick={() => router.back()}
       >
         <div className="w-5 h-5">
@@ -99,15 +97,15 @@ export default function page() {
 
       <div className="flex items-center justify-between mt-5 space-x-2 w-full h-12">
         <div className={`items-center space-x-5 ${edit ? "flex" : "hidden"}`}>
-          <span className="text-secondaryColor" onClick={selectAll}>
+          <h4 className="text-secondaryColor" onClick={selectAll}>
             Select All
-          </span>
+          </h4>
           <div
-            className={
+            className={`flex items-center space-x-1 ${
               markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
-            }
+            }`}
           >
-            <span onClick={removeMarkedItem}>Delete</span>
+            <h4 onClick={removeMarkedItem}>Delete</h4>
             <span>
               {markedItem.length > 0 ? `[${markedItem.length}]` : null}
             </span>
@@ -133,7 +131,7 @@ export default function page() {
               </g>
             </svg>
           </div>
-          <span className="text-secondaryColor">Find</span>
+          <h4 className="text-secondaryColor">Find</h4>
         </div>
 
         <div
@@ -167,25 +165,19 @@ export default function page() {
         </div>
 
         {search ? (
-          <span
-            className="text-secondaryColor"
-            onClick={() => setSearch(false)}
-          >
+          <h4 className="text-secondaryColor" onClick={() => setSearch(false)}>
             Cancel
-          </span>
+          </h4>
         ) : (
           <div>
             {edit ? (
-              <span className="text-secondaryColor" onClick={handleCancel}>
+              <h4 className="text-secondaryColor" onClick={handleCancel}>
                 Cancel
-              </span>
+              </h4>
             ) : (
-              <span
-                className="text-secondaryColor"
-                onClick={() => setEdit(true)}
-              >
+              <h4 className="text-secondaryColor" onClick={() => setEdit(true)}>
                 Edit
-              </span>
+              </h4>
             )}
           </div>
         )}
@@ -195,51 +187,59 @@ export default function page() {
         id="scroll"
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
       >
-        {isMounted &&
-          handleFilterSearch().map((list, idx) => (
-            <div className="flex items-center w-full" key={idx}>
-              <div
-                className={`h-full items-center justify-center ${
-                  edit ? "flex" : "hidden"
-                }`}
-              >
-                {markedItem.some((item) => item.id === list.id) ? (
+        {handleFilterSearch().length ? (
+          <div>
+            {isMounted &&
+              handleFilterSearch().map((list, idx) => (
+                <div className="flex items-center w-full" key={idx}>
                   <div
-                    className="w-6 h-6 bg-secondaryColor"
-                    onClick={() => toggleMark(list)}
-                  ></div>
-                ) : (
-                  <div
-                    className="w-6 h-6 border"
-                    onClick={() => toggleMark(list)}
-                  ></div>
-                )}
-              </div>
-              <div className="flex">
-                <div
-                  className={`w-36 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
-                    edit ? "shift-img" : "unshift-img"
-                  }`}
-                >
-                  <Image
-                    src={`/${list.photos.main}`}
-                    width={500}
-                    height={500}
-                    alt="product image"
-                  />
-                </div>
-                <div className="flex flex-col space-y-1 w-full ml-2">
-                  <span className="w-full">
-                    {list.name.length > 50
-                      ? `${list.name.substring(0, 50)}...`
-                      : list.name}
-                  </span>
+                    className={`h-full items-center justify-center ${
+                      edit ? "flex" : "hidden"
+                    }`}
+                  >
+                    {markedItem.some((item) => item.id === list.id) ? (
+                      <div
+                        className="w-6 h-6 bg-secondaryColor"
+                        onClick={() => toggleMark(list)}
+                      ></div>
+                    ) : (
+                      <div
+                        className="w-6 h-6 border"
+                        onClick={() => toggleMark(list)}
+                      ></div>
+                    )}
+                  </div>
+                  <div className="flex">
+                    <div
+                      className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                        edit ? "shift-img" : "unshift-img"
+                      }`}
+                    >
+                      <Image
+                        src={`/${list.photos.main}`}
+                        width={500}
+                        height={500}
+                        alt="product image"
+                      />
+                    </div>
+                    <div className="flex flex-col space-y-1 w-full ml-2">
+                      <span className="w-full">
+                        {list.name.length > 50
+                          ? `${list.name.substring(0, 50)}...`
+                          : list.name}
+                      </span>
 
-                  <h4>${list.price}</h4>
+                      <h4>${list.price}</h4>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))}
+          </div>
+        ) : (
+          <div className="w-full h-screen flex justify-center items-center">
+            {isMounted && <h2>No Items</h2>}
+          </div>
+        )}
       </div>
     </section>
   );

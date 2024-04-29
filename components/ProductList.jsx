@@ -24,9 +24,9 @@ export default function ProductList({ product, products }) {
 
   const router = useRouter();
 
-  const view = (id) => {
+  const view = (product) => {
     router.push(`/products/${product.id}`);
-    addToViewRecent(id);
+    addToViewRecent(product);
   };
 
   const handleAddToCart = (product) => {
@@ -59,12 +59,12 @@ export default function ProductList({ product, products }) {
         className="flex flex-col w-full group"
       >
         <AspectRatioContainer
-          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 `}
-          // ref={ref}
-          // style={{ height: `${height}px` }}
-          onClick={() => view(product)}
+          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4`}
         >
-          <div className="flex items-center justify-center h-full w-full">
+          <div
+            className="flex items-center justify-center h-full w-full"
+            onClick={() => view(product)}
+          >
             <Image
               src={`/${product.photos.main}`}
               alt="product image"

@@ -10,6 +10,7 @@ import { BsCheck } from "react-icons/bs";
 import Success from "@/components/Success";
 import Overlay from "@/components/Overlay";
 import Layout from "@/components/Layout";
+import AspectRatioContainer from "@/components/AspectRatioContainer";
 
 export default function CheckOutPage() {
   const searchParams = useSearchParams();
@@ -36,23 +37,25 @@ export default function CheckOutPage() {
             <h2 className="font-bold text-lg">Review Item and shipping</h2>
             {_productIdDetail.map((product) => (
               <div key={product.id} className="flex items-start mt-5">
-                <div className="bg-primaryColor rounded-md w-[130px] p-2">
-                  <Image
-                    src={product.product_photo}
-                    alt="product photo"
-                    width={500}
-                    height={500}
-                  />
-                </div>
+                <AspectRatioContainer className="bg-primaryColor rounded-md w-36 p-2">
+                  <div className="h-full flex items-center justify-center">
+                    <Image
+                      src={`/${product.photos.main}`}
+                      alt="product photo"
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                </AspectRatioContainer>
                 <div className="w-full flex items-start md:justify-between flex-col md:flex-row ml-5">
                   <p className="font-medium text-sm md:w-[300px]">
-                    {product.product_description.length > 50
-                      ? `${product.product_description.substring(0, 50)}...`
-                      : product.product_description}
+                    {product.name.length > 50
+                      ? `${product.name.substring(0, 50)}...`
+                      : product.name}
                   </p>
                   <div className="flex items-center space-x-4 flex-row md:flex-col">
                     <span className="mt-5 font-medium text-sm">
-                      Price: ${product.product_price}
+                      Price: ${product.name}
                     </span>
                     <span className="mt-5 font-medium text-sm">
                       Qty: {product.qty || getQuantity}
