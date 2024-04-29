@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const [height, setHeight] = useState(0);
+
   const ref = useRef(null);
 
   useEffect(() => {
