@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 export default function AspectRatioContainer({
-  aspectRatio = 1 / 1,
+  aspectRatio = 11 / 9,
   children,
   className,
 }) {
@@ -11,7 +11,7 @@ export default function AspectRatioContainer({
     function handleResize() {
       const container = containerRef.current;
       if (container) {
-        const content = container.querySelector("aspect-ratio-content");
+        const content = container.querySelector(".aspect-ratio-content");
         if (content) {
           const containerWidth = container.offsetWidth;
           content.style.height = `${containerWidth * (1 / aspectRatio)}px`;

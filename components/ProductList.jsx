@@ -59,19 +59,19 @@ export default function ProductList({ product, products }) {
         className="flex flex-col w-full group"
       >
         <AspectRatioContainer
-          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square`}
+          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 `}
           // ref={ref}
           // style={{ height: `${height}px` }}
           onClick={() => view(product)}
         >
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center h-full w-full">
             <Image
               src={`/${product.photos.main}`}
               alt="product image"
               loading="eager"
               width={500}
               height={500}
-              className="object-contain object-center"
+              // className="object-contain object-center"
             />
           </div>
         </AspectRatioContainer>
