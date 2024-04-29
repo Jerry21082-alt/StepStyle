@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { stateFunc } from "./stateContent/UseStateContext";
 import { useRouter } from "next/navigation";
 import { FaStar } from "react-icons/fa";
-
+import AspectRatioContainer from "./AspectRatioContainer";
 
 export default function ProductList({ product, products }) {
   const {
@@ -22,19 +22,12 @@ export default function ProductList({ product, products }) {
     recentlyViewed,
   } = stateFunc();
 
-  const [height, setHeight] = useState(0);
-  const ref = useRef(null);
-
   const router = useRouter();
 
   const view = (id) => {
     router.push(`/products/${product.id}`);
     addToViewRecent(id);
   };
-
-  useEffect(() => {
-    setHeight((ref.current.clientWidth * 1) / 1);
-  }, [ref]);
 
   const handleAddToCart = (product) => {
     const itemInCart = cartItems.some((item) => item.id === product.id);
@@ -65,10 +58,10 @@ export default function ProductList({ product, products }) {
         // href={`/products/${product.id}`}
         className="flex flex-col w-full group"
       >
-        <div
-          className="flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square"
-          ref={ref}
-          style={{ height: `${height}px` }}
+        <AspectRatioContainer
+          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4 aspect-square`}
+          // ref={ref}
+          // style={{ height: `${height}px` }}
           onClick={() => view(product)}
         >
           <div className="flex items-center justify-center">
@@ -81,7 +74,7 @@ export default function ProductList({ product, products }) {
               className="object-contain object-center"
             />
           </div>
-        </div>
+        </AspectRatioContainer>
         <div
           className="w-8 h-8 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center z-20"
           onClick={() => toggleWatchList(product)}

@@ -44,7 +44,7 @@ export default function Navigation() {
       style={{
         // top: isVissible ? "0" : "-100px",
         transition: "background-color 0.3s ease-in-out",
-        backgroundColor: checkScrollPos ? "#000" : "#fff",
+        backgroundColor: checkScrollPos ? "#000" : "#F5F5F5",
       }}
       className={`w-full h-14 flex justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-30 left-0 top-0 ${
         orderSuccess ? "pointer-events-none" : null
