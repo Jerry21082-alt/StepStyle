@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <UseStateContext>
-        <body>
+        <body className="overscroll-none">
           <main className="min-h-screen flex flex-col relative">
             <div className="flex-1 w-full mt-14">{children}</div>
           </main>

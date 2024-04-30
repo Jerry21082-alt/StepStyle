@@ -187,59 +187,51 @@ export default function page() {
         id="scroll"
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
       >
-        {handleFilterSearch().length ? (
-          <div>
-            {isMounted &&
-              handleFilterSearch().map((list, idx) => (
-                <div className="flex items-center w-full" key={idx}>
+        {isMounted &&
+          handleFilterSearch().map((list, idx) => (
+            <div className="flex items-center w-full" key={idx}>
+              <div
+                className={`h-full items-center justify-center ${
+                  edit ? "flex" : "hidden"
+                }`}
+              >
+                {markedItem.some((item) => item.id === list.id) ? (
                   <div
-                    className={`h-full items-center justify-center ${
-                      edit ? "flex" : "hidden"
-                    }`}
-                  >
-                    {markedItem.some((item) => item.id === list.id) ? (
-                      <div
-                        className="w-6 h-6 bg-secondaryColor"
-                        onClick={() => toggleMark(list)}
-                      ></div>
-                    ) : (
-                      <div
-                        className="w-6 h-6 border"
-                        onClick={() => toggleMark(list)}
-                      ></div>
-                    )}
-                  </div>
-                  <div className="flex">
-                    <div
-                      className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
-                        edit ? "shift-img" : "unshift-img"
-                      }`}
-                    >
-                      <Image
-                        src={`/${list.photos.main}`}
-                        width={500}
-                        height={500}
-                        alt="product image"
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1 w-full ml-2">
-                      <span className="w-full">
-                        {list.name.length > 50
-                          ? `${list.name.substring(0, 50)}...`
-                          : list.name}
-                      </span>
-
-                      <h4>${list.price}</h4>
-                    </div>
-                  </div>
+                    className="w-6 h-6 bg-secondaryColor"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                ) : (
+                  <div
+                    className="w-6 h-6 border"
+                    onClick={() => toggleMark(list)}
+                  ></div>
+                )}
+              </div>
+              <div className="flex">
+                <div
+                  className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                    edit ? "shift-img" : "unshift-img"
+                  }`}
+                >
+                  <Image
+                    src={`/${list.photos.main}`}
+                    width={500}
+                    height={500}
+                    alt="product image"
+                  />
                 </div>
-              ))}
-          </div>
-        ) : (
-          <div className="w-full h-screen flex justify-center items-center">
-            {isMounted && <h2>No Items</h2>}
-          </div>
-        )}
+                <div className="flex flex-col space-y-1 w-full ml-2">
+                  <span className="w-full">
+                    {list.name.length > 50
+                      ? `${list.name.substring(0, 50)}...`
+                      : list.name}
+                  </span>
+
+                  <h4>${list.price}</h4>
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     </section>
   );

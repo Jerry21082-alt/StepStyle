@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         <Navigation />
         <Cart />
       </nav>
-      <div className="p-2 md:p-20 flex flex-col w-full">{children}</div>
+      <div className="p-2 md:p-20 flex flex-col w-full overscroll-none">{children}</div>
     </>
   );
 }

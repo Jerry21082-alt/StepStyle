@@ -6,6 +6,7 @@ import Overlay from "@/components/Overlay";
 import ProductPrev from "@/components/ProductPrev";
 import ProductReel from "@/components/ProductReel";
 import Slider from "@/components/Slider";
+import TopBrands from "@/components/TopBrands";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         />
         {/* <ProductPrev /> */}
         <Slider title="Trending" products={products} />
+        {/* <TopBrands /> */}
         <GiveAway />
         <ProductReel
           products={products.slice(0, 4)}
