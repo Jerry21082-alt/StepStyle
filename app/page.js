@@ -18,11 +18,11 @@ export default function Home() {
         <ProductReel
           title="New Arrival"
           subtitle="shop now"
-          products={products}
+          products={products.slice(0, 12)}
         />
         {/* <ProductPrev /> */}
         <Slider title="Trending" products={products} />
-        {/* <TopBrands /> */}
+        <TopBrands />
         <GiveAway />
         <ProductReel
           products={products.slice(0, 4)}
