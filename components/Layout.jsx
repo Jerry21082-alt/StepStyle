@@ -8,12 +8,14 @@ export default function Layout({ children }) {
     <>
       <Notify />
       <MobileSideBar />
+      <Cart />
 
       <nav>
         <Navigation />
-        <Cart />
       </nav>
-      <div className="p-2 md:p-20 flex flex-col w-full overscroll-none">{children}</div>
+      <div className="p-2 md:p-20 flex flex-col w-full overscroll-none">
+        {children}
+      </div>
     </>
   );
 }

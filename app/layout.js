@@ -1,7 +1,6 @@
 import "../styles/global.css";
 import "../styles/typography.css";
 import UseStateContext from "@/components/stateContent/UseStateContext";
-import { Footer } from "@/components";
 
 export default function RootLayout({ children }) {
   return (
