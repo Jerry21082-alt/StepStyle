@@ -43,12 +43,12 @@ export default function Cart() {
 
   return (
     <div
-      className={`w-screen min-h-screen fixed p-4 top-0 left-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
+      className={`w-screen min-h-screen fixed p-2 top-0 left-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
     >
       <button
-        className={`flex items-center space-x-2 absolute top-2 left-1  bg-buttonColor rounded-md p-1 ${
+        className={`flex items-center space-x-1 absolute top-2 left-1  bg-buttonColor rounded-md p-1 w-16 mb-5 ${
           !toggleCart ? "animate-cart-btn" : "static-cart-btn"
         }`}
         onClick={() => setToggleCart(false)}
@@ -65,12 +65,7 @@ export default function Cart() {
             </g>
           </svg>
         </div>
-        <p className="text-snow">Your</p>
-        {isMounted ? (
-          <p className="text-snow">
-            {cartItems.length <= 1 ? "item" : "items"}
-          </p>
-        ) : null}
+        <p className="text-snow">Back</p>
       </button>
       {isMounted && !cartItems.length ? (
         <div className="flex justify-center items-center h-[70vh]">
@@ -95,94 +90,97 @@ export default function Cart() {
           </div>
         </div>
       ) : (
-        <div className="mt-10">
-          {isMounted &&
-            cartItems.map((item, index) => (
-              <div
-                key={index}
-                className="flex justify-center-items-center my-4 md:justify-around"
-              >
-                <div
-                  ref={ref}
-                  // style={{ height: `${height}px` }}
-                  className="flex justify-center items-center p-2 rounded-md bg-primaryColor w-32 aspect-square"
-                >
-                  <Image
-                    src={`/${item.photos.main}`}
-                    alt="product photo"
-                    width={500}
-                    height={500}
-                  />
-                </div>
-                <div className="flex justify-between items-start flex-col ml-2">
-                  <p className="text-sm">
-                    {item.name.length > 30
-                      ? `${item.name.substring(0, 30)}...`
-                      : item.name}
-                  </p>
-                  <div className="flex justify-between w-full items-center gap-4 mt-2">
-                    <div className="flex justify-center items-center py-2 px-4 bg-primaryColor gap-2">
-                      <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        onClick={() => removeFromCart(item.id)}
-                      >
-                        <title>minus</title>
-                        <path d="M18 11h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2h12c1.104 0 2-0.896 2-2s-0.896-2-2-2z"></path>
-                      </svg>
-                      <span className="font-bold text-sm">
-                        {cartItems?.filter((id) => id === item.id).length}
-                      </span>
+        <div className="mt-12">
+          <div className="flex justify-between items-center">
+            <span>Subtotal</span>
+            <h4>$15000</h4>
+          </div>
 
-                      <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        onClick={() => addToCart(item.id)}
-                      >
-                        <title>plus</title>
-                        <path d="M16 10c0 0.553-0.048 1-0.601 1h-4.399v4.399c0 0.552-0.447 0.601-1 0.601s-1-0.049-1-0.601v-4.399h-4.399c-0.552 0-0.601-0.447-0.601-1s0.049-1 0.601-1h4.399v-4.399c0-0.553 0.447-0.601 1-0.601s1 0.048 1 0.601v4.399h4.399c0.553 0 0.601 0.447 0.601 1z"></path>
-                      </svg>
+          <div className="flex items-center space-x-2 my-4">
+            <p>CART</p>
+            <p>({isMounted && cartItems.length})</p>
+          </div>
+          <div
+            id="scroll"
+            className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
+          >
+            {isMounted &&
+              cartItems.map((item, idx) => (
+                <div
+                  className="flex flex-col w-full bg-white rounded-md p-2"
+                  key={idx}
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-28 aspect-square flex items-center justify-center">
+                      <Image
+                        src={`/${item.photos.main}`}
+                        alt="product image"
+                        width={500}
+                        height={500}
+                      />
                     </div>
-                    <span className="font-bold text-sm">{`$${
-                      item.price *
-                      cartItems?.filter((id) => id === item.id).length
-                    }`}</span>
-                    <AiFillDelete
-                      onClick={() => handleDelete(item)}
-                      size={20}
-                      color="red"
-                    />
+
+                    <div className="flex flex-col">
+                      <span>{item.name}</span>
+                      <h4>{`$${
+                        item.offer
+                          ? ((20 * 100) / item.price).toFixed(2)
+                          : item.price
+                      }`}</h4>
+                      {item.offer && (
+                        <div className="flex items-center space-x-1">
+                          <span className="line-through text-gray">{`$${item.price} off`}</span>
+                          <div className="p-1 rounded text-white text-xs bg-secondaryColor">
+                            -50%
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-secondaryColor" onClick={() => handleDelete(item)}>Remove</span>
+
+                    <div className="flex items-center space-x-5 mt-4">
+                      <button className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1">
+                        <svg
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="#FFFFFF"
+                          className="w-full h-full"
+                        >
+                          <title>plus</title>
+                          <path d="M16 10c0 0.553-0.048 1-0.601 1h-4.399v4.399c0 0.552-0.447 0.601-1 0.601s-1-0.049-1-0.601v-4.399h-4.399c-0.552 0-0.601-0.447-0.601-1s0.049-1 0.601-1h4.399v-4.399c0-0.553 0.447-0.601 1-0.601s1 0.048 1 0.601v4.399h4.399c0.553 0 0.601 0.447 0.601 1z"></path>
+                        </svg>
+                      </button>
+
+                      <span>1</span>
+
+                      <button className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1">
+                        <svg
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          className="w-full h-full"
+                          fill="#FFFFFF"
+                        >
+                          <title>minus</title>
+                          <path d="M18 11h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2h12c1.104 0 2-0.896 2-2s-0.896-2-2-2z"></path>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
+              ))}
+
+              <div className="w-full pt-5">
+                <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
+                  <h4>Checkout</h4>
+                  <h4>$1200</h4>
+                </button>
               </div>
-            ))}
-          <div className="flex justify-between md:justify-around items-center mt-10">
-            <h3 className="font-bold">Total</h3>
-            <h3 className="font-bold">{isMounted && cartItems.length}</h3>
           </div>
-          <Link
-            className="md:flex justify-center items-center mt-2"
-            href={{
-              pathname: "/checkoutPage",
-              // query: {
-              //   id: ids,
-              // },
-            }}
-          >
-            <button
-              onClick={() => setToggleCart(false)}
-              type="submit"
-              className="bg-secondaryColor w-full md:w-[60%] outline-none border-none text-snow text-lg py-2 px-4 mt-5 rounded-3xl"
-            >
-              Proceed to Summary
-            </button>
-          </Link>
         </div>
       )}
     </div>

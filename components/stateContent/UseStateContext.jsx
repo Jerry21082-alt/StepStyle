@@ -38,7 +38,7 @@ export default function UseStateContext({ children }) {
     "recentlyViewed",
     []
   );
-  const [height, setHeight] = useState(0)
+  const [height, setHeight] = useState(0);
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -146,6 +146,7 @@ export default function UseStateContext({ children }) {
           "sneakers/nikes/air-max-90-mens-shoes-6n3vKB.png",
         ],
       },
+      offer: true,
     },
     {
       id: 2,
@@ -158,10 +159,7 @@ export default function UseStateContext({ children }) {
       releaseDate: "2021-12-10",
       photos: {
         main: "sneakers/adidas/adidasstansmithmain.png",
-        others: [
-          "sneakers/adidas/3 (1).jpg",
-          "sneakers/adidas/4 (1).jpg",
-        ],
+        others: ["sneakers/adidas/3 (1).jpg", "sneakers/adidas/4 (1).jpg"],
       },
     },
     {
@@ -174,9 +172,10 @@ export default function UseStateContext({ children }) {
       color: "Black/White",
       releaseDate: "2022-01-20",
       photos: {
-        main: "sneakers/converce/nb570main.png",
+        main: "sneakers/converce/nb570main (1).png",
         others: ["sneakers/converce/A09848C_E_08X1.jpg"],
       },
+      offer: false,
     },
     {
       id: 4,
@@ -191,6 +190,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/vans/vansoldschoolmain.png",
         others: ["sneakers/vans/3400517270m4_zm.jpg"],
       },
+      offer: false,
     },
     {
       id: 5,
@@ -205,6 +205,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/nb/nbmaini.png",
         others: ["sneakers/nb/ml574evg_nb_02_i.webp"],
       },
+      offer: true,
     },
     {
       id: 6,
@@ -222,6 +223,7 @@ export default function UseStateContext({ children }) {
           "sneakers/puma/Suede-Classic-XXI-Sneakers.avif",
         ],
       },
+      offer: true,
     },
     {
       id: 7,
@@ -239,6 +241,7 @@ export default function UseStateContext({ children }) {
           "sneakers/reebok/71QvHMe3JsL._AC_SX395_.jpg",
         ],
       },
+      offer: true,
     },
     {
       id: 8,
@@ -256,6 +259,7 @@ export default function UseStateContext({ children }) {
           "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
         ],
       },
+      offer: true,
     },
     {
       id: 9,
@@ -273,6 +277,7 @@ export default function UseStateContext({ children }) {
           "sneakers/asics/61zuuz2tWbL._AC_SY395_.jpg",
         ],
       },
+      offer: true,
     },
     {
       id: 10,
@@ -290,6 +295,7 @@ export default function UseStateContext({ children }) {
           "sneakers/underAmour/711tY7Rts6L._AC_SY395_.jpg",
         ],
       },
+      offer: true,
     },
     {
       id: 11,
@@ -304,6 +310,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/Saucony/71Oy-8hbAqL._AC_SX395_.jpg",
         others: ["sneakers/Saucony/81YWMZIolLL._AC_SX395_.jpg"],
       },
+      offer: true,
     },
     {
       id: 12,
@@ -318,6 +325,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/fila/filamain.png",
         others: ["sneakers/fila/51kHV9dpWBL._AC_SY625_.jpg"],
       },
+      offer: true,
     },
     {
       id: 13,
@@ -335,6 +343,7 @@ export default function UseStateContext({ children }) {
           "sneakers/nikes/custom-pegasus-trail-gtx-by-you.jpg",
         ],
       },
+      offer: true,
     },
     {
       id: 14,
@@ -347,11 +356,9 @@ export default function UseStateContext({ children }) {
       releaseDate: "2021-02-12",
       photos: {
         main: "sneakers/adidas/adidasstansmithmain.png",
-        others: [
-          "sneakers/adidas/3.jpg",
-          "sneakers/adidas/4.jpg",
-        ],
+        others: ["sneakers/adidas/3.jpg", "sneakers/adidas/4.jpg"],
       },
+      offer: true,
     },
     {
       id: 15,
@@ -366,6 +373,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/vans/vanssk8main.png",
         others: ["sneakers/vans/3413646250m7_zm.jpg"],
       },
+      offer: true,
     },
     {
       id: 15,
@@ -380,6 +388,7 @@ export default function UseStateContext({ children }) {
         main: "sneakers/vans/vanssk8main.png",
         others: ["sneakers/vans/3413646250m7_zm.jpg"],
       },
+      offer: false,
     },
   ];
 
@@ -450,7 +459,7 @@ export default function UseStateContext({ children }) {
         recentlyViewed,
         setRecentlyViewed,
         height,
-        setHeight
+        setHeight,
       }}
     >
       {children}

@@ -266,7 +266,7 @@ label {
   transition: margin 0.2s ease-in-out;
 }
 
-.scroll {
+#scroll {
   scroll-snap-type: mandatory;
   overflow-y: scroll;
   height: 100%;
