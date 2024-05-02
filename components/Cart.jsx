@@ -12,14 +12,14 @@ export default function Cart() {
     setToggleCart,
     toggleCart,
     cartItems,
+    setCartItems,
     handleDelete,
-    addToCart,
-    removeFromCart,
     isMounted,
   } = stateFunc();
 
   const ref = useRef(null);
   const [height, setHeight] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     if (ref.current) {
@@ -40,6 +40,50 @@ export default function Cart() {
 
     return () => document.removeEventListener("keydown", handleCartClose);
   }, [toggleCart]);
+
+  const updateTotalPrice = () => {
+    let totalPrice = 0;
+
+    cartItems.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+
+    setTotalPrice(totalPrice);
+  };
+
+  const increaseItemQuantity = (productId, productPrice) => {
+    const updatedProduct = cartItems.map((item) => {
+      if (item.id === productId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+          price: item.price + productPrice,
+        };
+      }
+
+      return item;
+    });
+
+    setCartItems(updatedProduct);
+    updateTotalPrice();
+  };
+
+  const decreaseItemQuantity = (productId, productPrice) => {
+    const updatedProduct = cartItems.map((item) => {
+      if (item.id === productId && item.quantity > 1) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+          price: item.price - productPrice,
+
+        };
+      }
+      return item;
+    });
+
+    setCartItems(updatedProduct);
+    updateTotalPrice();
+  };
 
   return (
     <div
@@ -93,7 +137,7 @@ export default function Cart() {
         <div className="mt-12">
           <div className="flex justify-between items-center">
             <span>Subtotal</span>
-            <h4>$15000</h4>
+            <h4>{`$${isMounted && totalPrice.toFixed(2)}`}</h4>
           </div>
 
           <div className="flex items-center space-x-2 my-4">
@@ -123,15 +167,20 @@ export default function Cart() {
                     <div className="flex flex-col">
                       <span>{item.name}</span>
                       <h4>{`$${
-                        item.offer
-                          ? ((20 * 100) / item.price).toFixed(2)
-                          : item.price
+                        item.isOffer
+                          ? (
+                              item.price -
+                              (item.price * item.percent) / 100
+                            ).toFixed(2)
+                          : item.price.toFixed(2)
                       }`}</h4>
-                      {item.offer && (
+                      {item.isOffer && (
                         <div className="flex items-center space-x-1">
-                          <span className="line-through text-gray">{`$${item.price} off`}</span>
+                          <span className="line-through text-gray">{`$${item.price.toFixed(
+                            2
+                          )}`}</span>
                           <div className="p-1 rounded text-white text-xs bg-secondaryColor">
-                            -50%
+                            -{item.percent}%
                           </div>
                         </div>
                       )}
@@ -139,10 +188,20 @@ export default function Cart() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-secondaryColor" onClick={() => handleDelete(item)}>Remove</span>
+                    <span
+                      className="text-secondaryColor"
+                      onClick={() => handleDelete(item)}
+                    >
+                      Remove
+                    </span>
 
                     <div className="flex items-center space-x-5 mt-4">
-                      <button className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1">
+                      <button
+                        className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1"
+                        onClick={() =>
+                          increaseItemQuantity(item.id, item.price)
+                        }
+                      >
                         <svg
                           version="1.1"
                           xmlns="http://www.w3.org/2000/svg"
@@ -155,9 +214,12 @@ export default function Cart() {
                         </svg>
                       </button>
 
-                      <span>1</span>
+                      <span>{item.quantity}</span>
 
-                      <button className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1">
+                      <button
+                        className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1"
+                        onClick={() => decreaseItemQuantity(item.id, item.price)}
+                      >
                         <svg
                           version="1.1"
                           xmlns="http://www.w3.org/2000/svg"
@@ -174,12 +236,12 @@ export default function Cart() {
                 </div>
               ))}
 
-              <div className="w-full pt-5">
-                <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
-                  <h4>Checkout</h4>
-                  <h4>$1200</h4>
-                </button>
-              </div>
+            <div className="w-full pt-5">
+              <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
+                <h4>Checkout</h4>
+                <h4>[$1200]</h4>
+              </button>
+            </div>
           </div>
         </div>
       )}

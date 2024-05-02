@@ -14,7 +14,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
           <div className="max-w-2xl lg:max-w-4xl lg:px-0">
             {title ? (
               <div className="w-full flex justify-between">
-                <h1 className="text-xl font-bold sm:text-3xl text-white">
+                <h1 className="text-xl font-bold sm:text-3xl">
                   {title}
                 </h1>
 
@@ -22,7 +22,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
               </div>
             ) : null}
             {subtitle ? (
-              <p className="mt-2 text-sm text-white">{subtitle}</p>
+              <p className="mt-2 text-sm">{subtitle}</p>
             ) : null}
           </div>
 
