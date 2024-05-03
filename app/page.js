@@ -3,14 +3,15 @@
 import { Footer, Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
 import Overlay from "@/components/Overlay";
-import ProductPrev from "@/components/ProductPrev";
 import ProductReel from "@/components/ProductReel";
 import Slider from "@/components/Slider";
 import TopBrands from "@/components/TopBrands";
+import { products } from "@/constants/mockProducts";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
+import ProductSearch from "@/components/ProductSearch";
 
 export default function Home() {
-  const { searchFocus, products } = stateFunc();
+  const { searchFocus } = stateFunc();
   return (
     <>
       <div className="min-h-screen z-50 bg-snow overflow-hidden mb-5">

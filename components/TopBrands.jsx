@@ -117,7 +117,7 @@ export default function TopBrands() {
                 Explore the Latest New Balance Sneaker Collection
               </h2>
 
-              <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow">
+              <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow ">
                 Shop Now
               </button>
             </div>

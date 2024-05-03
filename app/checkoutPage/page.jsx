@@ -11,13 +11,14 @@ import Success from "@/components/Success";
 import Overlay from "@/components/Overlay";
 import Layout from "@/components/Layout";
 import AspectRatioContainer from "@/components/AspectRatioContainer";
+import { products } from "@/constants/mockProducts";
 
 export default function CheckOutPage() {
   const searchParams = useSearchParams();
   const ids = searchParams.getAll("id");
   const size = searchParams.get("size");
   const getQuantity = searchParams.get("quantity");
-  const { products, cartItems, orderSuccess, setOrderSuccess } = stateFunc();
+  const { cartItems, orderSuccess, setOrderSuccess } = stateFunc();
   const [isCustomer, setIscustomer] = useState(true);
 
   const _productIdDetail = [];
@@ -71,19 +72,11 @@ export default function CheckOutPage() {
             ))}
           </div>
           <div className="flex items-center mt-5">
-            <button
-              onClick={() => setIscustomer((prev) => !prev)}
-              className={`w-4 h-4 border border-black flex justify-center items-center rounded ${
-                isCustomer ? "bg-greenBg border-none" : null
-              }`}
-            >
-              {isCustomer && (
-                <BsCheck
-                  size={25}
-                  style={{ color: isCustomer ? "#fff" : "#000" }}
-                />
-              )}
-            </button>
+            <input
+              type="checkbox"
+              onChange={() => setIscustomer((prev) => !prev)}
+            />
+
             <p className="text-sm ml-2">Returning Customer?</p>
           </div>
           <DeliveryInfo isCustomer={isCustomer} setIscustomer={setIscustomer} />

@@ -1,31 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
-import { AiOutlineShopping, AiFillDelete } from "react-icons/ai";
-import { FaStar, FaPlus, FaMinus } from "react-icons/fa";
 import Image from "next/image";
+import AspectRatioContainer from "./AspectRatioContainer";
 
 export default function Cart() {
   const {
     setToggleCart,
     toggleCart,
     cartItems,
-    setCartItems,
     handleDelete,
     isMounted,
+    increaseItemQuantity,
+    decreaseItemQuantity,
+    getTotalPrice,
   } = stateFunc();
 
-  const ref = useRef(null);
-  const [height, setHeight] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    if (ref.current) {
-      setHeight((ref.current.clientWidth * 1) / 1);
-    }
-  }, [ref]);
+  const totalPrice = getTotalPrice().toFixed(2);
 
   useEffect(() => {
     const onClose = () => setToggleCart(false);
@@ -40,50 +33,6 @@ export default function Cart() {
 
     return () => document.removeEventListener("keydown", handleCartClose);
   }, [toggleCart]);
-
-  const updateTotalPrice = () => {
-    let totalPrice = 0;
-
-    cartItems.forEach((item) => {
-      totalPrice += item.price * item.quantity;
-    });
-
-    setTotalPrice(totalPrice);
-  };
-
-  const increaseItemQuantity = (productId, productPrice) => {
-    const updatedProduct = cartItems.map((item) => {
-      if (item.id === productId) {
-        return {
-          ...item,
-          quantity: item.quantity + 1,
-          price: item.price + productPrice,
-        };
-      }
-
-      return item;
-    });
-
-    setCartItems(updatedProduct);
-    updateTotalPrice();
-  };
-
-  const decreaseItemQuantity = (productId, productPrice) => {
-    const updatedProduct = cartItems.map((item) => {
-      if (item.id === productId && item.quantity > 1) {
-        return {
-          ...item,
-          quantity: item.quantity - 1,
-          price: item.price - productPrice,
-
-        };
-      }
-      return item;
-    });
-
-    setCartItems(updatedProduct);
-    updateTotalPrice();
-  };
 
   return (
     <div
@@ -137,7 +86,7 @@ export default function Cart() {
         <div className="mt-12">
           <div className="flex justify-between items-center">
             <span>Subtotal</span>
-            <h4>{`$${isMounted && totalPrice.toFixed(2)}`}</h4>
+            <h4>${isMounted && totalPrice}</h4>
           </div>
 
           <div className="flex items-center space-x-2 my-4">
@@ -150,8 +99,9 @@ export default function Cart() {
           >
             {isMounted &&
               cartItems.map((item, idx) => (
-                <div
-                  className="flex flex-col w-full bg-white rounded-md p-2"
+                <AspectRatioContainer
+                aspectRatio={13/ 6}
+                  className="flex flex-col w-full bg-white rounded-md px-2"
                   key={idx}
                 >
                   <div className="flex items-center space-x-3">
@@ -218,7 +168,9 @@ export default function Cart() {
 
                       <button
                         className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1"
-                        onClick={() => decreaseItemQuantity(item.id, item.price)}
+                        onClick={() =>
+                          decreaseItemQuantity(item.id, item.price)
+                        }
                       >
                         <svg
                           version="1.1"
@@ -233,13 +185,13 @@ export default function Cart() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </AspectRatioContainer>
               ))}
 
             <div className="w-full pt-5">
               <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
                 <h4>Checkout</h4>
-                <h4>[$1200]</h4>
+                <h4>{`[$${isMounted && totalPrice}]`}</h4>
               </button>
             </div>
           </div>

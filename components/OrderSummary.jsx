@@ -18,7 +18,10 @@ export default function OrderSummary({
   let totalPrice = 0;
 
   for (let item of product) {
-    totalPrice += item.product_price;
+    totalPrice +=
+      item.percent === 1
+        ? item.price
+        : item.price - (item.price * item.percent) / 100;
   }
 
   const {
@@ -217,7 +220,7 @@ export default function OrderSummary({
         </div>
       </div>
       <form className="mt-5 flex flex-col gap-2">
-        <span className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1">
           <label className="font-medium text-sm" htmlFor="cardholder">
             Card Holder Name*
           </label>
@@ -241,7 +244,7 @@ export default function OrderSummary({
             onBlur={handleNameBlur}
             id="cardholder"
           />
-        </span>
+        </div>
 
         <span className="flex flex-col gap-1 relative">
           <label className="font-medium text-sm" htmlFor="cardnumber">

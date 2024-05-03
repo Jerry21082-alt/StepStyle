@@ -6,14 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import { FaStar, FaPlus, FaMinus, FaAngleDown } from "react-icons/fa";
 import { TbTruckDelivery, TbTruckReturn } from "react-icons/tb";
-import SimilarProducts from "@/components/SimilaProducts";
 import Layout from "@/components/Layout";
 import AspectRatioContainer from "@/components/AspectRatioContainer";
 import Slider from "@/components/Slider";
+import { products } from "@/constants/mockProducts";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
-  const { incQty, quantity, decQty, setQuantity, products } = stateFunc();
+  const { incQty, quantity, decQty, setQuantity } = stateFunc();
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
@@ -77,7 +77,7 @@ export default function ProductDetails({ params }) {
 
   return (
     <Layout>
-      <div className="flex flex-col space-y-12 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
+      <div className="flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
         <div className="w-full md:w-">
           <AspectRatioContainer
             aspectRatio={1 / 1}
