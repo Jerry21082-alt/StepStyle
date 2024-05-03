@@ -194,7 +194,7 @@ export default function OrderSummary({
         <input
           type="text"
           placeholder="Enter coupon code"
-          className="border-none outline-none bg-primaryColor h-full w-2/3 ml-2 text-sm"
+          className="border-none outline-none bg-primaryColor h-full w-2/3 ml-2"
         />
         <button className="bg-heroColor text-sm border-none outline-none rounded-3xl text-snow py-2 px-4 absolute right-1">
           Apply

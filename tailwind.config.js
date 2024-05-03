@@ -9,6 +9,7 @@ module.exports = {
     colors: {
       primaryColor: "#edede9;",
       secondaryColor: "#fe5d26",
+      secondaryLight: '#ffc3afd5',
       heroColor: "#06142e",
       snow: "#F5F5F5",
       white: "#FFFFFF",

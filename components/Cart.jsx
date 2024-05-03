@@ -36,7 +36,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`w-screen min-h-screen fixed p-2 top-0 left-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
+      className={`w-screen min-h-screen fixed p-2 top-0 left-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform overscroll-contain ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
     >
@@ -100,8 +100,8 @@ export default function Cart() {
             {isMounted &&
               cartItems.map((item, idx) => (
                 <AspectRatioContainer
-                aspectRatio={13/ 6}
-                  className="flex flex-col w-full bg-white rounded-md px-2"
+                  aspectRatio={14 / 6}
+                  className="flex flex-col justify-center w-full bg-white rounded-md px-2"
                   key={idx}
                 >
                   <div className="flex items-center space-x-3">
@@ -129,7 +129,7 @@ export default function Cart() {
                           <span className="line-through text-gray">{`$${item.price.toFixed(
                             2
                           )}`}</span>
-                          <div className="p-1 rounded text-white text-xs bg-secondaryColor">
+                          <div className="p-1 rounded text-white text-xs bg-buttonColor">
                             -{item.percent}%
                           </div>
                         </div>
@@ -167,7 +167,11 @@ export default function Cart() {
                       <span>{item.quantity}</span>
 
                       <button
-                        className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1"
+                        className={`w-6 h-6 rounded ${
+                          item.quantity === 1
+                            ? "bg-secondaryLight"
+                            : "bg-secondaryColor"
+                        } flex items-center justify-center p-1`}
                         onClick={() =>
                           decreaseItemQuantity(item.id, item.price)
                         }
@@ -187,8 +191,7 @@ export default function Cart() {
                   </div>
                 </AspectRatioContainer>
               ))}
-
-            <div className="w-full pt-5">
+            <div className="w-full py-5">
               <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
                 <h4>Checkout</h4>
                 <h4>{`[$${isMounted && totalPrice}]`}</h4>

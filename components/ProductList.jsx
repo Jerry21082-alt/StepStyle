@@ -19,7 +19,6 @@ export default function ProductList({ product, products }) {
     setWatchList,
     isMounted,
     addToViewRecent,
-    recentlyViewed,
   } = stateFunc();
 
   const router = useRouter();
@@ -47,8 +46,12 @@ export default function ProductList({ product, products }) {
       setWatchList((prevWatchList) =>
         prevWatchList.filter((item) => item.id !== product.id)
       );
+      setNotify(true);
+      setNotifyMsg("Removed from watchlist!");
     } else {
       setWatchList((prevWatchList) => [...prevWatchList, product]);
+      setNotify(true);
+      setNotifyMsg("Added to watchlist!");
     }
   };
 

@@ -1,12 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 
 export default function TopBrands() {
+  const [viewElement, setViewElement] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setViewElement(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (elementRef.current) observer.observe(elementRef.current);
+
+    return () => {
+      if (elementRef.current) observer.unobserve(elementRef.current);
+    };
+  }, []);
+
   return (
     <div className="w-full h-full mt-8">
       <h2 className="mb-5 ml-2">Shop Our Top Brands</h2>
 
       <div className="grid container">
-        <div className="grid-item relative">
+        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`} ref={elementRef}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -33,7 +55,7 @@ export default function TopBrands() {
             </div>
           </div>
         </div>
-        <div className="grid-item relative">
+        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -58,7 +80,7 @@ export default function TopBrands() {
             </div>
           </div>
         </div>
-        <div className="grid-item relative">
+        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -85,7 +107,7 @@ export default function TopBrands() {
             </div>
           </div>
         </div>
-        <div className="grid-item relative">
+        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
