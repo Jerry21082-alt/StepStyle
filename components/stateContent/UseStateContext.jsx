@@ -120,7 +120,7 @@ export default function UseStateContext({ children }) {
     );
 
     if (itemToDelete !== -1) {
-      updatedCartItems.splice(itemToDelete, 1);
+      updatedCartItems.splice(updatedCartItems.indexOf(itemToDelete), 1);
       setCartItems(updatedCartItems);
     }
   };

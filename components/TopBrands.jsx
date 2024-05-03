@@ -1,34 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import AnimateOnReveal from "./AnimateOnReveal";
 
 export default function TopBrands() {
-  const [viewElement, setViewElement] = useState(false);
-  const elementRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setViewElement(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    if (elementRef.current) observer.observe(elementRef.current);
-
-    return () => {
-      if (elementRef.current) observer.unobserve(elementRef.current);
-    };
-  }, []);
-
   return (
     <div className="w-full h-full mt-8">
       <h2 className="mb-5 ml-2">Shop Our Top Brands</h2>
 
       <div className="grid container">
-        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`} ref={elementRef}>
+        <div className={`grid-item relative`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -43,7 +24,9 @@ export default function TopBrands() {
               </svg>
             </div>
 
-            <div className="p-5 absolute top-1/2">
+            <AnimateOnReveal
+              otherClassName={`p-5 absolute top-1/2`}
+            >
               <h2 className="text-snow">
                 <span className="text-secondaryColor">Elevate Your Style:</span>{" "}
                 Discover Premium Sneaker from Puma
@@ -52,10 +35,10 @@ export default function TopBrands() {
               <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow">
                 Shop Now
               </button>
-            </div>
+            </AnimateOnReveal>
           </div>
         </div>
-        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
+        <div className={`grid-item relative`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -68,7 +51,9 @@ export default function TopBrands() {
               </svg>
             </div>
 
-            <div className="p-5 absolute top-1/2">
+            <AnimateOnReveal
+              otherClassName={`p-5 absolute top-1/2`}
+            >
               <h2 className="text-snow">
                 <span className="text-secondaryColor">Iconic Designs:</span>{" "}
                 Shop Classic and Trendsetting Sneakers by Adidas
@@ -77,10 +62,10 @@ export default function TopBrands() {
               <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow">
                 Shop Now
               </button>
-            </div>
+            </AnimateOnReveal>
           </div>
         </div>
-        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
+        <div className={`grid-item relative`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -95,7 +80,9 @@ export default function TopBrands() {
               </svg>
             </div>
 
-            <div className="p-5 absolute top-1/2">
+            <AnimateOnReveal
+              otherClassName={`p-5 absolute top-1/2`}
+            >
               <h2 className="text-snow">
                 <span className="text-secondaryColor">Unlock Performance:</span>{" "}
                 Find Your Perfect Pair of Nike Sneakers
@@ -104,10 +91,10 @@ export default function TopBrands() {
               <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow">
                 Shop Now
               </button>
-            </div>
+            </AnimateOnReveal>
           </div>
         </div>
-        <div className={`grid-item relative ${viewElement ? 'slide-up' : ''}`}>
+        <div className={`grid-item relative`}>
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="w-16 h-16 left-2 top-2 absolute">
               <svg
@@ -133,7 +120,9 @@ export default function TopBrands() {
               </svg>
             </div>
 
-            <div className="p-5 absolute top-1/2">
+            <AnimateOnReveal
+              otherClassName={`p-5 absolute top-1/2`}
+            >
               <h2 className="text-snow">
                 <span className="text-secondaryColor">Step into Comfort:</span>{" "}
                 Explore the Latest New Balance Sneaker Collection
@@ -142,7 +131,7 @@ export default function TopBrands() {
               <button className="mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow ">
                 Shop Now
               </button>
-            </div>
+            </AnimateOnReveal>
           </div>
         </div>
       </div>

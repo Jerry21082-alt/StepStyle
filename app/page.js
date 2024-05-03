@@ -14,7 +14,7 @@ export default function Home() {
   const { searchFocus } = stateFunc();
   return (
     <>
-      <div className="min-h-screen z-50 bg-snow overflow-hidden mb-5">
+      <div className="z-50 bg-snow overflow-hidden mb-5">
         <Hero />
         <ProductReel
           title="New Arrival"
@@ -34,7 +34,6 @@ export default function Home() {
 
         {searchFocus && <Overlay />}
       </div>
-      <Footer />
     </>
   );
 }

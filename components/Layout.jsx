@@ -17,7 +17,7 @@ export default function Layout({ children }) {
       <nav>
         <Navigation />
       </nav>
-      <div className="p-2 md:p-20 flex flex-col w-full overscroll-">
+      <div className="p-2 md:p-20 flex flex-col w-full overscroll-contain bg-snow">
         {children}
       </div>
     </>

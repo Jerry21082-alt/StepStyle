@@ -65,7 +65,7 @@ export default function ProductList({ product, products }) {
           className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4`}
         >
           <div
-            className="flex items-center justify-center h-full w-full"
+            className="flex items-center justify-center h-full w-full zoom-img"
             onClick={() => view(product)}
           >
             <Image

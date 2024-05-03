@@ -104,7 +104,7 @@ export default function Cart() {
                   className="flex flex-col justify-center w-full bg-white rounded-md px-2"
                   key={idx}
                 >
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 mt-2">
                     <div className="w-28 aspect-square flex items-center justify-center">
                       <Image
                         src={`/${item.photos.main}`}
