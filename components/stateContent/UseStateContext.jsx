@@ -93,7 +93,7 @@ export default function UseStateContext({ children }) {
     cvc: false,
   });
 
-  const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderSuccess, setOrderSuccess] = useState(true);
 
   const incQty = () => {
     setQuantity((prevQty) => prevQty + 1);

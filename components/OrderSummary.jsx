@@ -227,7 +227,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.name && paymentFocus.name && paymentInput.name
-                ? null
+                ? 'block space-y-1'
                 : "hidden"
             }
           >
@@ -253,7 +253,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.card && paymentFocus.card && paymentInput.card
-                ? null
+                ? 'block space-y-1'
                 : "hidden"
             }
           >
@@ -276,7 +276,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.exp && paymentFocus.exp && paymentInput.exp
-                ? null
+                ? 'block space-y-1'
                 : "hidden"
             }
           >
@@ -301,7 +301,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.cvc && paymentFocus.cvc && paymentInput.cvc
-                ? null
+                ? 'block space-y-1'
                 : "hidden"
             }
           >
@@ -344,11 +344,7 @@ export default function OrderSummary({
         <h3 className="font-[500] text-lg">Total</h3>
         <h3 className="font-bold text-lg">
           $
-          {quantity
-            ? quantity
-              ? totalPrice * quantity - (totalPrice * 10) / 100
-              : totalPrice
-            : totalPrice - (totalPrice * 10) / 100}
+          {totalPrice}
         </h3>
       </div>
       <span className="flex justify-center items-center">

@@ -400,6 +400,11 @@ label {
   transition: transform 0.3s ease;
 }
 
+.open-order-success {
+  transform: scale(0.2);
+  animation: popOut 1s ease forwards;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .grid-container {
@@ -407,6 +412,15 @@ label {
       auto-fill,
       minmax(150px, 1fr)
     ); /* Adjust grid columns for smaller screens */
+  }
+}
+
+@keyframes popOut {
+  from {
+    transform: scale(0.2);
+  }
+  to {
+    transform: scale(1);
   }
 }
 

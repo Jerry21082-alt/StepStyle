@@ -13,7 +13,17 @@ import { products } from "@/constants/mockProducts";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
-  const { incQty, quantity, decQty, setQuantity } = stateFunc();
+  const {
+    incQty,
+    quantity,
+    decQty,
+    setQuantity,
+    cartItems,
+    setCartItems,
+    addToCart,
+    setNotify,
+    setNotifyMsg,
+  } = stateFunc();
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
@@ -44,6 +54,17 @@ export default function ProductDetails({ params }) {
 
     return () => document.removeEventListener("click", handleShoeSizeModal);
   }, [toggleShoeSize]);
+
+  const handleAddToCart = (product) => {
+    const itemInCart = cartItems.some((item) => item.id === product.id);
+
+    if (!itemInCart) {
+      addToCart(product);
+    } else {
+      setNotify(true);
+      setNotifyMsg("Item exist in cart!");
+    }
+  };
 
   const ShoeSizes = () => (
     <div className="w-[120px] relative" ref={sizeRef}>
@@ -174,7 +195,10 @@ export default function ProductDetails({ params }) {
                 Buy Now
               </Link>
             </button>
-            <button className="w-32 border-solid text-snow bg-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 transition-all w-34">
+            <button
+              className="w-32 border-solid text-snow bg-secondaryColor rounded-3xl py-2 px-4 text-sm active:scale-90 transition-all w-34"
+              onClick={() => handleAddToCart(productDetails)}
+            >
               Add to Cart
             </button>
           </div>
@@ -192,7 +216,7 @@ export default function ProductDetails({ params }) {
         </div>
       </div>
 
-      <Slider products={products.slice(0, 8)} title='Similar products'/>
+      <Slider products={products.slice(0, 8)} title="Similar products" />
     </Layout>
   );
 }
