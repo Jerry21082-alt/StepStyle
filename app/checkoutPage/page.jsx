@@ -2,10 +2,10 @@
 
 import OrderSummary from "@/components/OrderSummary";
 import DeliveryInfo from "@/components/DeliveryInfo";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import Success from "@/components/Success";
 import Overlay from "@/components/Overlay";
@@ -21,55 +21,70 @@ export default function CheckOutPage() {
   const { cartItems, orderSuccess, setOrderSuccess } = stateFunc();
   const [isCustomer, setIscustomer] = useState(true);
 
-  const _productIdDetail = [];
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const checkoutProducts = [];
 
   for (let id of ids) {
-    const productDetails = [...products];
-    const getProduct = productDetails.find((detail) => detail.id == id);
-    const quantity = cartItems.filter((item) => item == id).length;
-    _productIdDetail.push({ ...getProduct, qty: quantity });
+    const product = products.find((item) => item.id == id);
+    checkoutProducts.push(product);
   }
 
+  const getEachCartItemsQuantity = (product) => {
+    const itemQuantity = cartItems.find((item) => item.id === product.id);
+
+    return itemQuantity.quantity;
+  };
+
+  // const productDetails = [...products];
+  // const getProduct = productDetails.find((detail) => detail.id === id);
+  // const quantity = cartItems.filter((item) => item === id).length;
+  // _productIdDetail.push({ ...getProduct, qty: quantity });
   return (
     <Layout>
       <div className="flex flex-col md:flex-row">
         <div>
           <div className="w-full md:w-[55vw] border-2 border-primaryColor border-solid rounded-md p-3">
             <h2 className="font-bold text-lg">Review Item and shipping</h2>
-            {_productIdDetail.map((product) => (
-              <div key={product.id} className="flex items-start mt-5">
-                <AspectRatioContainer className="bg-primaryColor rounded-md w-36 p-2">
-                  <div className="h-full flex items-center justify-center">
-                    <Image
-                      src={`/${product.photos.main}`}
-                      alt="product photo"
-                      width={500}
-                      height={500}
-                    />
-                  </div>
-                </AspectRatioContainer>
-                <div className="w-full flex items-start md:justify-between flex-col md:flex-row ml-5">
-                  <p className="font-medium text-sm md:w-[300px]">
-                    {product.name.length > 50
-                      ? `${product.name.substring(0, 50)}...`
-                      : product.name}
-                  </p>
-                  <div className="flex items-center space-x-4 flex-row md:flex-col">
-                    <span className="mt-5 font-medium text-sm">
-                      Price: ${product.name}
-                    </span>
-                    <span className="mt-5 font-medium text-sm">
-                      Qty: {product.qty || getQuantity}
-                    </span>
-                    <span
-                      className={size ? `mt-5 font-medium text-sm` : `hidden`}
-                    >
-                      Size: {size}
-                    </span>
+            {isMounted &&
+              checkoutProducts.map((product) => (
+                <div key={product.id} className="flex items-start mt-5">
+                  <AspectRatioContainer className="bg-primaryColor rounded-md w-36 p-2">
+                    <div className="h-full flex items-center justify-center">
+                      <Image
+                        src={`/${product.photos.main}`}
+                        alt="product photo"
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                  </AspectRatioContainer>
+                  <div className="w-full flex items-start md:justify-between flex-col md:flex-row ml-5">
+                    <p className="font-medium text-sm md:w-[300px]">
+                      {product.name.length > 50
+                        ? `${product.name.substring(0, 50)}...`
+                        : product.name}
+                    </p>
+                    <div className="flex items-center space-x-4 flex-row md:flex-col">
+                      <span className="mt-5 font-medium text-sm">
+                        Price: ${product.price}
+                      </span>
+                      <span className="mt-5 font-medium text-sm">
+                        Qty: {getQuantity || getEachCartItemsQuantity(product)}
+                      </span>
+                      <span
+                        className={size ? `mt-5 font-medium text-sm` : `hidden`}
+                      >
+                        Size: {size}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <div className="flex items-center mt-5">
             <input
@@ -82,7 +97,7 @@ export default function CheckOutPage() {
           <DeliveryInfo isCustomer={isCustomer} setIscustomer={setIscustomer} />
         </div>
         <OrderSummary
-          productDetails={_productIdDetail}
+          productDetails={checkoutProducts}
           quantity={getQuantity}
           isCustomer={isCustomer}
           orderSuccess={orderSuccess}

@@ -20,6 +20,14 @@ export default function Cart() {
 
   const totalPrice = getTotalPrice().toFixed(2);
 
+  const ids = [];
+
+  for (let item of cartItems) {
+    ids.push(item.id);
+  }
+
+  const idString = ids.join(",");
+
   useEffect(() => {
     const onClose = () => setToggleCart(false);
 
@@ -137,15 +145,15 @@ export default function Cart() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <span
+                  <div className="flex items-center justify-between mt-4">
+                    <div
                       className="text-secondaryColor"
                       onClick={() => handleDelete(item)}
                     >
                       Remove
-                    </span>
+                    </div>
 
-                    <div className="flex items-center space-x-5 mt-4">
+                    <div className="flex items-center space-x-5">
                       <button
                         className="w-6 h-6 rounded bg-secondaryColor flex items-center justify-center p-1"
                         onClick={() =>
@@ -192,10 +200,19 @@ export default function Cart() {
                 </AspectRatioContainer>
               ))}
             <div className="w-full py-5">
-              <button className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl">
+              <Link
+                className="w-full bg-secondaryColor py-2 text-white flex items-center justify-center space-x-2 rounded-3xl"
+                onClick={() => setToggleCart(false)}
+                href={{
+                  pathname: "/checkoutPage",
+                  query: {
+                    id: isMounted && ids,
+                  },
+                }}
+              >
                 <h4>Checkout</h4>
                 <h4>{`[$${isMounted && totalPrice}]`}</h4>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

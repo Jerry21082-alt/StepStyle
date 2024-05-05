@@ -27,9 +27,6 @@ input {
   outline: none;
   font-size: 16px;
   background: transparent;
-}
-
-input[type='text'] {
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -446,4 +443,3 @@ label {
     transform: scale(1);
   }
 }
-
