@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function AnimateOnReveal({ children, otherClassName }) {
+export default function AnimateOnReveal({ children, otherClassName, animation }) {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
 
@@ -27,7 +27,7 @@ export default function AnimateOnReveal({ children, otherClassName }) {
     };
   }, []);
   return (
-    <div ref={elementRef} className={`${isVisible ? "slide-up" : ""} ${otherClassName}`}>
+    <div ref={elementRef} className={`${isVisible ? animation : ""} ${otherClassName}`}>
       {children}
     </div>
   );

@@ -190,7 +190,7 @@ export const products = [
     brand: "Under Armour",
     price: 160,
     originalPrice: 160,
-    percent: 1,
+    percent: 12,
     quantity: 1,
 
     description:

@@ -13,33 +13,48 @@
   src: url("../public/Poppins-Regular.ttf");
 }
 
+@font-face {
+  font-family: NikeFont;
+  src: url("../public/futura-nd-for-nike-365-snkrs-cn-xbd.ttf");
+}
+
+@font-face {
+  font-family: HelveticaNowText;
+  src: url("../public/helveticanowtext-bold-demo.ttf");
+}
+
 h1 {
-  font-family: PoppinsSemibold;
+  font-family: NikeFont;
   font-size: 24px;
 }
 
 h2 {
-  font-family: PoppinsSemibold;
+  font-family: NikeFont;
   font-size: 18px;
 }
 
 h3 {
-  font-family: PoppinsRegular;
+  font-family: NikeFont;
   font-size: 18px;
 }
 
 h4 {
-  font-family: PoppinsSemibold;
+  font-family: NikeFont;
+  font-size: 16px;
+}
+
+h5 {
+  font-size:  HelveticaNowText;
   font-size: 16px;
 }
 
 caption,
 p {
-  font-family: PoppinsRegular;
+  font-family: HelveticaNowText;
   font-size: 12px;
 }
 
 button {
-  font-family: PoppinsRegular;
+  font-family: HelveticaNowText;
   font-size: 16px;
 }

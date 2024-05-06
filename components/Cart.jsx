@@ -26,8 +26,6 @@ export default function Cart() {
     ids.push(item.id);
   }
 
-  const idString = ids.join(",");
-
   useEffect(() => {
     const onClose = () => setToggleCart(false);
 

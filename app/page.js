@@ -17,20 +17,20 @@ export default function Home() {
       <div className="z-50 bg-snow overflow-hidden mb-5">
         <Hero />
         <ProductReel
-          title="New Arrival"
-          subtitle="shop now"
+          title="NEW ARRIVALS"
+          subtitle="Explore the latest drops from top brands"
           products={products.slice(0, 12)}
         />
         {/* <ProductPrev /> */}
-        <Slider title="Trending" products={products} />
+        <Slider title="TRENDING" products={products} />
         <TopBrands />
         <GiveAway />
         <ProductReel
           products={products.slice(0, 4)}
           subtitle="Get 50% off"
-          title="Flash Sales!"
+          title="FLASH SALES!"
         />
-        <Slider title="Recently Search Viewed Items" products={products} />
+        <Slider title="RECENTLY VIEWED" products={products} />
 
         {searchFocus && <Overlay />}
       </div>

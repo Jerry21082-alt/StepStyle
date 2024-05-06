@@ -8,20 +8,20 @@ export default function ProductReel({ products, title, subtitle, href }) {
 
   return (
     <Layout>
-      <section className="pb-12 mt-4">
+      <section className="mt-12">
         <div className="md:flex md:items-center md:justify-between mb-4">
-          <div className="max-w-2xl lg:max-w-4xl lg:px-0">
+          <div className="w-full lg:px-0">
             {title ? (
-              <div className="w-full flex justify-between">
-                <h1 className="text-xl font-bold sm:text-3xl">
+              <div className="flex justify-between">
+                <h3 className="text-xl font-bold sm:text-3xl">
                   {title}
-                </h1>
+                </h3>
 
                 <span className="see relative text-xs">Shop All</span>
               </div>
             ) : null}
             {subtitle ? (
-              <p className="mt-2 text-sm">{subtitle}</p>
+              <p className="mt-2 text-sm max-w-[200px]">{subtitle}</p>
             ) : null}
           </div>
 
@@ -37,7 +37,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
 
         <div className="relative">
           <div className="flex items-center w-full mt-6">
-            <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
+            <div className="w-full grid grid-cols-2 gap-x-2 gap-y-10 md:gap-x-4 md:grid-cols-4 md:gap-y-10">
               {myMap.map((product, index) => (
                 <ProductList
                   key={index}

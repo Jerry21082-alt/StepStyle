@@ -3,42 +3,82 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import AspectRatioContainer from "./AspectRatioContainer";
 
 export default function Slider({ title, products }) {
-  const [height, setHeight] = useState(0);
-  const ref = useRef(null);
+  const containerRef = useRef(null);
+  const handleScrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft -= 500;
+    }
+  };
 
-  useEffect(() => {
-    setHeight((ref.current.clientWidth * 1) / 1);
-  }, [ref]);
+  const handleScrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += 500;
+    }
+  };
 
   return (
-    <div className="mt-8 w-full">
+    <div className="mt-12 w-full"  >
       <div className="flex justify-between w-full">
-        <h4 className="ml-4 mb-4">{title}</h4>
+        <h3 className="ml-4 mb-4 text-xl sm:text-3xl">{title}</h3>
         <Link href="/" className="see relative text-xs mr-4">
           See All
         </Link>
       </div>
-      <div className="media-scroller snaps-inline">
-        {products.slice(0, 8).map((product, i) => (
-          <div className="media-element" key={i}>
-            <div
-              style={{ height: `${height}px` }}
-              ref={ref}
-              className="bg-cardBg w-40 h-40 aspect-square p-4 rounded-xl flex items-center justify-center"
-            >
-              <Image
-                src={`/${product.photos.main}`}
-                width={500}
-                height={500}
-                alt="product image"
-              />
+
+      <div className="relative w-full">
+        <div
+          className="w-10 h-10 bg-white rounded-full absolute top-1/2 left-16 -translate-y-1/2 flex items-center justify-center cursor-pointer"
+          onClick={handleScrollLeft}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            id="chevron"
+            width={15}
+          >
+            <path d="M13.891 17.418a.697.697 0 0 1 0 .979.68.68 0 0 1-.969 0l-7.83-7.908a.697.697 0 0 1 0-.979l7.83-7.908a.68.68 0 0 1 .969 0 .697.697 0 0 1 0 .979L6.75 10l7.141 7.418z"></path>
+          </svg>
+        </div>
+        <div
+          className="media-scroller snaps-inline scroll-smooth ease-linear"
+          ref={containerRef}
+        >
+          {products.slice(0, 8).map((product, i) => (
+            <div className="media-element" key={i}>
+              <AspectRatioContainer
+                aspectRatio={6 / 5}
+                className="bg-cardBg w-[50vw] md:w-[20vw] p-4 flex items-center justify-center"
+              >
+                <div className="flex justify-center items-center h-full w-full">
+                  <Image
+                    src={`/${product.photos.main}`}
+                    width={500}
+                    height={500}
+                    alt="product image"
+                  />
+                </div>
+              </AspectRatioContainer>
+              <span className="truncate mt-2 text-sm">{product.name}</span>
+              <h4 className="mt-2 text-sm">${product.price}</h4>
             </div>
-            <span className="truncate mt-2 text-sm">{product.name}</span>
-            <h4 className="mt-2 text-sm">${product.price}</h4>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div
+          className="w-10 h-10 bg-white rounded-full absolute top-1/2 right-16 -translate-y-1/2 flex items-center justify-center cursor-pointer"
+          onClick={handleScrollRight}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            id="chevron"
+            width={15}
+          >
+            <path d="M13.25 10 6.109 2.58a.697.697 0 0 1 0-.979.68.68 0 0 1 .969 0l7.83 7.908a.697.697 0 0 1 0 .979l-7.83 7.908a.68.68 0 0 1-.969 0 .697.697 0 0 1 0-.979L13.25 10z"></path>
+          </svg>
+        </div>
       </div>
     </div>
   );

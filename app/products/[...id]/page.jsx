@@ -202,9 +202,9 @@ export default function ProductDetails({ params }) {
               Add to Cart
             </button>
           </div>
-          <div className="flex justify-center-items-center mt-5 space-x-2">
+          <div className="flex items-center mt-5 space-x-2">
             <TbTruckDelivery size={25} color="fe5d26" />
-            <h4 className="font-500">Free Delivery</h4>
+            <h4>Free Delivery</h4>
           </div>
           <p>Enter your postalcode for delivery availability</p>
 

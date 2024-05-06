@@ -58,11 +58,10 @@ export default function ProductList({ product, products }) {
   return (
     <div className={`h-full cursor-pointer group/main relative`}>
       <div
-        // href={`/products/${product.id}`}
         className="flex flex-col w-full group"
       >
         <AspectRatioContainer
-          className={`flex items-center justify-center group bg-cardBg overflow-hidden rounded-xl p-4`}
+          className={`flex items-center justify-center group bg-cardBg overflow-hidden p-4`}
         >
           <div
             className="flex items-center justify-center h-full w-full zoom-img"
@@ -112,7 +111,7 @@ export default function ProductList({ product, products }) {
           </div>
         </div>
 
-        <h3 className="mt-4 font-medium text-sm">{product.name}</h3>
+        <h5 className="mt-4">{product.name}</h5>
 
         <h4 className="mt-1 font-medium text-sm">${product.price}</h4>
       </div>
