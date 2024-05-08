@@ -45,7 +45,7 @@ export default function MobileSideBar() {
 
   return (
     <section
-      className={`fixed top-0 left-0 right-0 w-full min-h-screen z-20 bg-snow p-2 ${
+      className={`fixed top-0 left-0 right-0 w-full min-h-screen z-30 bg-snow p-2 ${
         openMobileNav ? "open-side-bar" : "close-side-bar"
       }`}
     >

@@ -39,19 +39,18 @@ export default function SearchNav() {
           <input
             type="text"
             placeholder="Find items"
-            //   ref={searchRef}
             value={searchInput}
             onChange={(ev) => setSearchInput(ev.target.value)}
             className="search-input w-3/4"
           />
         </div>
 
-        <h4
+        <h5
           className="text-secondaryColor"
           onClick={() => setOpenProductSearch(false)}
         >
           Cancel
-        </h4>
+        </h5>
       </nav>
     </section>
   );

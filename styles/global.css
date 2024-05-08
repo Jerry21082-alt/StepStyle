@@ -35,9 +35,12 @@ label {
   margin-bottom: 5px;
 }
 
+.hero-heading {
+  font-family: HelveticaNowText;
+}
+
 .hero-section {
   width: 100vw;
-  /* aspect-ratio: 1 / 1; */
   background-image: url("../public/fachry-zella-devandra-bNSdIkCBJOs-unsplash\ \(1\).jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -290,7 +293,6 @@ label {
   gap: 0; /* No gap between grid items */
 }
 
-
 .brandCards:nth-child(1) {
   background: url("../public/jordan-whitfield-cfutbZ4Kt2k-unsplash\ \(1\).jpg");
   background-position: center;
@@ -317,7 +319,7 @@ label {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-} 
+}
 
 .brandCards::before {
   content: "";
@@ -329,14 +331,6 @@ label {
   width: 100%;
   height: 100%;
 }
-
-/* .flex-item {
-  height: 0; 
-  padding-bottom: 100%; 
-  background-size: cover;
-  background-position: center;
-  position: relative;
-} */
 
 .open-product-search {
   opacity: 1;
@@ -411,6 +405,45 @@ label {
 .open-order-success {
   transform: scale(0.2);
   animation: popOut 1s ease forwards;
+}
+
+.slider-item {
+  opacity: 0;
+  transition: opacity 1s ease;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.slider-item::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slider-item.active {
+  opacity: 1;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  color: #fff;
 }
 
 /* Media queries for responsiveness */

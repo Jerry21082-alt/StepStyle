@@ -40,16 +40,12 @@ export default function CheckOutPage() {
     return itemQuantity.quantity;
   };
 
-  // const productDetails = [...products];
-  // const getProduct = productDetails.find((detail) => detail.id === id);
-  // const quantity = cartItems.filter((item) => item === id).length;
-  // _productIdDetail.push({ ...getProduct, qty: quantity });
   return (
     <Layout>
       <div className="flex flex-col md:flex-row">
         <div>
           <div className="w-full md:w-[55vw] border-2 border-primaryColor border-solid rounded-md p-3">
-            <h2 className="font-bold text-lg">Review Item and shipping</h2>
+            <h5 className="font-bold text-lg">Review Item and shipping</h5>
             {isMounted &&
               checkoutProducts.map((product) => (
                 <div key={product.id} className="flex items-start mt-5">
@@ -87,10 +83,10 @@ export default function CheckOutPage() {
               ))}
           </div>
           <div className="flex items-center mt-5">
-            <input
-              type="checkbox"
-              onChange={() => setIscustomer((prev) => !prev)}
-            />
+            <div
+              className="flex item-center justify-center w-4 h-4 border"
+              style={{ backgroundColor: isCustomer ? "#008000" : null }}
+            ></div>
 
             <p className="text-sm ml-2">Returning Customer?</p>
           </div>

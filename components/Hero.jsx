@@ -3,10 +3,29 @@
 import { useEffect, useRef, useState } from "react";
 import AspectRatioContainer from "./AspectRatioContainer";
 import { stateFunc } from "./stateContent/UseStateContext";
+import HeroSlider from "./HeroSlider";
 
 export default function Hero() {
   const { setHeight } = stateFunc();
   const ref = useRef(null);
+
+  const slides = [
+    {
+      image: "/pexels-wesleydavi-7116191 (1).jpg",
+      title: "Elevate Your Look with Our Sneaker Sanctuary",
+      btnText: "Explore",
+    },
+    {
+      image: "/pexels-biola-visuals-415017893-16499261 (1).jpg",
+      title: "Feel the Unreal, Match your Style",
+      btnText: "Shop Now",
+    },
+    {
+      image: "/pexels-jonathanborba-13896072 (1).jpg",
+      title: "New Fitness Essentials",
+      btnText: "Shop Now",
+    },
+  ];
 
   const [loaded, setLoaded] = useState(false);
 
@@ -20,25 +39,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero-section h-[60vh] md:h-[70vh]">
-      <div
-        ref={ref}
-        className="absolute top-1/4 left-0 right-12 bottom-0 z-20 p-5 h-full"
-      >
-        <h1 className={`text-snow text-3xl ${loaded ? "slide-up" : ""}`}>
-          <span className="text-secondaryColor">StepStyle:</span> Your Ultimate
-          Destination for Sneakerheads
-        </h1>
-
-        <button
-          className={`mt-12 border-2 border-snow py-1 px-4 rounded-3xl text-snow ${
-            loaded ? "slide-left" : ""
-          }`}
-        >
-          Explore
-        </button>
-      </div>
+    <section className="" ref={ref}>
+      <HeroSlider slides={slides} />
     </section>
-    // </AspectRatioContainer>
   );
 }

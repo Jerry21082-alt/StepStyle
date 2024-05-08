@@ -11,7 +11,7 @@ export default function DeliveryInfo({ isCustomer, setIscustomer }) {
       className={`w-full border-2 border-primaryColor border-solid rounded-md p-3 my-5`}
     >
       <div className="flex justify-between items-center">
-        <h2 className="font-bold">Delivery Information</h2>
+        <h5 className="text-xl">Delivery Information</h5>
         {isCustomer && (
           <button
             onClick={() => setIscustomer(false)}

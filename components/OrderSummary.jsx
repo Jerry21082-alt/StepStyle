@@ -189,7 +189,7 @@ export default function OrderSummary({
 
   return (
     <div className="w-full border-2 border-primaryColor border-solid rounded-md p-3">
-      <h2 className="font-bold text-xl">Order Summary</h2>
+      <h5 className="text-xl">Order Summary</h5>
       <div className="flex relative items-center w-full bg-primaryColor h-12 rounded-3xl overflow-hidden p-2 mt-5">
         <input
           type="text"
@@ -200,7 +200,7 @@ export default function OrderSummary({
           Apply
         </button>
       </div>
-      <h3 className="mt-5 text-lg font-bold">Payment Details</h3>
+      <h4 className="mt-5 text-lg font-bold">Payment Details</h4>
       <div className="flex items-center mt-5 gap-2 border-t border-primaryColor">
         <div className="w-[50px]">
           <Image
@@ -341,11 +341,11 @@ export default function OrderSummary({
         <SubTotal title={`Shipping Cost`} price={`-$0.00`} />
       </div>
       <div className="flex justify-between items-center mt-5">
-        <h3 className="font-[500] text-lg">Total</h3>
-        <h3 className="font-bold text-lg">
+        <h5 className="font-[500] text-lg">Total</h5>
+        <h5 className="font-bold text-lg">
           $
           {totalPrice}
-        </h3>
+        </h5>
       </div>
       <span className="flex justify-center items-center">
         <button

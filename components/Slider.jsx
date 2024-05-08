@@ -9,20 +9,20 @@ export default function Slider({ title, products }) {
   const containerRef = useRef(null);
   const handleScrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 500;
+      containerRef.current.scrollLeft -= 200;
     }
   };
 
   const handleScrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 500;
+      containerRef.current.scrollLeft += 200;
     }
   };
 
   return (
-    <div className="mt-12 w-full"  >
+    <div className="mt-12 w-full">
       <div className="flex justify-between w-full">
-        <h3 className="ml-4 mb-4 text-xl sm:text-3xl">{title}</h3>
+        <h3 className="ml-4 mb-4 text-2xl md:text-5xl">{title}</h3>
         <Link href="/" className="see relative text-xs mr-4">
           See All
         </Link>
@@ -30,8 +30,9 @@ export default function Slider({ title, products }) {
 
       <div className="relative w-full">
         <div
-          className="w-10 h-10 bg-white rounded-full absolute top-1/2 left-16 -translate-y-1/2 flex items-center justify-center cursor-pointer"
+          className="w-10 h-10 bg-white rounded-full absolute top-1/2 left-16 -translate-y-1/2 flex items-center justify-center cursor-pointer active:scale-75 transition"
           onClick={handleScrollLeft}
+          style={{ display: products.length > 1 ? "flex" : "none" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,8 +68,9 @@ export default function Slider({ title, products }) {
           ))}
         </div>
         <div
-          className="w-10 h-10 bg-white rounded-full absolute top-1/2 right-16 -translate-y-1/2 flex items-center justify-center cursor-pointer"
+          className="w-10 h-10 bg-white rounded-full absolute top-1/2 right-16 -translate-y-1/2 flex items-center justify-center cursor-pointer active:scale-75 transition"
           onClick={handleScrollRight}
+          style={{ display: products.length > 1 ? "flex" : "none" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

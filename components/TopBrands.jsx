@@ -7,7 +7,7 @@ import AspectRatioContainer from "./AspectRatioContainer";
 export default function TopBrands() {
   return (
     <div className="w-full mt-12">
-      <h3 className="mb-5 ml-2 text-2xl md:text-3xl">SHOP OUR TOP BRANDS</h3>
+      <h3 className="mb-5 ml-2 text-2xl md:text-5xl">SHOP OUR TOP BRANDS</h3>
 
       <div className="w-full flex flex-wrap relative">
         <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
@@ -109,7 +109,6 @@ export default function TopBrands() {
             >
               <path
                 fill="#FFFFFF"
-                fill-rule="evenodd"
                 d="m7.998 7.567-2.758.722c-.974.241-1.826.562-2.647.281-1.116-.482-1.096-1.736-.264-3.07-1.471 1.214-4.118 5.096-.538 5.488.456.06 1.268-.1 2.15-.471l4.057-1.665L16 5.58 8.992 7.306l-.994.261z"
                 clip-rule="evenodd"
               ></path>
