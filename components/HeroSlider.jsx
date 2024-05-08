@@ -36,10 +36,11 @@ export default function HeroSlider({ slides }) {
           <div className="w-full flex md:hidden items-center justify-center space-x-2 absolute bottom-4">
             {slides.map((value, index) => (
               <div
+                key={index}
                 className={`${
                   index === currentIndex ? "bg-secondaryColor" : "bg-snow"
                 } h-2 w-2 rounded-full z-20`}
-                style={{transition: 'background-color 1s ease'}}
+                style={{ transition: "background-color 1s ease" }}
               />
             ))}
           </div>
