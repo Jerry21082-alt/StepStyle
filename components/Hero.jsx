@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import AspectRatioContainer from "./AspectRatioContainer";
 import { stateFunc } from "./stateContent/UseStateContext";
 import HeroSlider from "./HeroSlider";
+import DesktopHeroSlider from "./DesktopHeroSlider";
 
 export default function Hero() {
   const { setHeight } = stateFunc();
@@ -21,7 +22,7 @@ export default function Hero() {
       btnText: "Shop Now",
     },
     {
-      image: "/pexels-jonathanborba-13896072 (1).jpg",
+      image: "/pexels-ollivves-1103830 (1).jpg",
       title: "New Fitness Essentials",
       btnText: "Shop Now",
     },
@@ -41,6 +42,7 @@ export default function Hero() {
   return (
     <section className="" ref={ref}>
       <HeroSlider slides={slides} />
+      <DesktopHeroSlider slides={slides}/>
     </section>
   );
 }

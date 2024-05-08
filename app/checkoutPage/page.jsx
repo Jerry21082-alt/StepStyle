@@ -84,9 +84,12 @@ export default function CheckOutPage() {
           </div>
           <div className="flex items-center mt-5">
             <div
-              className="flex item-center justify-center w-4 h-4 border"
-              style={{ backgroundColor: isCustomer ? "#008000" : null }}
-            ></div>
+              className="flex item-center justify-center w-4 h-4"
+              style={{ backgroundColor: isCustomer ? "#008000" : null, border: isCustomer ? '0' : '1px solid' }}
+              onClick={() => setIscustomer((prev) => !prev)}
+            >
+              <BsCheck color="#fff" />
+            </div>
 
             <p className="text-sm ml-2">Returning Customer?</p>
           </div>

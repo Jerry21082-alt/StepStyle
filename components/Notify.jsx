@@ -22,11 +22,11 @@ export default function Notify() {
   return (
     <div className="flex items-center justify-center">
       <div
-        className={`max-w-full fixed top-4 py-2 px-4 bg-secondaryColor rounded-2xl z-[100] flex items-center justify-center flex-col text-snow ${
+        className={`max-w-full fixed top-4 py-2 px-4 bg-secondaryColor rounded-3xl z-[100] flex items-center justify-center flex-col text-snow ${
           notify ? "open-notify" : "close-notify"
         }`}
       >
-        <h3>{notifyMsg}</h3>
+        <span>{notifyMsg}</span>
       </div>
     </div>
   );

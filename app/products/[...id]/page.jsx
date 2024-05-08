@@ -130,9 +130,9 @@ export default function ProductDetails({ params }) {
 
         <div className="p-2 w-full">
           <div className="flex flex-col">
-            <h2 className="text-xl font-bold md:w-[420px]">
+            <h5 className="text-xl font-bold md:w-[420px]">
               {productDetails.name}
-            </h2>
+            </h5>
             <p>{productDetails.description}</p>
 
             <div className="mt-3 pb-5 flex items-center border-b-2 border-solid border-primaryColor">
@@ -216,7 +216,7 @@ export default function ProductDetails({ params }) {
         </div>
       </div>
 
-      <Slider products={products.slice(0, 8)} title="Similar products" />
+      <Slider products={products.slice(0, 8)} title="SIMILAR PRODUCT" />
     </Layout>
   );
 }

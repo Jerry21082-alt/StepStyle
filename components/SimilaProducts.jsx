@@ -12,11 +12,11 @@ export default function SimilarProducts() {
             <div className="flex justify-center items-center rounded-lg bg-primaryColor w-[140px] h-[140px] p-5 md:p-10 md:w-[20vw] md:h-[30vh]">
               <Image src={`/${product.photos.main}`} alt="product-photo" />
             </div>
-            <span>
+            <h2>
               {product.name.length > 15
                 ? `${product.name.substring(0, 15)}...`
                 : product.name}
-            </span>
+            </h2>
             <span className="font-bold mt-2">{`$${product.price}`}</span>
           </div>
         ))}

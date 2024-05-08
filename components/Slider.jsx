@@ -20,8 +20,8 @@ export default function Slider({ title, products }) {
   };
 
   return (
-    <div className="mt-12 w-full">
-      <div className="flex justify-between w-full">
+    <div className="w-full overflow-hidden">
+      <div className="flex justify-between w-full mt-12">
         <h3 className="ml-4 mb-4 text-2xl md:text-5xl">{title}</h3>
         <Link href="/" className="see relative text-xs mr-4">
           See All
@@ -44,7 +44,7 @@ export default function Slider({ title, products }) {
           </svg>
         </div>
         <div
-          className="media-scroller snaps-inline scroll-smooth ease-linear"
+          className="media-scroller snaps-inline scroll-smooth ease-linear space-x-2 md:space-x-4"
           ref={containerRef}
         >
           {products.slice(0, 8).map((product, i) => (
