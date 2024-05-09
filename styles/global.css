@@ -403,6 +403,7 @@ label {
   animation: popOut 1s ease forwards;
 }
 
+
 .slider-item {
   opacity: 0;
   transition: opacity 1s ease;

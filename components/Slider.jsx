@@ -22,7 +22,7 @@ export default function Slider({ title, products }) {
   return (
     <div className="w-full overflow-hidden">
       <div className="flex justify-between w-full mt-12">
-        <h3 className="ml-4 mb-4 text-2xl md:text-5xl">{title}</h3>
+        <h2 className="ml-4 mb-4 text-2xl md:text-5xl">{title}</h2>
         <Link href="/" className="see relative text-xs mr-4">
           See All
         </Link>

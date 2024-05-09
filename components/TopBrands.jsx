@@ -7,7 +7,7 @@ import AspectRatioContainer from "./AspectRatioContainer";
 export default function TopBrands() {
   return (
     <div className="w-full mt-12">
-      <h3 className="mb-5 ml-2 text-2xl md:text-5xl">SHOP OUR TOP BRANDS</h3>
+      <h2 className="mb-5 ml-2 text-2xl md:text-5xl">SHOP OUR TOP BRANDS</h2>
 
       <div className="w-full flex flex-wrap relative">
         <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
