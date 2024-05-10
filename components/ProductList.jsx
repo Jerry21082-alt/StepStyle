@@ -61,7 +61,7 @@ export default function ProductList({ product, products }) {
         className="flex flex-col w-full group"
       >
         <AspectRatioContainer
-          className={`flex items-center justify-center group bg-cardBg overflow-hidden p-4`}
+          className={`flex items-center justify-center group bg-white overflow-hidden p-4`}
         >
           <div
             className="flex items-center justify-center h-full w-full zoom-img"
@@ -111,17 +111,17 @@ export default function ProductList({ product, products }) {
           </div>
         </div>
 
-        <h5 className="mt-4">{product.name}</h5>
+        <h5 className="mt-4">{product.name.toUpperCase()}</h5>
 
         <h4 className="mt-1 font-medium text-sm">${product.price}</h4>
       </div>
 
-      <button
+      {/* <button
         onClick={() => handleAddToCart(product)}
         className="mt-2 bg-buttonColor py-2 px-4 rounded-3xl text-snow text-sm"
       >
         Add to cart
-      </button>
+      </button> */}
     </div>
   );
 }

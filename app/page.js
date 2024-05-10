@@ -6,7 +6,7 @@ import Overlay from "@/components/Overlay";
 import ProductReel from "@/components/ProductReel";
 import Slider from "@/components/Slider";
 import TopBrands from "@/components/TopBrands";
-import { products } from "@/constants/mockProducts";
+import { products,newArrivals, trending, flashSales } from "@/constants/mockProducts";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import { useEffect, useState } from "react";
 
@@ -23,14 +23,14 @@ export default function Home() {
         <ProductReel
           title="NEW ARRIVALS"
           subtitle="Explore the latest drops from top brands"
-          products={products.slice(0, 12)}
+          products={newArrivals}
         />
         {/* <ProductPrev /> */}
-        <Slider title="TRENDING" products={products} />
+        <Slider title="TRENDING" products={trending} />
         <TopBrands />
         <GiveAway />
         <ProductReel
-          products={products.slice(0, 4)}
+          products={flashSales}
           subtitle="Get 50% off"
           title="FLASH SALES!"
         />

@@ -56,11 +56,11 @@ export default function DesktopHeroSlider() {
     <div className="hidden relative h-[600px] w-full md:flex">
       <div className="absolute -bottom-5 left-[5vw] z-30 h-full w-full">
         <div className=" absolute bottom-[25vh]">
-          <h1 className="text-snow text-5xl">SIMBA</h1>
-          <h5 className="text-snow">For any and every look</h5>
+          <h1 className="text-white text-5xl">SIMBA</h1>
+          <h5 className="text-white">For any and every look</h5>
 
           <div className="flex items-center space-x-4 mt-5">
-            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-snow">
+            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-white">
               <span className="text-black text-sm">Shop Men</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function DesktopHeroSlider() {
                 ></path>
               </svg>
             </button>
-            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-snow">
+            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-white">
               <span className="text-black text-sm">Shop Women</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ export default function DesktopHeroSlider() {
                 ></path>
               </svg>
             </button>
-            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-snow">
+            <button className="flex items-center space-x-2 py-1 uppercase px-4  bg-white">
               <span className="text-black text-sm">Shop Kids</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

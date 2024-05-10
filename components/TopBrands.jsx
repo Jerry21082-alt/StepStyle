@@ -7,10 +7,10 @@ import AspectRatioContainer from "./AspectRatioContainer";
 export default function TopBrands() {
   return (
     <div className="w-full mt-12">
-      <h2 className="mb-5 ml-2 text-2xl md:text-5xl">SHOP OUR TOP BRANDS</h2>
+      <h2 className="mb-5 ml-20 text-2xl md:text-5xl">SHOP OUR TOP BRANDS</h2>
 
-      <div className="w-full flex flex-wrap relative">
-        <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
+      <div className="w-full flex relative">
+        <AspectRatioContainer className="brandCards relative w-full">
           <div className="w-20 absolute top-4 left-4 z-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ export default function TopBrands() {
           </div>
         </AspectRatioContainer>
 
-        <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
+        <AspectRatioContainer className="w-full brandCards relative">
           <div className="absolute w-32 top-0 z-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ export default function TopBrands() {
             </button>
           </div>
         </AspectRatioContainer>
-        <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
+        <AspectRatioContainer className="w-full brandCards relative">
           <div className="w-32 absolute top-4 left-4 z-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ export default function TopBrands() {
             </button>
           </div>
         </AspectRatioContainer>
-        <AspectRatioContainer className="w-full md:w-1/2 brandCards relative">
+        <AspectRatioContainer className="w-full brandCards relative">
           <div className="w-32 absolute top-4 left-4 z-30">
             <svg
               xmlns="http://www.w3.org/2000/svg"
