@@ -13,10 +13,8 @@ export default function Layout({ children }) {
       <Cart />
       <SearchNav />
       <ProductSearch />
+      <Navigation />
 
-      <nav>
-        <Navigation />
-      </nav>
       <div className="p-2 md:px-20 flex flex-col w-full overscroll-contain bg-snow">
         {children}
       </div>

@@ -31,7 +31,7 @@ export default function ProductDetails({ params }) {
   );
 
   const [shoeSizes, setShoeSizes] = useState(8);
-  const [toggleShoeSize, setToggleShoeSize] = useState(true);
+  const [toggleShoeSize, setToggleShoeSize] = useState(false);
 
   const sizeRef = useRef();
 

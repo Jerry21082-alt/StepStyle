@@ -109,103 +109,106 @@ export default function Navigation() {
     setInitialInput("");
   };
 
-  return (
-    <>
-      <div
-        ref={searchRefBox}
-        className={`absolute  top-0 left-0 h-72 w-screen bg-snow z-[60] px-10 py-2 ${
-          activeSearch ? "active-search" : "inactive-search"
-        }`}
-      >
-        <div className="flex justify-center items-center w-full relative">
-          <div className="logo text-secondaryColor absolute left-10">
-            StepStyle
-          </div>
-
-          <div
-            className={`bg-cardBg flex items-center space-x-3 rounded-3xl p-2 w-[656px] desktop-search-input ${
-              activeSearch ? "animate-search-input" : ""
-            }`}
-          >
-            <div className="flex justify-center w-6 h-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-                viewBox="-5.0 -10.0 110.0 135.0"
-                className="w-full"
-              >
-                <g>
-                  <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
-                  <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
-                </g>
-              </svg>
-            </div>
-
-            <input
-              ref={searchRef}
-              type="text"
-              placeholder="Search"
-              className="w-full"
-              value={initialInput}
-              onChange={(ev) => setInitialInput(ev.target.value)}
-            />
-
-            <div
-              className="w-6 h-6 flex justify-center items-center active:scale-75 transition"
-              onClick={() => setInitialInput("")}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 50 50"
-                className="w-full h-full"
-              >
-                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
-              </svg>
-            </div>
-          </div>
-
-          <span
-            className="absolute right-10 cursor-pointer"
-            onClick={handleSearchClose}
-          >
-            Cancel
-          </span>
+  const SearchBox = () => (
+    <div
+      ref={searchRefBox}
+      className={`fixed top-0 left-0 right-0 h-72 w-screen bg-snow z-[60] px-10 py-2 ${
+        activeSearch ? "active-search" : "inactive-search"
+      }`}
+    >
+      <div className="flex justify-center items-center w-full relative">
+        <div className="logo text-secondaryColor absolute left-10">
+          StepStyle
         </div>
 
         <div
-          className={`w-full mt-12 flex justify-center popular-search ${
-            activeSearch ? "active" : ""
+          className={`bg-cardBg flex items-center space-x-3 rounded-3xl p-2 w-[656px] desktop-search-input ${
+            activeSearch ? "animate-search-input" : ""
           }`}
         >
-          <div className="w-[656px]">
-            <h5 style={{ color: "#707072" }}>Popular Search Terms</h5>
+          <div className="flex justify-center w-6 h-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              viewBox="-5.0 -10.0 110.0 135.0"
+              className="w-full"
+            >
+              <g>
+                <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
+                <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
+              </g>
+            </svg>
+          </div>
 
-            <ul className="mt-2 flex flex-col space-y-2">
-              <li>
-                <Link href="/" className="text-xl">
-                  Air Force 1
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-xl">
-                  Jordan
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-xl">
-                  Air Max
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-xl">
-                  Blazer
-                </Link>
-              </li>
-            </ul>
+          <input
+            ref={searchRef}
+            type="text"
+            placeholder="Search"
+            className="w-full"
+            value={initialInput}
+            onChange={(ev) => setInitialInput(ev.target.value)}
+          />
+
+          <div
+            className="w-6 h-6 flex justify-center items-center active:scale-75 transition"
+            onClick={() => setInitialInput("")}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 50 50"
+              className="w-full h-full"
+            >
+              <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
+            </svg>
           </div>
         </div>
+
+        <span
+          className="absolute right-10 cursor-pointer"
+          onClick={handleSearchClose}
+        >
+          Cancel
+        </span>
       </div>
 
+      <div
+        className={`w-full mt-12 flex justify-center popular-search ${
+          activeSearch ? "active" : ""
+        }`}
+      >
+        <div className="w-[656px]">
+          <h5 style={{ color: "#707072" }}>Popular Search Terms</h5>
+
+          <ul className="mt-2 flex flex-col space-y-2">
+            <li>
+              <Link href="/" className="text-xl">
+                Air Force 1
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="text-xl">
+                Jordan
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="text-xl">
+                Air Max
+              </Link>
+            </li>
+            <li>
+              <Link href="/" className="text-xl">
+                Blazer
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      <SearchBox />
       <div
         className="hidden md:flex item-center justify-between fixed left-0 w-full z-50 h-14 px-10 bg-snow py-2"
         style={{
@@ -299,11 +302,11 @@ export default function Navigation() {
       </div>
       <div
         style={{
-          top: isVissible ? "0" : "-100px",
+          top: isVissible ? "0px" : "-100px",
           transition: "background-color 0.3s ease-in-out",
           backgroundColor: checkScrollPos ? "#000" : "#F5F5F5",
         }}
-        className={`w-full h-14 flex md:hidden justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-30 left-0 top-0 ${
+        className={`w-full h-14 flex md:hidden justify-between items-center p-4 fixed z-30 left-0 top-0 ${
           orderSuccess ? "pointer-events-none" : null
         }`}
       >
