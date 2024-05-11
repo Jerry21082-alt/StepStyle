@@ -28,17 +28,17 @@ export default function Navigation() {
 
   const checkScrollPos = prevScrollPos < height && pathname === "/";
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPosition = window.scrollY;
-      setPrevScrollPos(currentPosition);
-      setIsVissible(currentPosition > prevScrollPos || prevScrollPos < 10);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentPosition = window.scrollY;
+  //     setPrevScrollPos(currentPosition);
+  //     setIsVissible(currentPosition > prevScrollPos || prevScrollPos < 10);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, isVissible]);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [prevScrollPos, isVissible]);
 
   const onClose = () => {
     setActiveSearch(false);
@@ -84,7 +84,9 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentPosition = window.scrollY;
-      setIsVissible(prevScrollPos > currentPosition || currentPosition < height);
+      setIsVissible(
+        prevScrollPos > currentPosition || currentPosition < height
+      );
 
       setPrevScrollPos(currentPosition);
     };
@@ -148,7 +150,10 @@ export default function Navigation() {
               onChange={(ev) => setInitialInput(ev.target.value)}
             />
 
-            <div className="w-6 h-6 flex justify-center items-center">
+            <div
+              className="w-6 h-6 flex justify-center items-center active:scale-75 transition"
+              onClick={() => setInitialInput("")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 50 50"
@@ -282,8 +287,8 @@ export default function Navigation() {
                   width={25}
                   id="shopping-bag"
                   onClick={() => setToggleCart(true)}
-                  fill={checkScrollPos ? "#FFFFFF" : "#000000"}
-                  style={{ transition: "fill .3s ease-in-out" }}
+                  // fill={checkScrollPos ? "#FFFFFF" : "#000000"}
+                  // style={{ transition: "fill .3s ease-in-out" }}
                 >
                   <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
                 </svg>

@@ -166,7 +166,7 @@ export const newArrivals = [
 
 export const trending = [
   {
-    id: 1,
+    id: 8,
     name: "AE 1 'Gorgia red clay'",
     brand: "Adidas",
     price: 170,
@@ -188,7 +188,7 @@ export const trending = [
     isOffer: false,
   },
   {
-    id: 2,
+    id: 10,
     name: "Kobe 8 Protro 'Venice Beach' 2024",
     brand: "Nike",
     price: 148,
@@ -210,7 +210,7 @@ export const trending = [
     isOffer: false,
   },
   {
-    id: 3,
+    id: 11,
     name: "A$ap Rocky X Inhale OG 'Summer Melon'",
     brand: "Puma",
     price: 171,
@@ -232,7 +232,7 @@ export const trending = [
     isOffer: false,
   },
   {
-    id: 4,
+    id: 12,
     name: "Nickelodeon X MB.02 'Slime'",
     brand: "Puma",
     price: 113,
@@ -254,7 +254,7 @@ export const trending = [
     isOffer: false,
   },
   {
-    id: 5,
+    id: 13,
     name: "New Balance 1000 'Silver Metalic'",
     brand: "New Balance",
     price: 147,
@@ -276,7 +276,7 @@ export const trending = [
     isOffer: false,
   },
   {
-    id: 6,
+    id: 14,
     name: "Off-White X Chuck 70 'White'",
     brand: "Converse",
     price: 147,
@@ -301,7 +301,7 @@ export const trending = [
 
 export const flashSales = [
   {
-    id: 1,
+    id: 15,
     name: "Air Jordan 4 Retro 'Thunder' 2023",
     brand: "Nike",
     price: 88,
@@ -323,7 +323,7 @@ export const flashSales = [
     isOffer: false,
   },
   {
-    id: 2,
+    id: 16,
     name: "HandBall Spezial 'Navy'",
     brand: "Adidas",
     price: 88,
@@ -346,7 +346,7 @@ export const flashSales = [
   },
 
   {
-    id: 3,
+    id: 17,
     name: "Yeezy Boost 350 V2 'ONYX'",
     brand: "Adidas",
     price: 212,
@@ -368,7 +368,7 @@ export const flashSales = [
     isOffer: false,
   },
   {
-    id: 4,
+    id: 18,
     name: "JJJJound X 2002R Gortex 'Charcoal'",
     brand: "New Balance",
     price: 208,
@@ -390,167 +390,4 @@ export const flashSales = [
     isOffer: false,
   },
 ]
-
-export const products = [
-  {
-    id: 9,
-    name: "ASICS Gel-Lyte III",
-    brand: "ASICS",
-    price: 100,
-    originalPrice: 100,
-    percent: 50,
-    quantity: 1,
-
-    description:
-      "Classic running shoe with split tongue construction and GEL cushioning.",
-    color: "Grey/Blue",
-    releaseDate: "2022-04-03",
-    photos: {
-      main: "sneakers/asics/asicmaini.png",
-      others: [
-        "sneakers/asics/61psYKhhsdL._AC_SY395_.jpg",
-        "sneakers/asics/61zuuz2tWbL._AC_SY395_.jpg",
-      ],
-    },
-    isOffer: false,
-  },
-  {
-    id: 10,
-    name: "Under Armour Curry 8",
-    brand: "Under Armour",
-    price: 160,
-    originalPrice: 160,
-    percent: 12,
-    quantity: 1,
-
-    description:
-      "Signature basketball shoe designed for Stephen Curry, featuring responsive cushioning.",
-    color: "Blue/Gold",
-    releaseDate: "2022-05-20",
-    photos: {
-      main: "sneakers/underAmour/underamourmain.png",
-      others: [
-        "sneakers/underAmour/61T142XhUeL._AC_SY395_.jpg",
-        "sneakers/underAmour/711tY7Rts6L._AC_SY395_.jpg",
-      ],
-    },
-    isOffer: true,
-  },
-  {
-    id: 11,
-    name: "Saucony Jazz Original",
-    brand: "Saucony",
-    price: 70,
-    originalPrice: 70,
-    percent: 1,
-    quantity: 1,
-
-    description:
-      "Retro-inspired sneaker with suede and nylon upper, known for its comfort.",
-    color: "Grey/White",
-    releaseDate: "2021-07-08",
-    photos: {
-      main: "sneakers/Saucony/71Oy-8hbAqL._AC_SX395_.jpg",
-      others: ["sneakers/Saucony/81YWMZIolLL._AC_SX395_.jpg"],
-    },
-    isOffer: false,
-  },
-  {
-    id: 12,
-    name: "FILA Disruptor II",
-    brand: "FILA",
-    price: 65,
-    originalPrice: 65,
-    percent: 1,
-    quantity: 1,
-
-    description: "Chunky silhouette with leather upper and bold FILA branding.",
-    color: "White/Navy/Red",
-    releaseDate: "2021-06-15",
-    photos: {
-      main: "sneakers/fila/filamain.png",
-      others: ["sneakers/fila/51kHV9dpWBL._AC_SY625_.jpg"],
-    },
-    isOffer: false,
-  },
-  {
-    id: 13,
-    name: "Nike React Element 55",
-    brand: "Nike",
-    price: 130,
-    originalPrice: 130,
-    percent: 32,
-    quantity: 1,
-
-    description:
-      "Modern sneaker with React foam cushioning for lightweight comfort and support.",
-    color: "Black/White",
-    releaseDate: "2021-03-30",
-    photos: {
-      main: "sneakers/nikes/reactElementmain.png",
-      others: [
-        "sneakers/nikes/custom-pegasus-trail-gtx-by-you (2).jpg",
-        "sneakers/nikes/custom-pegasus-trail-gtx-by-you.jpg",
-      ],
-    },
-
-    isOffer: true,
-  },
-  {
-    id: 14,
-    name: "Adidas Superstar",
-    brand: "Adidas",
-    price: 90,
-    originalPrice: 90,
-    percent: 1,
-    quantity: 1,
-
-    description:
-      "Iconic shell-toe sneaker with leather upper and classic rubber cupsole.",
-    color: "White/Black",
-    releaseDate: "2021-02-12",
-    photos: {
-      main: "sneakers/adidas/adidasstansmithmain.png",
-      others: ["sneakers/adidas/3.jpg", "sneakers/adidas/4.jpg"],
-    },
-    isOffer: false,
-  },
-  {
-    id: 15,
-    name: "Vans Sk8-Hi",
-    brand: "Vans",
-    price: 75,
-    originalPrice: 75,
-    percent: 1,
-    quantity: 1,
-
-    description:
-      "High-top skate shoe featuring a padded collar and signature waffle outsole.",
-    color: "Black/White",
-    releaseDate: "2021-01-05",
-    photos: {
-      main: "sneakers/vans/vanssk8main.png",
-      others: ["sneakers/vans/3413646250m7_zm.jpg"],
-    },
-    isOffer: true,
-  },
-  {
-    id: 15,
-    name: "Vans Sk8-Hi",
-    brand: "Vans",
-    price: 75,
-    originalPrice: 75,
-    percent: 21,
-    quantity: 1,
-
-    description:
-      "High-top skate shoe featuring a padded collar and signature waffle outsole.",
-    color: "Black/White",
-    releaseDate: "2021-01-05",
-    photos: {
-      main: "sneakers/vans/vanssk8main.png",
-      others: ["sneakers/vans/3413646250m7_zm.jpg"],
-    },
-    isOffer: false,
-  },
-];
+ export const products = [...flashSales, ...newArrivals, ...trending]

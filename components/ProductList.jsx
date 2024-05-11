@@ -111,7 +111,7 @@ export default function ProductList({ product, products }) {
           </div>
         </div>
 
-        <h5 className="mt-4">{product.name.toUpperCase()}</h5>
+        <h5 className="mt-4 text-sm">{product.name.toUpperCase()}</h5>
 
         <h4 className="mt-1 font-medium text-sm">${product.price}</h4>
       </div>
