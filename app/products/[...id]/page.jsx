@@ -10,6 +10,7 @@ import Layout from "@/components/Layout";
 import AspectRatioContainer from "@/components/AspectRatioContainer";
 import Slider from "@/components/Slider";
 import { products } from "@/constants/mockProducts";
+import ShoeSizes from "@/components/ShoeSizes";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
@@ -30,7 +31,7 @@ export default function ProductDetails({ params }) {
   );
 
   const [shoeSizes, setShoeSizes] = useState(8);
-  const [toggleShoeSize, setToggleShoeSize] = useState(false);
+  const [toggleShoeSize, setToggleShoeSize] = useState(true);
 
   const sizeRef = useRef();
 
@@ -65,36 +66,6 @@ export default function ProductDetails({ params }) {
       setNotifyMsg("Item exist in cart!");
     }
   };
-
-  // const ShoeSizes = () => (
-  //   <div className="w-[120px] relative" ref={sizeRef}>
-  //     <div className="flex items-center mt-5 w-full">
-  //       <span>size:</span>
-  //       <div
-  //         onClick={() => setToggleShoeSize((prev) => !prev)}
-  //         className="bg-primaryColor flex justify-between items-center space-x-2 rounded-md px-4 py-1 cursor-pointer ml-2"
-  //       >
-  //         <span className="font-bold">{shoeSizes}</span>
-  //         <FaAngleDown />
-  //       </div>
-  //     </div>
-  //     <div
-  //       className={`p-2 w-full flex flex-col absolute bg-primaryColor rounded-md mt-2 ${
-  //         toggleShoeSize ? "open-size-modal" : "close-size-modal"
-  //       }`}
-  //     >
-  //       {[8, 9, 10, 11, 12].map((size) => (
-  //         <span
-  //           key={size}
-  //           onClick={() => selectSize(size)}
-  //           className="px-2 hover:bg-snow rounded-md cursor-pointer"
-  //         >
-  //           {size}
-  //         </span>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
 
   return (
     <>
@@ -155,7 +126,22 @@ export default function ProductDetails({ params }) {
               </div>
             </div>
 
-            <div className="w-64 bg-dangerColor flex items-center justify-between"></div>
+            <div className="w-64 border mt-5 py-1 px-2 flex items-center justify-between">
+              <span>Size</span>
+              <div
+                className="w-5 h-5 flex items-center justify-center"
+                onClick={() => setToggleShoeSize(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="chevron-down"
+                  className="w-full h-full"
+                >
+                  <path d="M12,15a1,1,0,0,1-.71-.29l-4-4A1,1,0,0,1,8.71,9.29L12,12.59l3.29-3.29a1,1,0,0,1,1.41,1.41l-4,4A1,1,0,0,1,12,15Z"></path>
+                </svg>
+              </div>
+            </div>
 
             <div className="flex items-center space-x-4 my-8">
               <div className="flex items-center bg-primaryColor py-1 px-4 space-x-4">
@@ -185,7 +171,7 @@ export default function ProductDetails({ params }) {
                     },
                   }}
                 >
-                  {productDetails.originalPrice}
+                  Shop
                 </Link>
               </button>
               <button
@@ -212,6 +198,11 @@ export default function ProductDetails({ params }) {
       <div className="bg-snow w-full">
         <Slider products={products.slice(0, 8)} title="SIMILAR PRODUCT" />
       </div>
+      <ShoeSizes
+        product={productDetails}
+        toggleShoeSize={toggleShoeSize}
+        setToggleShoeSize={setToggleShoeSize}
+      />
     </>
   );
 }

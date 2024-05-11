@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 export default function SearchNav() {
@@ -10,6 +10,12 @@ export default function SearchNav() {
     searchInput,
     setSearchInput,
   } = stateFunc();
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [openProductSearch]);
 
   return (
     <section
@@ -37,6 +43,7 @@ export default function SearchNav() {
           </div>
 
           <input
+            ref={inputRef}
             type="text"
             placeholder="Find items"
             value={searchInput}

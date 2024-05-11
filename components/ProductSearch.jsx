@@ -35,7 +35,7 @@ export default function ProductSearch() {
             key={idx}
           >
             <div
-              className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center`}
+              className={`w-40 h-28 bg-white rounded-xl p-2 flex justify-center items-center`}
             >
               <Image
                 src={`/${list.photos.main}`}

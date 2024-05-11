@@ -496,6 +496,22 @@ label {
   color: #fff;
 }
 
+.grid-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.open-shoe-size {
+  transform: translate3d(0, 0, 0);
+  transition: transform .25s ease-in-out;
+}
+
+.close-shoe-size {
+  transform: translate3d(0, 100%, 0);
+  transition: transform .25s ease-in-out;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .grid-container {

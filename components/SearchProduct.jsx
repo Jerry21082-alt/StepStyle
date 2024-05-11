@@ -12,7 +12,7 @@ export default function SearchProduct() {
   const SearchItem = ({ image, price, name }) => (
     <div className="flex justify-between items-center py-2">
       <div className="flex gap-2 items-center justify-center">
-        <div className="flex items-center justify-center p-1 bg-primaryColor rounded-md w-[80px] h-[80px] md:w-[120px] md:h-[100px] p-2">
+        <div className="flex items-center justify-center p-1 bg-primaryColor rounded-md w-[80px] h-[80px] md:w-[120px] md:h-[100px]">
           <Image src={image} alt="product Photo" />
         </div>
         <span className="font-semibold text-sm w-[100px] md:text-md md:w-[200px]">{name}</span>
