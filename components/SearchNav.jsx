@@ -9,13 +9,16 @@ export default function SearchNav() {
     setOpenProductSearch,
     searchInput,
     setSearchInput,
+    isInputFocus,
   } = stateFunc();
 
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.focus()
-  }, [openProductSearch]);
+    if (isInputFocus) {
+      inputRef.current.focus();
+    }
+  }, [isInputFocus]);
 
   return (
     <section

@@ -29,6 +29,7 @@ export default function UseStateContext({ children }) {
   const [quantity, setQuantity] = useState(1);
   const [toggleCart, setToggleCart] = useState(false);
   const [openProductSearch, setOpenProductSearch] = useState(false);
+  const [isInputFocus, setIsInputFocus] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [notifyMsg, setNotifyMsg] = useState("");
@@ -39,6 +40,7 @@ export default function UseStateContext({ children }) {
     []
   );
   const [height, setHeight] = useState(0);
+  const [overlay, setOverlay] = useState(false);
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -127,6 +129,7 @@ export default function UseStateContext({ children }) {
 
   const finishOrder = () => {
     setOrderSuccess(false);
+    setOverlay(false);
   };
 
   const addToViewRecent = (product) => {
@@ -250,6 +253,10 @@ export default function UseStateContext({ children }) {
         getTotalPrice,
         openProductSearch,
         setOpenProductSearch,
+        isInputFocus,
+        setIsInputFocus,
+        overlay,
+        setOverlay,
       }}
     >
       {children}

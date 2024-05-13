@@ -31,6 +31,7 @@ export default function OrderSummary({
     paymentFocus,
     setPaymentFocus,
     setPaymentInput,
+    setOverlay
   } = stateFunc();
 
   useEffect(() => {
@@ -168,6 +169,7 @@ export default function OrderSummary({
   );
   const handleSubmit = (e) => {
     e.preventDefault();
+    setOverlay(true)
 
     if (
       isCustomer &&
@@ -344,7 +346,7 @@ export default function OrderSummary({
         <h5 className="font-[500] text-lg">Total</h5>
         <h5 className="font-bold text-lg">
           $
-          {totalPrice}
+          {totalPrice - (totalPrice * 10 / 100).toFixed(2)}
         </h5>
       </div>
       <span className="flex justify-center items-center">

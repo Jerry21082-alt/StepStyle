@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { stateFunc } from "./stateContent/UseStateContext";
 
 const sizes = [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12];
 
@@ -6,23 +7,55 @@ export default function ShoeSizes({
   product,
   toggleShoeSize,
   setToggleShoeSize,
+  setShoeSizes,
 }) {
+  const { setOverlay } = stateFunc();
+
+  const closeShoeSizeModal = () => {
+    setOverlay(false);
+    setToggleShoeSize(false);
+  };
+
+  const onClose = () => {
+    setToggleShoeSize(false);
+    setOverlay(false);
+  };
+
+  const ref = useRef(null);
+
+  const handleClickOutside = (ev) => {
+    const current = ref.current;
+    if (current && !current.contains(ev.target)) onClose();
+  };
+
+  useEffect(() => {
+    if (toggleShoeSize) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [toggleShoeSize, onClose]);
+
+  const selectSize = (size) => {
+    setShoeSizes(size);
+    setToggleShoeSize(false);
+    setOverlay(false);
+  };
+
   return (
     <div
-      className={`fixed bottom-0 left-0 right-2 bg-white h-[65vh] p-4 ${
+      ref={ref}
+      className={`fixed bottom-0 left-0 right-0 bg-white p-4 z-[300] block md:hidden ${
         toggleShoeSize ? "open-shoe-size" : "close-shoe-size"
       }`}
     >
       <div className="flex items-center justify-between">
         <h3>
-          {product.name.length > 30
-            ? `${product.name.substring(0, 30)}...`
+          {product.name.length > 35
+            ? `${product.name.substring(0, 35)}...`
             : product.name}
         </h3>
-        <div
-          className="w-4 h-4"
-          onClick={() => setToggleShoeSize(false)}
-        >
+        <div className="w-4 h-4" onClick={closeShoeSizeModal}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 30 30"
@@ -33,13 +66,14 @@ export default function ShoeSizes({
           </svg>
         </div>
       </div>
-      <div className="border-t border-t-snow w-full mt-4">
+      <div className="border-t border-t-primaryColor w-full mt-4 mb-10">
         <h3 className="mt-4">US MEN SIZE</h3>
         <div className="w-full mt-4 grid-items">
           {sizes.map((size) => (
             <div
               key={size}
-              className="border border-snow flex items-center justify-center p-2 hover:border-black"
+              onClick={() => selectSize(size)}
+              className="border border-primaryColor flex items-center justify-center p-2 hover:border-black"
             >
               {size}
             </div>
@@ -47,7 +81,7 @@ export default function ShoeSizes({
         </div>
       </div>
 
-      <div className="flex items-center w-full relative -bottom-12  space-x-2">
+      <div className="flex items-center w-full relative bottom-0  space-x-2">
         <div className="flex flex-col w-full">
           <span>BUY NEW</span>
           <button className="bg-secondaryColor p-3 text-white mt-3">
@@ -55,7 +89,7 @@ export default function ShoeSizes({
           </button>
         </div>
         <div className="flex flex-col w-full">
-          <span>BUY NEW</span>
+          <span>BUY USED</span>
           <button className="bg-buttonColor p-3 text-white mt-3">
             OUT OF STOCK
           </button>

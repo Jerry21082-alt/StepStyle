@@ -18,14 +18,9 @@ const DarkFooter = () => {
           <li className="px-[15px] py-[10px] inline-block">
             <FaXTwitter color="#fff" size={25} />
           </li>
-          <li className="px-[15px] py-[10px] inline-block">
-            <FaYoutube color="#fff" size={25} />
-          </li>
+
           <li className="px-[15px] py-[10px] inline-block">
             <FaInstagram color="#fff" size={25} />
-          </li>
-          <li className="px-[15px] py-[10px] inline-block">
-            <FaLinkedinIn color="#fff" size={25} />
           </li>
         </ul>
       </section>
@@ -72,7 +67,7 @@ const DarkFooter = () => {
               href={"/"}
               className="text-snow inline-block leading-[2em] relative dark-footer-link"
             >
-              Accessibility
+              My Account
             </Link>
           </li>
           <li className="inline-block my-0 mx-[15px]">
@@ -80,7 +75,7 @@ const DarkFooter = () => {
               href={"/"}
               className="text-snow inline-block leading-[2em] relative dark-footer-link"
             >
-              Foia
+              Shipping & Return
             </Link>
           </li>
           <li className="inline-block my-0 mx-[15px]">
@@ -88,7 +83,7 @@ const DarkFooter = () => {
               href={"/"}
               className="text-snow inline-block leading-[2em] relative dark-footer-link"
             >
-              No fear act
+              Stores
             </Link>
           </li>
         </ul>

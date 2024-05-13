@@ -49,7 +49,7 @@ export default function CheckOutPage() {
             {isMounted &&
               checkoutProducts.map((product) => (
                 <div key={product.id} className="flex items-start mt-5">
-                  <AspectRatioContainer className="bg-primaryColor rounded-md w-36 p-2">
+                  <AspectRatioContainer className="bg-white rounded-md w-36 p-2">
                     <div className="h-full flex items-center justify-center">
                       <Image
                         src={`/${product.photos.main}`}

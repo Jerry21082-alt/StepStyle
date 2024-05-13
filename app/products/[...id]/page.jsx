@@ -24,6 +24,7 @@ export default function ProductDetails({ params }) {
     addToCart,
     setNotify,
     setNotifyMsg,
+    setOverlay,
   } = stateFunc();
 
   const [productDetails] = products.filter(
@@ -35,16 +36,12 @@ export default function ProductDetails({ params }) {
 
   const sizeRef = useRef();
 
-  const selectSize = (size) => {
-    setShoeSizes(size);
-    setToggleShoeSize(false);
-  };
-
   const handleShoeSizeModal = (ev) => {
     const closeModal = () => setToggleShoeSize(false);
 
     if (sizeRef.current && !sizeRef.current.contains(ev.target)) {
       closeModal();
+      setOverlay(false);
     }
   };
 
@@ -65,6 +62,11 @@ export default function ProductDetails({ params }) {
       setNotify(true);
       setNotifyMsg("Item exist in cart!");
     }
+  };
+
+  const openShoeSizeModal = () => {
+    setOverlay(true);
+    setToggleShoeSize(true);
   };
 
   return (
@@ -90,6 +92,7 @@ export default function ProductDetails({ params }) {
                     src={`/${productDetails.photos.main}`}
                     width={500}
                     height={500}
+                    alt="product image"
                   />
                 </div>
               ))}
@@ -101,7 +104,7 @@ export default function ProductDetails({ params }) {
               <h5 className="text-xl font-bold md:w-[420px]">
                 {productDetails.name}
               </h5>
-              <p>{productDetails.description}</p>
+              <span>{productDetails.description}</span>
 
               <div className="mt-3 pb-5 flex items-center border-b-2 border-solid border-primaryColor">
                 {[1, 2, 3, 4, 5].map((index) => (
@@ -126,17 +129,17 @@ export default function ProductDetails({ params }) {
               </div>
             </div>
 
-            <div className="w-64 border mt-5 py-1 px-2 flex items-center justify-between">
+            <div
+              className="w-64 border mt-5 py-1 px-2 flex items-center justify-between"
+              onClick={openShoeSizeModal}
+            >
               <span>Size</span>
-              <div
-                className="w-5 h-5 flex items-center justify-center"
-                onClick={() => setToggleShoeSize(true)}
-              >
+              <div className="w-5 h-5 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   id="chevron-down"
-                  className="w-full h-full"
+                  className={`w-full h-full ${toggleShoeSize ? 'rotate-180' : ''}`}
                 >
                   <path d="M12,15a1,1,0,0,1-.71-.29l-4-4A1,1,0,0,1,8.71,9.29L12,12.59l3.29-3.29a1,1,0,0,1,1.41,1.41l-4,4A1,1,0,0,1,12,15Z"></path>
                 </svg>
@@ -202,6 +205,7 @@ export default function ProductDetails({ params }) {
         product={productDetails}
         toggleShoeSize={toggleShoeSize}
         setToggleShoeSize={setToggleShoeSize}
+        setShoeSizes={setShoeSizes}
       />
     </>
   );

@@ -21,8 +21,8 @@ export default function Slider({ title, products }) {
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="flex justify-between w-full mt-12">
-        <h2 className="mb-4 text-2xl md:text-5xl ml-2 md:ml-20">{title}</h2>
+      <div className="flex justify-between mt-12 px-2 md:px-20">
+        <h2 className="mb-4 text-2xl md:text-5xl">{title}</h2>
         <Link href="/" className="see relative text-xs mr-4">
           See All
         </Link>
@@ -30,9 +30,9 @@ export default function Slider({ title, products }) {
 
       <div className="relative w-full">
         <div
-          className="w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 left-16 -translate-y-1/2 flex items-center justify-center cursor-pointer active:scale-75 transition"
+          className="w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 left-16 -translate-y-1/2 hidden md:flex items-center justify-center cursor-pointer active:scale-75 transition"
           onClick={handleScrollLeft}
-          style={{ display: products.length > 1 ? "flex" : "none" }}
+          // style={{ display: products.length > 1 ? "flex" : "none" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +51,8 @@ export default function Slider({ title, products }) {
           {products.slice(0, 8).map((product, i) => (
             <div className="media-element" key={i}>
               <AspectRatioContainer
-                aspectRatio={6 / 6}
-                className="bg-white w-[50vw] md:w-[30vw] rounded p-4 flex items-center justify-center"
+                aspectRatio={6 / 5}
+                className="bg-white w-[55vw] md:w-[30vw] rounded p-4 flex items-center justify-center"
               >
                 <div className="flex justify-center items-center h-full w-full">
                   <Image
@@ -69,9 +69,9 @@ export default function Slider({ title, products }) {
           ))}
         </div>
         <div
-          className="w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 right-16 -translate-y-1/2 flex items-center justify-center cursor-pointer active:scale-75 transition"
+          className="w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 right-16 -translate-y-1/2 hidden md:flex items-center justify-center cursor-pointer active:scale-75 transition"
           onClick={handleScrollRight}
-          style={{ display: products.length > 1 ? "flex" : "none" }}
+          // style={{ display: products.length > 1 ? "flex" : "none" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
