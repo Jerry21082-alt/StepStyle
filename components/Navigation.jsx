@@ -99,9 +99,9 @@ export default function Navigation() {
   };
 
   const handleSearchOpen = () => {
-    setOpenProductSearch(true)
-    setIsInputFocus(true)
-  }
+    setOpenProductSearch(true);
+    setIsInputFocus(true);
+  };
 
   return (
     <>
@@ -355,7 +355,7 @@ export default function Navigation() {
 
           <div className="mobile-nav-box w-7 h-full z-50">
             <button
-              onClick={handleSearchOpen}
+              onClick={() => setOpenMobileNav((prev) => !prev)}
               className={`button flex flex-col space-y-1 justify-center items-center outline-0 ${
                 openMobileNav ? "mobile-nav-open" : "mobile-nav-close"
               } ${checkScrollPos ? "burgerWhite" : "burgerDark"}`}
