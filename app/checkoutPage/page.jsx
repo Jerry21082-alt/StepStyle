@@ -42,7 +42,7 @@ export default function CheckOutPage() {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row space-x-0 md:space-x-9">
         <div>
           <div className="w-full md:w-[55vw] border-2 border-primaryColor border-solid rounded-md p-3">
             <h5 className="font-bold text-lg">Review Item and shipping</h5>
