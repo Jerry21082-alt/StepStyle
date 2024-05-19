@@ -20,12 +20,15 @@ export default function ProductDetails({ params }) {
     decQty,
     setQuantity,
     cartItems,
-    setCartItems,
     addToCart,
     setNotify,
     setNotifyMsg,
     setOverlay,
   } = stateFunc();
+
+  const sizes = [
+    5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
+  ];
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
@@ -85,7 +88,7 @@ export default function ProductDetails({ params }) {
                 />
               </div>
             </AspectRatioContainer>
-            <div className="w-full hidden md:flex items-center justify-center absolute bottom-8 space-x-4">
+            <div className="w-full hidden md:flex items-center justify-center absolute botto-16 space-x-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="w-16 flex items-center justify-center">
                   <Image
@@ -130,7 +133,7 @@ export default function ProductDetails({ params }) {
             </div>
 
             <div
-              className="w-64 border mt-5 py-1 px-2 flex items-center justify-between"
+              className="w-64 border mt-5 py-1 px-2 flex md:hidden items-center justify-between"
               onClick={openShoeSizeModal}
             >
               <span>Size</span>
@@ -139,14 +142,32 @@ export default function ProductDetails({ params }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   id="chevron-down"
-                  className={`w-full h-full ${toggleShoeSize ? 'rotate-180' : ''}`}
+                  className={`w-full h-full ${
+                    toggleShoeSize ? "rotate-180" : ""
+                  }`}
                 >
                   <path d="M12,15a1,1,0,0,1-.71-.29l-4-4A1,1,0,0,1,8.71,9.29L12,12.59l3.29-3.29a1,1,0,0,1,1.41,1.41l-4,4A1,1,0,0,1,12,15Z"></path>
                 </svg>
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 my-8">
+            <div className="mt-8 w-full hidden md:block">
+              <h4>SELECT US MEN&#39;S SIZE</h4>
+
+              <div className="grid-items w-3/4 mt-4">
+                {sizes.map((item) => (
+                  <div
+                    key={item}
+                    onClick={() => setShoeSizes(item)}
+                    className="border border-primaryColor flex items-center justify-center p-2 hover:border-black cursor-pointer"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-4 mt-8">
               <div className="flex items-center bg-primaryColor py-1 px-4 space-x-4">
                 <FaMinus onClick={decQty} size={10} cursor="pointer" />
                 <span className="font-bold text-sm">{quantity}</span>

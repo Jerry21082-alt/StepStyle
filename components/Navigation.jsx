@@ -14,7 +14,7 @@ export default function Navigation() {
     setOpenMobileNav,
     height,
     setOpenProductSearch,
-    setIsInputFocus,
+    setOverlay,
   } = stateFunc();
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -32,6 +32,7 @@ export default function Navigation() {
   const onClose = () => {
     setActiveSearch(false);
     setInitialInput("");
+    setOverlay(false);
   };
 
   useEffect(() => {
@@ -90,24 +91,26 @@ export default function Navigation() {
 
     if (initialInput.length > -1 || initialInput !== "") {
       setActiveSearch(true);
+      setOverlay(true);
     }
   };
 
   const handleSearchClose = () => {
     setActiveSearch(false);
     setInitialInput("");
+    setOverlay(false);
   };
 
-  const handleSearchOpen = () => {
-    setOpenProductSearch(true);
-    setIsInputFocus(true);
+  const openCart = () => {
+    setToggleCart(true);
+    setOverlay(true);
   };
 
   return (
     <>
       <div
         ref={searchRefBox}
-        className={`fixed top-0 left-0 h-72 w-screen bg-snow z-[60] px-10 py-2 ${
+        className={`fixed top-0 left-0 h-72 w-screen bg-snow z-[600] px-10 py-2 ${
           activeSearch ? "active-search" : "inactive-search"
         }`}
       >
@@ -280,7 +283,7 @@ export default function Navigation() {
                   height={25}
                   width={25}
                   id="shopping-bag"
-                  onClick={() => setToggleCart(true)}
+                  onClick={openCart}
                   // fill={checkScrollPos ? "#FFFFFF" : "#000000"}
                   // style={{ transition: "fill .3s ease-in-out" }}
                 >
@@ -312,32 +315,35 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center space-x-4 w-full justify-end">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 30 30"
-            width="25"
-            height="25"
-            fill={checkScrollPos ? "#FFFFFF" : "#000000"}
-            style={{ transition: "fill .3s ease-in-out" }}
-            onClick={() => setOpenProductSearch(true)}
-            className="mr-2"
-          >
-            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
-          </svg>
-
-          <div className="flex space-x-1">
+          <div className="w-6 h-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              height={25}
-              width={25}
-              id="shopping-bag"
-              onClick={() => setToggleCart(true)}
+              viewBox="0 0 30 30"
+              width="25"
+              height="25"
               fill={checkScrollPos ? "#FFFFFF" : "#000000"}
               style={{ transition: "fill .3s ease-in-out" }}
+              onClick={() => setOpenProductSearch(true)}
+              className="mr-2 w-full h-full"
             >
-              <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
+              <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
             </svg>
+          </div>
+
+          <div className="flex space-x-1">
+            <div className="w-6 h-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                id="shopping-bag"
+                onClick={() => setToggleCart(true)}
+                fill={checkScrollPos ? "#FFFFFF" : "#000000"}
+                style={{ transition: "fill .3s ease-in-out" }}
+                className="w-full h-full"
+              >
+                <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
+              </svg>
+            </div>
 
             <div className="relative -top-1 right-1 text-xs">
               {cartLength && (
@@ -351,6 +357,22 @@ export default function Navigation() {
                 </span>
               )}
             </div>
+          </div>
+
+          <div className="">
+            <Link className="w-6 h-6 block" href='/watchlist'>
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 28 28"
+                fill={checkScrollPos ? "#FFFFFF" : "#000000"}
+                style={{ transition: "fill .3s ease-in-out" }}
+                className="w-full h-full"
+              >
+                <title>heart</title>
+                <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
+              </svg>
+            </Link>
           </div>
 
           <div className="mobile-nav-box w-7 h-full z-50">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 import Image from "next/image";
 import AspectRatioContainer from "./AspectRatioContainer";
@@ -16,19 +16,21 @@ export default function Cart() {
     increaseItemQuantity,
     decreaseItemQuantity,
     getTotalPrice,
+    setOverlay,
   } = stateFunc();
 
   const totalPrice = getTotalPrice().toFixed(2);
 
   const ids = [];
+  const cartRef = useRef(null);
 
   for (let item of cartItems) {
     ids.push(item.id);
   }
 
-  useEffect(() => {
-    const onClose = () => setToggleCart(false);
+  const onClose = () => setToggleCart(false);
 
+  useEffect(() => {
     const handleCartClose = (ev) => {
       if (ev.key === "Escape") {
         onClose();
@@ -40,6 +42,11 @@ export default function Cart() {
     return () => document.removeEventListener("keydown", handleCartClose);
   }, [toggleCart]);
 
+  const closeCart = () => {
+    setToggleCart(false);
+    setOverlay(false);
+  };
+
   return (
     <div
       className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
@@ -50,7 +57,7 @@ export default function Cart() {
         className={`flex items-center space-x-1 absolute top-2 left-1  bg-buttonColor rounded-md p-1 w-16 mb-5 ${
           !toggleCart ? "animate-cart-btn" : "static-cart-btn"
         }`}
-        onClick={() => setToggleCart(false)}
+        onClick={closeCart}
       >
         <div className="w-5 h-5">
           <svg
@@ -145,7 +152,7 @@ export default function Cart() {
 
                   <div className="flex items-center justify-between mt-4">
                     <div
-                      className="text-secondaryColor"
+                      className="text-secondaryColor cursor-pointer"
                       onClick={() => handleDelete(item)}
                     >
                       Remove
