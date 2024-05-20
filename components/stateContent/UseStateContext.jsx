@@ -115,6 +115,8 @@ export default function UseStateContext({ children }) {
     setNotifyMsg("item added to cart");
   };
 
+  const clearCart =() => setCartItems([])
+
   const handleDelete = (product) => {
     const updatedCartItems = [...cartItems];
     const itemToDelete = updatedCartItems.find(
@@ -139,7 +141,7 @@ export default function UseStateContext({ children }) {
     if (!itemToAdd) {
       updatedRecent.push(product);
       if (updatedRecent.length > 5) {
-        updatedRecent.splice(updatedRecent.length - 1, 1);
+        updatedRecent.shift();
       }
     }
 
@@ -257,6 +259,7 @@ export default function UseStateContext({ children }) {
         setIsInputFocus,
         overlay,
         setOverlay,
+        clearCart
       }}
     >
       {children}

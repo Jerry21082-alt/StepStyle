@@ -35,7 +35,7 @@ export default function Home() {
           title="FLASH SALES!"
         />
         {isMounted && recentlyViewed.length > 0 && (
-          <Slider title="RECENTLY VIEWED" products={recentlyViewed} />
+          <Slider title="RECENTLY VIEWED" products={recentlyViewed} href={`recentview`}/>
         )}
 
         {searchFocus && <Overlay />}

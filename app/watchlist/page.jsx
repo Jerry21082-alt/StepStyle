@@ -74,7 +74,7 @@ export default function page() {
 
   return (
     <section className="fixed top-0 left-0 right-0 p-2 h-screen bg-snow z-[200]">
-      <h1 className="text-center">Watchlist</h1>
+      <h3 className="text-center">Watchlist</h3>
 
       <div
         className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-buttonColor rounded-md p-1"

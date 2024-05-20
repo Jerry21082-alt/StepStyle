@@ -61,7 +61,7 @@ export default function page() {
 
   return (
     <section className="fixed top-0 left-0 right-0 p-2 h-screen bg-snow z-[200]">
-      <h2 className="text-center">Recently Viewed</h2>
+      <h3 className="text-center">Recently Viewed</h3>
 
       <div
         className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-buttonColor rounded-md p-1"
@@ -88,11 +88,13 @@ export default function page() {
             Select All
           </h4>
           <div
-            className={
+            className={`flex items-center ${
               markedItem.length ? "bg-dangerColor p-1 rounded text-snow" : null
-            }
+            }`}
           >
-            <h4 className="text-dangerColor" onClick={removeMarkedItem}>Delete</h4>
+            <h4 className="text-snow" onClick={removeMarkedItem}>
+              Delete
+            </h4>
             <span>
               {markedItem.length > 0 ? `[${markedItem.length}]` : null}
             </span>
@@ -115,7 +117,7 @@ export default function page() {
       <div
         id="scroll"
         className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
-      > 
+      >
         {isMounted &&
           recentlyViewed.map((list, idx) => (
             <div className="flex items-center w-full" key={idx}>
@@ -138,7 +140,7 @@ export default function page() {
               </div>
               <div className="flex">
                 <div
-                  className={`w-40 h-28 bg-cardBg rounded-xl p-2 flex justify-center items-center ${
+                  className={`w-40 h-28 bg-white rounded-xl p-2 flex justify-center items-center ${
                     edit ? "shift-img" : "unshift-img"
                   }`}
                 >

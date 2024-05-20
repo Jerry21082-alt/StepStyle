@@ -15,10 +15,10 @@ export default function SearchNav() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    if (isInputFocus) {
+    if (inputRef.current && openProductSearch) {
       inputRef.current.focus();
     }
-  }, [isInputFocus]);
+  }, [openProductSearch]);
 
   return (
     <section

@@ -17,6 +17,7 @@ export default function Cart() {
     decreaseItemQuantity,
     getTotalPrice,
     setOverlay,
+    clearCart
   } = stateFunc();
 
   const totalPrice = getTotalPrice().toFixed(2);
@@ -102,10 +103,15 @@ export default function Cart() {
             <h4>${isMounted && totalPrice}</h4>
           </div>
 
-          <div className="flex items-center space-x-2 my-4">
-            <p>CART</p>
-            <p>({isMounted && cartItems.length})</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 my-4">
+              <p>CART</p>
+              <p>({isMounted && cartItems.length})</p>
+            </div>
+
+            <button onClick={clearCart}>Clear Cart</button>
           </div>
+
           <div
             id="scroll"
             className="w-full max-h-[500px] overflow-y-auto flex flex-col space-y-3 mt-5 overscroll-contain"
@@ -150,7 +156,7 @@ export default function Cart() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between mt-4">
+                  <div className="flex items-center justify-between">
                     <div
                       className="text-secondaryColor cursor-pointer"
                       onClick={() => handleDelete(item)}

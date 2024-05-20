@@ -16,7 +16,7 @@ module.exports = {
       cardBg: "#edede9",
       greenBg: "#008000",
       dangerColor: "#ff0000",
-      darkOverlay: "rgba(0,0,0,0.4)",
+      darkOverlay: "rgba(0,0,0,0.58)",
       buttonColor: "#403d39",
       black: "#000000",
       gray: "rgba(143, 143, 143)",

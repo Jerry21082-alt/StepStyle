@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import AspectRatioContainer from "./AspectRatioContainer";
 
-export default function Slider({ title, products }) {
+export default function Slider({ title, products, href }) {
   const containerRef = useRef(null);
   const handleScrollLeft = () => {
     if (containerRef.current) {
@@ -23,7 +23,7 @@ export default function Slider({ title, products }) {
     <div className="w-full overflow-hidden">
       <div className="flex justify-between mt-12 px-2 md:px-20">
         <h2 className="mb-4 text-2xl md:text-5xl">{title}</h2>
-        <Link href="/" className="see relative text-xs mr-4">
+        <Link href={`/${href}`} className="see relative text-xs mr-4">
           See All
         </Link>
       </div>
