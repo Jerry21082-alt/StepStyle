@@ -27,6 +27,8 @@ export default function ProductDetails({ params }) {
   } = stateFunc();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
@@ -47,6 +49,28 @@ export default function ProductDetails({ params }) {
 
   const handleNext = () => showSlide(currentIndex + 1);
   const handlePrev = () => showSlide(currentIndex - 1);
+
+  const handleTouchStart = (ev) => {
+    setStartX(ev.touches[0].clientX);
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (ev) => {
+    if (!isDragging) return;
+
+    const currentX = ev.touches[0].clientX;
+    const diffX = startX - currentX;
+
+    if (diffX > 50) {
+      handleNext();
+      setIsDragging(false);
+    } else if (diffX < -50) {
+      handlePrev();
+      setIsDragging(false);
+    }
+  };
+
+  const handleToucEnd = () => setIsDragging(false);
 
   const sizes = [
     5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
@@ -95,7 +119,12 @@ export default function ProductDetails({ params }) {
       <Layout>
         <div className="w-full flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
           <AspectRatioContainer className="rounded-lg bg-white relative w-full">
-            <div className="slider-container">
+            <div
+              className="slider-container"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleToucEnd}
+            >
               <div
                 className="slider-wrapper"
                 style={{ transform: `translateX(${-currentIndex * 100}%)` }}
