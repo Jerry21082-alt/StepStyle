@@ -57,9 +57,7 @@ export default function ProductList({ product, products }) {
 
   return (
     <div className={`h-full cursor-pointer group/main relative`}>
-      <div
-        className="flex flex-col w-full group"
-      >
+      <div className="flex flex-col w-full group">
         <AspectRatioContainer
           className={`flex items-center justify-center group bg-white overflow-hidden p-4`}
         >
@@ -68,7 +66,7 @@ export default function ProductList({ product, products }) {
             onClick={() => view(product)}
           >
             <Image
-              src={`/${product.photos.main}`}
+              src={`/${product.photos[0]}`}
               alt="product image"
               loading="eager"
               width={500}

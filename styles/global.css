@@ -182,7 +182,7 @@ label {
 
 .overlay {
   height: 100vh;
-  transition: opacity .25s ease-in-out, visibility .25s ease-in-out;
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
 }
 
 #menu-button span {
@@ -497,7 +497,6 @@ label {
   color: #fff;
 }
 
-
 .grid-items {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -524,14 +523,35 @@ label {
   visibility: hidden;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(150px, 1fr)
-    ); /* Adjust grid columns for smaller screens */
-  }
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
 }
 
 @keyframes popOut {

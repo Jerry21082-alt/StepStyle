@@ -26,13 +26,31 @@ export default function ProductDetails({ params }) {
     setOverlay,
   } = stateFunc();
 
-  const sizes = [
-    5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
-  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
   );
+
+  const slides = productDetails.photos;
+
+  const showSlide = (index) => {
+    const totalSlides = slides.length;
+    if (index >= totalSlides) {
+      setCurrentIndex(0);
+    } else if (index < 0) {
+      setCurrentIndex(totalSlides - 1);
+    } else {
+      setCurrentIndex(index);
+    }
+  };
+
+  const handleNext = () => showSlide(currentIndex + 1);
+  const handlePrev = () => showSlide(currentIndex - 1);
+
+  const sizes = [
+    5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
+  ];
 
   const [shoeSizes, setShoeSizes] = useState(8);
   const [toggleShoeSize, setToggleShoeSize] = useState(false);
@@ -75,33 +93,61 @@ export default function ProductDetails({ params }) {
   return (
     <>
       <Layout>
-        <div className="flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
-          <div className="w-full rounded-lg bg-dangerColor relative">
-            <AspectRatioContainer aspectRatio={1 / 1}>
-              <div className="px-10 flex items-center justify-center h-full">
-                <Image
-                  src={`/${productDetails.photos.main}`}
-                  alt="product photo"
-                  width={500}
-                  height={500}
-                  // className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
-                />
+        <div className="w-full flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
+          <AspectRatioContainer className="rounded-lg bg-white relative w-full">
+            <div className="slider-container">
+              <div
+                className="slider-wrapper"
+                style={{ transform: `translateX(${-currentIndex * 100}%)` }}
+              >
+                {slides.map((slide, key) => (
+                  <div
+                    className="slide flex justify-center items-center h-full"
+                    key={key}
+                  >
+                    <Image
+                      src={`/${slide}`}
+                      width={500}
+                      height={500}
+                      alt="product image"
+                    />
+                  </div>
+                ))}
               </div>
-            </AspectRatioContainer>
-            <div className="w-full hidden md:flex items-center justify-center absolute botto-16 space-x-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-16 flex items-center justify-center">
-                  <Image
-                    src={`/${productDetails.photos.main}`}
-                    width={500}
-                    height={500}
-                    alt="product image"
-                  />
-                </div>
-              ))}
             </div>
-          </div>
-
+            <div
+              className={`w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 right-6 -translate-y-1/2 items-center justify-center cursor-pointer active:scale-75 transition ${
+                slides.length > 1 ? "flex" : "hidden"
+              }`}
+              onClick={handleNext}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                id="chevron"
+                width={15}
+                fill="#FFFFFF"
+              >
+                <path d="M13.25 10 6.109 2.58a.697.697 0 0 1 0-.979.68.68 0 0 1 .969 0l7.83 7.908a.697.697 0 0 1 0 .979l-7.83 7.908a.68.68 0 0 1-.969 0 .697.697 0 0 1 0-.979L13.25 10z"></path>
+              </svg>
+            </div>{" "}
+            <div
+              className={`w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 left-6 -translate-y-1/2 items-center justify-center cursor-pointer active:scale-75 transition ${
+                slides.length > 1 ? "flex" : "hidden"
+              }`}
+              onClick={handlePrev}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                id="chevron"
+                width={15}
+                fill="#FFFFFF"
+              >
+                <path d="M13.891 17.418a.697.697 0 0 1 0 .979.68.68 0 0 1-.969 0l-7.83-7.908a.697.697 0 0 1 0-.979l7.83-7.908a.68.68 0 0 1 .969 0 .697.697 0 0 1 0 .979L6.75 10l7.141 7.418z"></path>
+              </svg>
+            </div>
+          </AspectRatioContainer>
           <div className="p-2 w-full">
             <div className="flex flex-col">
               <h5 className="text-xl font-bold md:w-[420px]">
