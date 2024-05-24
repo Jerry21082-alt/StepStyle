@@ -76,7 +76,7 @@ export default function ProductDetails({ params }) {
     <>
       <Layout>
         <div className="flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
-          <div className="w-full rounded-lg bg-white relative">
+          <div className="w-full rounded-lg bg-dangerColor relative">
             <AspectRatioContainer aspectRatio={1 / 1}>
               <div className="px-10 flex items-center justify-center h-full">
                 <Image
