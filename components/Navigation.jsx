@@ -269,7 +269,7 @@ export default function Navigation() {
             </div>
 
             <div className="flex items-center space-x-5">
-              <div className="w-6 h-6 flex items-center justify-center">
+              <div className="w-6 h-6 flex items-center justify-center cursor-pointer">
                 <svg
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +281,7 @@ export default function Navigation() {
                 </svg>
               </div>
 
-              <div className="w-6 h-6">
+              <div className="w-6 h-6 cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -305,7 +305,7 @@ export default function Navigation() {
           transition: "background-color 0.3s ease-in-out",
           backgroundColor: checkScrollPos ? "#000" : "#F5F5F5",
         }}
-        className={`w-full h-14 flex md:hidden justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-30 left-0 top-0 ${
+        className={`w-full h-14 flex md:hidden justify-between items-center py-4 md:py-8 px-4 md:px-20 fixed z-10 left-0 top-0 ${
           orderSuccess ? "pointer-events-none" : null
         }`}
       >
@@ -320,7 +320,7 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center space-x-4 w-full justify-end">
-          <div className="w-6 h-6">
+          <div className="w-6 h-6 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
@@ -336,7 +336,7 @@ export default function Navigation() {
           </div>
 
           <div className="flex space-x-1">
-            <div className="w-6 h-6">
+            <div className="w-6 h-6 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

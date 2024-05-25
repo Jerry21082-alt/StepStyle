@@ -5,6 +5,7 @@ import MobileSideBar from "./MobileSideBar";
 import ProductSearch from "./ProductSearch";
 import SearchNav from "./SearchNav";
 import Overlay from "./Overlay";
+import ConfirmModal from "./ConfirmModal";
 
 export default function Layout({ children }) {
   return (
@@ -16,6 +17,7 @@ export default function Layout({ children }) {
       <ProductSearch />
       <Navigation />
       <Overlay />
+      <ConfirmModal />
 
       <div className="p-2 md:px-20 flex flex-col w-full overscroll-contain bg-snow">
         {children}

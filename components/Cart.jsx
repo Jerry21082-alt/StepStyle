@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 import Image from "next/image";
 import AspectRatioContainer from "./AspectRatioContainer";
@@ -17,7 +17,9 @@ export default function Cart() {
     decreaseItemQuantity,
     getTotalPrice,
     setOverlay,
-    clearCart
+    clearCart,
+    setOpenConfirmModal,
+    confirm,
   } = stateFunc();
 
   const totalPrice = getTotalPrice().toFixed(2);
@@ -43,6 +45,11 @@ export default function Cart() {
     return () => document.removeEventListener("keydown", handleCartClose);
   }, [toggleCart]);
 
+  const handleClearCart = () => {
+    setOpenConfirmModal(true);
+    setOverlay(true);
+  };
+
   const closeCart = () => {
     setToggleCart(false);
     setOverlay(false);
@@ -50,29 +57,29 @@ export default function Cart() {
 
   return (
     <div
-      className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[400] overflow-y-auto transition-transform ${
+      className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[100] overflow-y-auto transition-transform ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
     >
       <button
-        className={`flex items-center space-x-1 absolute top-2 left-1  bg-buttonColor rounded-md p-1 w-16 mb-5 ${
+        className={`absolute top-2 mb-5 ${
           !toggleCart ? "animate-cart-btn" : "static-cart-btn"
         }`}
         onClick={closeCart}
       >
-        <div className="w-5 h-5">
+        <div className="w-8 h-8">
           <svg
-            viewBox="0 0 24 24"
-            fill="#fff"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            id="chevron-left"
             className="w-full h-full"
           >
-            <g id="Arrow / Chevron_Left_MD">
-              <path id="Vector" d="M14 16L10 12L14 8" />
-            </g>
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path d="M14.71 6.71c-.39-.39-1.02-.39-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"></path>
           </svg>
         </div>
-        <p className="text-snow">Back</p>
       </button>
       {isMounted && !cartItems.length ? (
         <div className="flex justify-center items-center h-[70vh]">
@@ -109,7 +116,9 @@ export default function Cart() {
               <p>({isMounted && cartItems.length})</p>
             </div>
 
-            <button onClick={clearCart}>Clear Cart</button>
+            <button onClick={handleClearCart} className="text-secondaryColor">
+              Clear Cart
+            </button>
           </div>
 
           <div
@@ -120,13 +129,13 @@ export default function Cart() {
               cartItems.map((item, idx) => (
                 <AspectRatioContainer
                   aspectRatio={14 / 6}
-                  className="flex flex-col justify-center w-full bg-white rounded-md px-2"
+                  className="flex flex-col justify-center w-full bg-white rounded-md px-2 relative"
                   key={idx}
                 >
                   <div className="flex items-center space-x-3 mt-2">
                     <div className="w-28 aspect-square flex items-center justify-center">
                       <Image
-                        src={`/${item.photos.main}`}
+                        src={`/${item.photos[0]}`}
                         alt="product image"
                         width={500}
                         height={500}
@@ -156,7 +165,7 @@ export default function Cart() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between absolute left-0 right-0 bottom-2 p-2 md:p-4 w-full">
                     <div
                       className="text-secondaryColor cursor-pointer"
                       onClick={() => handleDelete(item)}

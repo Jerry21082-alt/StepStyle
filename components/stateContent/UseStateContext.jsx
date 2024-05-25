@@ -23,7 +23,7 @@ export default function UseStateContext({ children }) {
     lastName: "Thor",
     address: "V19, North pole, Mars Space",
     phone: "+4887990938",
-    mail: "Alien007@gmail.com",
+    mail: "Alien007@spaceship.com",
   });
 
   const [quantity, setQuantity] = useState(1);
@@ -41,6 +41,7 @@ export default function UseStateContext({ children }) {
   );
   const [height, setHeight] = useState(0);
   const [overlay, setOverlay] = useState(false);
+  const [openConfirmModal, setOpenConfirmModal] = useState(false);
 
   const [formInput, setFormInput] = useState({
     firstName: "",
@@ -115,7 +116,7 @@ export default function UseStateContext({ children }) {
     setNotifyMsg("item added to cart");
   };
 
-  const clearCart =() => setCartItems([])
+  const clearCart = () => setCartItems([]);
 
   const handleDelete = (product) => {
     const updatedCartItems = [...cartItems];
@@ -259,7 +260,9 @@ export default function UseStateContext({ children }) {
         setIsInputFocus,
         overlay,
         setOverlay,
-        clearCart
+        clearCart,
+        openConfirmModal,
+        setOpenConfirmModal,
       }}
     >
       {children}

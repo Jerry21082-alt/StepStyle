@@ -14,6 +14,7 @@ import ShoeSizes from "@/components/ShoeSizes";
 
 export default function ProductDetails({ params }) {
   const { id } = params;
+
   const {
     incQty,
     quantity,
@@ -25,6 +26,8 @@ export default function ProductDetails({ params }) {
     setNotifyMsg,
     setOverlay,
   } = stateFunc();
+
+  const [toggleDescription, setToggleDescription] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -49,6 +52,14 @@ export default function ProductDetails({ params }) {
 
   const handleNext = () => showSlide(currentIndex + 1);
   const handlePrev = () => showSlide(currentIndex - 1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearTimeout(interval);
+  }, [currentIndex]);
 
   const handleTouchStart = (ev) => {
     setStartX(ev.touches[0].clientX);
@@ -144,9 +155,20 @@ export default function ProductDetails({ params }) {
                 ))}
               </div>
             </div>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center space-x-1">
+              {slides.length > 1 &&
+                slides.map((circle, idx) => (
+                  <div
+                    key={circle}
+                    className={`w-2 h-2 rounded-full ${
+                      currentIndex === idx ? "active-index" : "inactive-index"
+                    }`}
+                  />
+                ))}
+            </div>
             <div
               className={`w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 right-6 -translate-y-1/2 items-center justify-center cursor-pointer active:scale-75 transition ${
-                slides.length > 1 ? "flex" : "hidden"
+                slides.length > 1 ? "hidden md:flex" : "hidden"
               }`}
               onClick={handleNext}
             >
@@ -162,7 +184,7 @@ export default function ProductDetails({ params }) {
             </div>{" "}
             <div
               className={`w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 left-6 -translate-y-1/2 items-center justify-center cursor-pointer active:scale-75 transition ${
-                slides.length > 1 ? "flex" : "hidden"
+                slides.length > 1 ? "hidden md:flex" : "hidden"
               }`}
               onClick={handlePrev}
             >
@@ -182,8 +204,40 @@ export default function ProductDetails({ params }) {
               <h5 className="text-xl font-bold md:w-[420px]">
                 {productDetails.name}
               </h5>
-              <span>{productDetails.description}</span>
 
+              <div
+                className="flex border-y border-primaryColor py-2 mt-4"
+                onClick={() => setToggleDescription((x) => !x)}
+              >
+                <div className="flex-1">
+                  <p className={toggleDescription ? "hidden" : ""}>
+                    {productDetails.description.length > 60
+                      ? `${productDetails.description.substring(0, 60)}...`
+                      : productDetails.description}
+                  </p>
+
+                  <p
+                    className={
+                      toggleDescription ? "inline-block mt-2" : "hidden"
+                    }
+                  >
+                    {productDetails.description}
+                  </p>
+                </div>
+
+                <div className="w-5 h-5 cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    id="chevron-down"
+                    className={`transition-transform ${
+                      toggleDescription ? "rotate-180" : ""
+                    }`}
+                  >
+                    <path d="M12,15a1,1,0,0,1-.71-.29l-4-4A1,1,0,0,1,8.71,9.29L12,12.59l3.29-3.29a1,1,0,0,1,1.41,1.41l-4,4A1,1,0,0,1,12,15Z"></path>
+                  </svg>
+                </div>
+              </div>
               <div className="mt-3 pb-5 flex items-center border-b-2 border-solid border-primaryColor">
                 {[1, 2, 3, 4, 5].map((index) => (
                   <FaStar color="fe5d26" key={index} />
@@ -202,8 +256,18 @@ export default function ProductDetails({ params }) {
               </div>
 
               <div className="py-2 flex items-center space-x-1 border-b-2 border-solid border-primaryColor">
+                <span>Color:</span>
+                <h4>{productDetails.color}</h4>
+              </div>
+
+              <div className="py-2 flex items-center space-x-1 border-b-2 border-solid border-primaryColor">
                 <span>Release date:</span>
                 <h4>{productDetails.releaseDate}</h4>
+              </div>
+
+              <div className="py-2 flex items-center space-x-1 border-b-2 border-solid border-primaryColor">
+                <span>SKU:</span>
+                <h4>{productDetails.sku}</h4>
               </div>
             </div>
 

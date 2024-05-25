@@ -48,15 +48,19 @@ export default function Slider({ title, products, href }) {
           className="media-scroller snaps-inline scroll-smooth ease-linear space-x-2"
           ref={containerRef}
         >
-          {products.slice(0, 8).map((product, i) => (
-            <div className="media-element" key={i}>
+          {products.map((product, i) => (
+            <Link
+              href={`/products/${product.id}`}
+              className="media-element"
+              key={i}
+            >
               <AspectRatioContainer
                 aspectRatio={6 / 5}
                 className="bg-white w-[55vw] md:w-[30vw] rounded p-4 flex items-center justify-center"
               >
                 <div className="flex justify-center items-center h-full w-full">
                   <Image
-                    src={`/${product.photos.main}`}
+                    src={`/${product.photos[0]}`}
                     width={500}
                     height={500}
                     alt="product image"
@@ -65,7 +69,7 @@ export default function Slider({ title, products, href }) {
               </AspectRatioContainer>
               <span className="truncate mt-2 text-sm">{product.name}</span>
               <h4 className="mt-2 text-sm">${product.price}</h4>
-            </div>
+            </Link>
           ))}
         </div>
         <div

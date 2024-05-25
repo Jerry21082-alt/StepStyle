@@ -71,7 +71,6 @@ export const newArrivals = [
     color: "Veneer/Autumn Green/Deep Purple",
     releaseDate: "4/25/24",
     photos: [
-      "sneakers/nikes/donk_low_pro.jpg",
       "sneakers/nikes/DUNK LOW SP RETRO 'VENEER' 2024 2.jpg",
       "sneakers/nikes/DUNK LOW SP RETRO 'VENEER' 2024 3.jpg",
       "sneakers/nikes/DUNK LOW SP RETRO 'VENEER' 2024 4.jpg",
@@ -94,9 +93,9 @@ export const newArrivals = [
     releaseDate: "5/4/24",
     photos: [
       "sneakers/nikes/jordan_4_retro.jpg",
+      "sneakers/nikes/JORDAN 4 RETRO 'MILITARY BLUE' 2024.jpg",
       "sneakers/nikes/JORDAN 4 RETRO 'MILITARY BLUE' 2024 2.jpg",
       "sneakers/nikes/JORDAN 4 RETRO 'MILITARY BLUE' 2024 3.jpg",
-      "sneakers/nikes/JORDAN 4 RETRO 'MILITARY BLUE' 2024 4.jpg",
     ],
     isOffer: false,
   },
@@ -116,9 +115,9 @@ export const newArrivals = [
     releaseDate: "4/30/24",
     photos: [
       "sneakers/nikes/jordan_jumpman.jpg",
+      "sneakers/nikes/Jordan Jumpman Jack TR 'Sail'.jpg",
       "sneakers/nikes/Jordan Jumpman Jack TR 'Sail' 2.jpg",
       "sneakers/nikes/Jordan Jumpman Jack TR 'Sail' 3.jpg",
-      "sneakers/nikes/Jordan Jumpman Jack TR 'Sail' 4.jpg",
     ],
     isOffer: false,
   },
@@ -168,91 +167,82 @@ export const newArrivals = [
 
 export const trending = [
   {
-    id: 8,
+    id: 60,
     name: "AE 1 'Gorgia red clay'",
     brand: "Adidas",
-    price: 170,
-    originalPrice: 170,
+    price: 119,
+    originalPrice: 119,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/adidas/ae_1.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "Sporting a monochromatic design, the adidas AE 1 'Georgia Red Clay' rolls out a coral mesh upper fortified with matching support wings. The honeycomb build provides timely ventilation, while Anthony Edwards' personal logo graces the tongue tag, accompanying the embossed three-stripes on the heel counter. The midsole combines lightweight Lightstrike foam on the forefoot and energy-returning Boost on the heel.",
+    color: "Coral/Coral/Core Black",
+    sku: "SKU: IF1863",
+    releaseDate: "4/4/24",
+    photos: [
+      "sneakers/adidas/ae_1.jpg",
+      "sneakers/adidas/AE 1 'GEORGIA RED CLAY'.jpg",
+      "sneakers/adidas/AE 1 'GEORGIA RED CLAY'2.jpg",
+      "sneakers/adidas/AE 1 'GEORGIA RED CLAY'3.jpg",
+    ],
     isOffer: false,
   },
   {
     id: 10,
     name: "Kobe 8 Protro 'Venice Beach' 2024",
     brand: "Nike",
-    price: 148,
-    originalPrice: 148,
+    price: 124,
+    originalPrice: 124,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/nikes/kobe_8.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "Celebrating Southern California beach vibes, the Nike Kobe 8 Protro ‘Venice Beach’ 2024 brings hits of red, teal and yellow into a seamless Engineered Mesh upper. A turquoise heel counter featuring Kobe's signature and an orange knit collar lining give these shoes additional color pops. A drop-in React foam midsole provides cushioning while a carbon fiber shank plate promotes midfoot stability. A see-through rubber outsole has a herringbone traction pattern for optimal traction.",
+    color: "Stadium Grey/Metallic Silver/Tour Yellow",
+    sku: "FQ3548 001",
+    releaseDate: "4/13/24",
+    photos: [
+      "sneakers/nikes/kobe_8.jpg",
+      "sneakers/nikes/KOBE 8 PROTRO 'VENICE BEACH' 2024.jpg",
+      "sneakers/nikes/KOBE 8 PROTRO 'VENICE BEACH' 2024 2.jpg",
+      "sneakers/nikes/KOBE 8 PROTRO 'VENICE BEACH' 2024 3.jpg",
+    ],
     isOffer: false,
   },
   {
     id: 11,
     name: "A$ap Rocky X Inhale OG 'Summer Melon'",
     brand: "Puma",
-    price: 171,
-    originalPrice: 171,
+    price: 154,
+    originalPrice: 154,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/puma/asap_x.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "Part of a motorsport-based collection with the New York rapper, the A$AP Rocky x PUMA Inhale OG 'Summer Melon' reimagines a 2000 original. These sneakers have a cream-colored mesh upper with red-and-black no-sew overlays. Synthetic leather bolsters the heel and toe areas, while a gradient Formstrip adorns the side panel. A compression-molded foam midsole keeps every step soft and lightweight.",
+    color: "Summer Melon/High Risk Red",
+    releaseDate: "5/3/24",
+    photos: ["sneakers/puma/asap_x.jpg"],
     isOffer: false,
   },
   {
     id: 12,
     name: "Nickelodeon X MB.02 'Slime'",
     brand: "Puma",
-    price: 113,
-    originalPrice: 133,
+    price: 100,
+    originalPrice: 100,
     percent: 1,
     quantity: 1,
 
-    description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/puma/nick_x.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+    description: "",
+    color: "Fluro Green/Lime Squeeze",
+    sku: "X1030SL",
+    releaseDate: "12/21/22",
+    photos: [
+      "sneakers/puma/nick_x.jpg",
+      "sneakers/puma/NICKELODEON X MB.02 'SLIME'.jpg",
+    ],
     isOffer: false,
   },
   {
@@ -265,38 +255,39 @@ export const trending = [
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/nb/nb_1000.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "The New Balance 1000 'Silver Metallic' shoes have a black mesh upper with sweeping metallic silver synthetic overlays. A 1999 throwback, these kicks have webbed eyelets to keep the upper secure. A black 'N' logo and a '1000' badge adorn the look. A cream-colored, dual-density C-CAP midsole works in tandem with ABZORB cushioning in the forefoot and heel for an all-around plush feel underfoot.",
+    color: "Silver Metallic/Black/Dawn Glow",
+    sku: "M1000SL",
+    releaseDate: "4/24/24",
+    photos: [
+      "sneakers/nb/nb_1000.jpg",
+      "sneakers/nb/NEW BALANCE 1000 'SILVER METALLIC'.jpg",
+      "sneakers/nb/NEW BALANCE 1000 'SILVER METALLIC'2.jpg",
+      "sneakers/nb/NEW BALANCE 1000 'SILVER METALLIC'3.jpg",
+    ],
+
     isOffer: false,
   },
   {
     id: 14,
-    name: "Off-White X Chuck 70 'White'",
-    brand: "Converse",
-    price: 147,
-    originalPrice: 147,
+    name: "J. BALVIN X JORDAN 3 RETRO 'RIO'",
+    brand: "Nike",
+    price: 347,
+    originalPrice: 347,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/converce/offWhite_x.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "The J Balvin x Air Jordan 3 Retro 'Rio' takes design cues from the reggaeton artist's son. These shoes have a leather upper with grey elephant print overlays on the forefoot and heel areas. Gradient accents land on the back tab, which has the Nike Air logo on the left foot and J Balvin's smiley face logo on the right. The sunset colors repeat on the midsole's rear, anchored by a red see-through rubber outsole.",
+    color: "Black/Solar Flare/Total Crimson Abyss",
+    sku: "FN0344 001",
+    releaseDate: "5/22/24",
+    photos: [
+      "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'.jpg",
+      "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'2.jpg",
+      "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'3.jpg",
+      "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'4.jpg",
+    ],
     isOffer: false,
   },
 ];
@@ -306,44 +297,43 @@ export const flashSales = [
     id: 15,
     name: "Air Jordan 4 Retro 'Thunder' 2023",
     brand: "Nike",
-    price: 88,
-    originalPrice: 88,
+    price: 230,
+    originalPrice: 230,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/nikes/air_jordan_4.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "The 2023 Air Jordan 4 Retro 'Thunder' reintroduces the popular color scheme that was first released in 2006 and later reissued in 2012. The shoe's upper appears in all-black nubuck with yellow accents on the molded eyelets, lower tongue and quarter panel, the latter two draped with black netting. Cushioned comfort underfoot is supplied by a yellow PU midsole and is enhanced by the heel’s exposed Air-sole unit. The Flight tongue tag and molded heel tab bear the iconic Jumpman branding.",
+    sku: "DH6927 017",
+    color: "Black/Tour Yellow",
+    releaseDate: "5/13/23",
+    photos: [
+      "sneakers/nikes/air_jordan_4.jpg",
+      "sneakers/nikes/AIR JORDAN 4 RETRO 'THUNDER' 2023.jpg",
+      "sneakers/nikes/AIR JORDAN 4 RETRO 'THUNDER' 2023 2.jpg",
+      "sneakers/nikes/AIR JORDAN 4 RETRO 'THUNDER' 2023 3.jpg",
+    ],
     isOffer: false,
   },
   {
     id: 16,
     name: "HandBall Spezial 'Navy'",
     brand: "Adidas",
-    price: 88,
-    originalPrice: 88,
+    price: 54,
+    originalPrice: 54,
     percent: 1,
     quantity: 1,
 
-    description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/adidas/hand_ball_spezial.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+    description: "",
+    sku: " BD7633",
+    color: "Collegiate Navy/Clear Sky/Gum",
+    releaseDate: "8/26/20",
+    photos: [
+      "sneakers/adidas/hand_ball_spezial.jpg",
+      "sneakers/adidas/HANDBALL SPEZIAL 'NAVY GUM'.jpg",
+      "sneakers/adidas/HANDBALL SPEZIAL 'NAVY GUM' 2.jpg",
+      "sneakers/adidas/HANDBALL SPEZIAL 'NAVY GUM' 3.jpg",
+    ],
     isOffer: false,
   },
 
@@ -351,44 +341,43 @@ export const flashSales = [
     id: 17,
     name: "Yeezy Boost 350 V2 'ONYX'",
     brand: "Adidas",
-    price: 212,
-    originalPrice: 212,
+    price: 159,
+    originalPrice: 159,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/adidas/yeezy_boost.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "A monochromatic 'Onyx' hue envelops the latest Yeezy Boost 350 V2, the lifestyle runner from adidas and Kanye West. The upper features a dark black Primeknit weave along with rope laces, while a post-dyed monofilament side stripe can be found in a lighter black shade. A full-length Boost unit is encapsulated in a semi-translucent ribbed TPU midsole, while a black rubber outsole rounds out the look.",
+    color: "Onyx/Onyx/Onyx",
+    sku: "HQ4540",
+    releaseDate: " 6/20/22",
+    photos: [
+      "sneakers/adidas/yeezy_boost.jpg",
+      "sneakers/adidas/YEEZY BOOST 350 V2 'ONYX'.jpg",
+      "sneakers/adidas/YEEZY BOOST 350 V2 'ONYX' 2.jpg",
+      "sneakers/adidas/YEEZY BOOST 350 V2 'ONYX' 3.jpg",
+    ],
     isOffer: false,
   },
   {
     id: 18,
-    name: "JJJJound X 2002R Gortex 'Charcoal'",
-    brand: "New Balance",
-    price: 208,
-    originalPrice: 208,
+    name: "FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA'",
+    brand: "Nike",
+    price: 184,
+    originalPrice: 184,
     percent: 1,
     quantity: 1,
 
     description:
-      "Legendary basketball sneaker with iconic Air Jordan wings logo.",
-    color: "Black/Red",
-    releaseDate: "2021-08-17",
-    photos: {
-      main: "sneakers/nb/jjjound.jpg",
-      others: [
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4 (2).jpg",
-        "sneakers/nikes/air-jordan-1-retro-high-og-black-white-mens-shoes-Tz18l4.jpg",
-      ],
-    },
+      "The Futura Laboratories x Nike Dunk Low SB 'Bleached Aqua' showcases a teal suede Swoosh contrasting the white canvas upper, bolstered with multicolor canvas overlays wrapped in Futura's abstract graphics. The artist's signature makes its way to the lateral side, while the FL logo adorns the other side. Both brand logos appear on the stuffed tongue tag, while a blue translucent rubber outsole keeps the traction smooth underfoot.",
+    color: "Bleached Aqua/Geode Teal/White",
+    releaseDate: "5/22/24",
+    photos: [
+      "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA'.jpg",
+      "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA' 2.jpg",
+      "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA' 3.jpg",
+      "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA' 4.jpg",
+    ],
     isOffer: false,
   },
 ];
