@@ -13,9 +13,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
           <div className="w-full lg:px-0">
             {title ? (
               <div className="flex justify-between">
-                <h2 className="text-2xl font-bold md:text-5xl">
-                  {title}
-                </h2>
+                <h2 className="text-2xl font-bold md:text-5xl">{title}</h2>
 
                 <span className="see relative text-xs">Shop All</span>
               </div>
@@ -37,7 +35,7 @@ export default function ProductReel({ products, title, subtitle, href }) {
 
         <div className="relative">
           <div className="flex items-center w-full mt-6">
-            <div className="w-full grid grid-cols-2 gap-x-2 gap-y-10 md:gap-x-4 md:grid-cols-4 md:gap-y-10">
+            <div className="w-full grid grid-cols-2 gap-x-1 gap-y-10 md:gap-x-2 md:grid-cols-4 md:gap-y-10">
               {myMap.map((product, index) => (
                 <ProductList
                   key={index}

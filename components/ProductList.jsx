@@ -76,7 +76,7 @@ export default function ProductList({ product, products }) {
           </div>
         </AspectRatioContainer>
         <div
-          className="w-8 h-8 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center z-20"
+          className="w-8 h-8 rounded-full absolute top-3 right-3 bg-snow flex items-center justify-center"
           onClick={() => toggleWatchList(product)}
         >
           <div className="h-4 w-4 flex items-center justify-center">

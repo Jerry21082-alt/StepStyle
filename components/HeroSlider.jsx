@@ -39,7 +39,7 @@ export default function HeroSlider({ slides }) {
                 key={index}
                 className={`${
                   index === currentIndex ? "bg-secondaryColor" : "bg-snow"
-                } h-2 w-2 rounded-full z-20`}
+                } h-2 w-2 rounded-full`}
                 style={{ transition: "background-color 1s ease" }}
               />
             ))}

@@ -26,7 +26,7 @@ export default function AspectRatioContainer({
     return () => window.removeEventListener("resize", handleResize);
   }, [aspectRatio]);
   return (
-    <div className={className} ref={containerRef}>
+    <div className={`${className}`} ref={containerRef}>
       <div className="aspect-ratio-content">{children}</div>
     </div>
   );

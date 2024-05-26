@@ -1,35 +1,20 @@
 @font-face {
-  font-family: PoppinsBold;
-  src: url("../public/Poppins-Bold.ttf");
-}
-
-@font-face {
-  font-family: PoppinsSemibold;
-  src: url("../public/Poppins-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: PoppinsRegular;
-  src: url("../public/Poppins-Regular.ttf");
-}
-
-@font-face {
-  font-family: NikeFont;
-  src: url("../public/futura-nd-for-nike-365-snkrs-cn-xbd.ttf");
-}
-
-@font-face {
   font-family: HelveticaNowText;
   src: url("../public/helveticanowtext-bold-demo.ttf");
 }
 
+@font-face {
+  font-family: BRHendrixBold;
+  src: url("../public/BRHendrix-Bold-BF6556d1b5459d3.otf");
+}
+
 h1 {
-  font-family: NikeFont;
+  font-family: BRHendrixBold;
   font-size: 24px;
 }
 
 h2 {
-  font-family: NikeFont;
+  font-family: BRHendrixBold;
   font-size: 18px;
 }
 

@@ -120,9 +120,7 @@ export default function Navigation() {
         }`}
       >
         <div className="flex justify-center items-center w-full relative">
-          <div className="logo text-secondaryColor absolute left-10">
-            StepStyle
-          </div>
+          <div className="logo absolute left-10 text-2xl">FOOTERR</div>
 
           <div
             className={`bg-cardBg flex items-center space-x-3 rounded-3xl p-2 w-[656px] desktop-search-input ${
@@ -215,8 +213,8 @@ export default function Navigation() {
           transition: "top .25s ease",
         }}
       >
-        <Link href="/" className="logo text-secondaryColor">
-          StepStyle
+        <Link href="/" className="logo text-2xl">
+          FOOTERR
         </Link>
         <div className="flex items-center justify-between w-2/3">
           <ul className="flex item-center space-x-5">
@@ -315,7 +313,7 @@ export default function Navigation() {
             href={`/`}
             style={{ color: checkScrollPos ? "#fe5d26" : "#000000" }}
           >
-            StepStyle
+            FOOTERR
           </Link>
         </div>
 

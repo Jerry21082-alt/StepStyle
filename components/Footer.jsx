@@ -5,18 +5,14 @@ import {
   trendingList,
 } from "@/constants/footerLists";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 const DarkFooter = () => {
   const fullYear = new Date().getFullYear();
   return (
     <footer className="flex flex-col justify-center w-full left-0 bottom-0 z-[-2] bg-black relative">
+      <div className="logo text-snow text-md md:text-2xl p-4 md:px-20">
+        FOOTERR
+      </div>
       <section className="flex flex-col md:flex-row items-start justify-start md:justify-between p-4 md:p-20 space-y-10 md:space-y-0">
         <ul className="m-0 flex flex-col space-y-4 text-gray">
           <h4 className="text-snow">Trending</h4>

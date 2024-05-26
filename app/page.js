@@ -6,9 +6,15 @@ import Overlay from "@/components/Overlay";
 import ProductReel from "@/components/ProductReel";
 import Slider from "@/components/Slider";
 import TopBrands from "@/components/TopBrands";
-import { products,newArrivals, trending, flashSales } from "@/constants/mockProducts";
+import {
+  products,
+  newArrivals,
+  trending,
+  flashSales,
+} from "@/constants/mockProducts";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import { useEffect, useState } from "react";
+import Collection from "@/components/Collection";
 
 export default function Home() {
   const { searchFocus, recentlyViewed } = stateFunc();
@@ -28,6 +34,7 @@ export default function Home() {
         {/* <ProductPrev /> */}
         <Slider title="TRENDING" products={trending} />
         <TopBrands />
+        <Collection />
         <GiveAway />
         <ProductReel
           products={flashSales}
@@ -35,7 +42,11 @@ export default function Home() {
           title="FLASH SALES!"
         />
         {isMounted && recentlyViewed.length > 0 && (
-          <Slider title="RECENTLY VIEWED" products={recentlyViewed} href={`recentview`}/>
+          <Slider
+            title="RECENTLY VIEWED"
+            products={recentlyViewed}
+            href={`recentview`}
+          />
         )}
 
         {searchFocus && <Overlay />}

@@ -63,24 +63,21 @@ export default function page() {
     <section className="fixed top-0 left-0 right-0 p-2 h-screen bg-snow z-[200]">
       <h3 className="text-center">Recently Viewed</h3>
 
-      <div
-        className="flex items-center space-x-2 absolute top-2 left-2 w-20 bg-buttonColor rounded-md p-1"
-        onClick={() => router.back()}
-      >
-        <div className="w-5 h-5">
+      <button className={`absolute top-2 mb-5`} onClick={() => router.back()}>
+        <div className="w-8 h-8">
           <svg
-            viewBox="0 0 24 24"
-            fill="#fff"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            id="chevron-left"
             className="w-full h-full"
           >
-            <g id="Arrow / Chevron_Left_MD">
-              <path id="Vector" d="M14 16L10 12L14 8" />
-            </g>
+            <path fill="none" d="M0 0h24v24H0V0z"></path>
+            <path d="M14.71 6.71c-.39-.39-1.02-.39-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"></path>
           </svg>
         </div>
-        <p className="text-snow">Back</p>
-      </div>
+      </button>
 
       <div className="flex items-center justify-between mt-5 space-x-2 w-full h-12">
         <div className={`items-center space-x-5 ${edit ? "flex" : "hidden"}`}>
@@ -145,7 +142,7 @@ export default function page() {
                   }`}
                 >
                   <Image
-                    src={`/${list.photos.main}`}
+                    src={`/${list.photos[0]}`}
                     width={500}
                     height={500}
                     alt="product image"
