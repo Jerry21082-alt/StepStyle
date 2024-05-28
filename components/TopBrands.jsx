@@ -25,8 +25,8 @@ const brandIcons = [
 export default function TopBrands() {
   return (
     <section className="w-full brands my-6 md:my-12">
-      <h1 className="pl-20 text-5xl">BRANDS</h1>
-      <div className="flex items-center flex-wrap p-4 md:py-4 md:px-20 space-x-2 md:space-x-6 w-full">
+      <h2 className="pl-2 md:pl-20 text-2xl md:text-5xl">BRANDS</h2>
+      <div className="flex items-center flex-wrap p-2 md:py-4 md:px-20 space-x-2 md:space-x-6 w-full">
         {brandIcons.map((icon, idx) => (
           <div className="w-24">
             <div key={idx} dangerouslySetInnerHTML={{ __html: icon }} />

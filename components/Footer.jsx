@@ -10,7 +10,7 @@ const DarkFooter = () => {
   const fullYear = new Date().getFullYear();
   return (
     <footer className="flex flex-col justify-center w-full left-0 bottom-0 z-[-2] bg-black relative">
-      <div className="logo text-snow text-md md:text-2xl p-4 md:px-20">
+      <div className="logo text-secondaryColor text-md md:text-2xl p-4 md:px-20">
         FOOTERR
       </div>
       <section className="flex flex-col md:flex-row items-start justify-start md:justify-between p-4 md:p-20 space-y-10 md:space-y-0">

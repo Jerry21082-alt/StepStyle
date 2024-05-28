@@ -4,6 +4,7 @@ import Link from "next/link";
 import { stateFunc } from "./stateContent/UseStateContext";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { navOptions } from "@/constants/footerLists";
 
 export default function Navigation() {
   const {
@@ -26,6 +27,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const searchRef = useRef();
   const searchRefBox = useRef(null);
+  const ref = useRef();
 
   const checkScrollPos = prevScrollPos < height && pathname === "/";
 
@@ -115,7 +117,7 @@ export default function Navigation() {
     <>
       <div
         ref={searchRefBox}
-        className={`fixed top-0 left-0 h-72 w-screen bg-snow z-[600] px-10 py-2 ${
+        className={`fixed top-0 left-0 h-72 w-screen bg-white z-[600] px-10 py-2 ${
           activeSearch ? "active-search" : "inactive-search"
         }`}
       >
@@ -207,7 +209,7 @@ export default function Navigation() {
       </div>
 
       <div
-        className="hidden md:flex item-center justify-between fixed left-0 w-full z-50 h-14 px-10 bg-snow py-2"
+        className="hidden md:flex item-center justify-between fixed left-0 w-full z-50 h-14 px-10 bg-white py-2"
         style={{
           top: isVissible ? "0px" : "-100px",
           transition: "top .25s ease",
@@ -217,21 +219,25 @@ export default function Navigation() {
           FOOTERR
         </Link>
         <div className="flex items-center justify-between w-2/3">
-          <ul className="flex item-center space-x-5">
-            <li>
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
               <Link href="/">New & Featured</Link>
-            </li>
-            <li>
-              <Link href="/">Men</Link>
-            </li>
-            <li>
-              <Link href="/">Women</Link>
-            </li>
-            <li>
-              <Link href="/">Kids</Link>
-            </li>
-            <li>
-              <Link href="/">Sale</Link>
+
+              <div className="absolute left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-between w-full">
+                  {navOptions.map((option, idx) => (
+                    <ul className="m-0 p-0" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
             </li>
           </ul>
 

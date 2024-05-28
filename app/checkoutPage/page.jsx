@@ -52,7 +52,7 @@ export default function CheckOutPage() {
                   <AspectRatioContainer className="bg-white rounded-md w-36 p-2">
                     <div className="h-full flex items-center justify-center">
                       <Image
-                        src={`/${product.photos.main}`}
+                        src={`/${product.photos[0]}`}
                         alt="product photo"
                         width={500}
                         height={500}
@@ -85,7 +85,10 @@ export default function CheckOutPage() {
           <div className="flex items-center mt-5">
             <div
               className="flex item-center justify-center w-4 h-4"
-              style={{ backgroundColor: isCustomer ? "#008000" : null, border: isCustomer ? '0' : '1px solid' }}
+              style={{
+                backgroundColor: isCustomer ? "#008000" : null,
+                border: isCustomer ? "0" : "1px solid",
+              }}
               onClick={() => setIscustomer((prev) => !prev)}
             >
               <BsCheck color="#fff" />

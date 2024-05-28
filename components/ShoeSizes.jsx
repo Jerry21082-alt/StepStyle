@@ -45,7 +45,7 @@ export default function ShoeSizes({
   return (
     <div
       ref={ref}
-      className={`fixed bottom-0 left-0 right-0 bg-white p-4 z-40 block md:hidden ${
+      className={`fixed bottom-0 left-0 right-0 bg-white p-4 z-[102] block md:hidden ${
         toggleShoeSize ? "open-shoe-size" : "close-shoe-size"
       }`}
     >

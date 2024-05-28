@@ -34,3 +34,43 @@ export const aboutList = [
   "Facebook",
   "X",
 ];
+
+export const navOptions = [
+  {
+    heading: "New & Featured",
+    options: ["New Arrivals", "Best Sellers", "New & Upcoming Drops"],
+  },
+  {
+    heading: "Trending",
+    options: [
+      "ACG",
+      "Lifestyle Running",
+      "The Color Shop",
+      "Shop Sport",
+      "Father's Day Shop",
+      "AJ12 Retro & More Heat",
+    ],
+  },
+  {
+    heading: "Shop Classics",
+    options: [
+      "Dunk",
+      "Air Jordan 1",
+      "Airfoce 1",
+      "Air Max",
+      "Blazzer",
+      "Vomero",
+    ],
+  },
+  {
+    heading: "Explore",
+    options: [
+      "Launch Calendar",
+      "Running Shoe Finder",
+      "Bra Finder",
+      "Product Care",
+      "Member Rewards",
+      "Buying Guides",
+    ],
+  },
+];

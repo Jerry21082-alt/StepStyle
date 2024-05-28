@@ -319,24 +319,21 @@ export default function ProductDetails({ params }) {
             </div>
 
             <div className="flex items-center mt-5">
-              <button
-                className="w-32 bg-black py-2 px-4 text-snow text-sm active:scale-90 mr-2"
+              <Link
+                className="flex justify-center w-32 bg-black py-2 px-4 text-snow text-sm active:scale-90 mr-2"
+                href={{
+                  pathname: "/checkoutPage",
+                  query: {
+                    id: id,
+                    quantity: quantity,
+                    size: shoeSizes,
+                  },
+                }}
                 onClick={() => setQuantity(1)}
               >
-                <Link
-                  className="w-full"
-                  href={{
-                    pathname: "/checkoutPage",
-                    query: {
-                      id: id,
-                      quantity: quantity,
-                      size: shoeSizes,
-                    },
-                  }}
-                >
-                  Shop
-                </Link>
-              </button>
+                Shop
+              </Link>
+
               <button
                 className="w-32 border-solid text-snow bg-secondaryColor py-2 px-4 text-sm active:scale-90 transition-all w-34"
                 onClick={() => handleAddToCart(productDetails)}
