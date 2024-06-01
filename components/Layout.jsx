@@ -19,7 +19,7 @@ export default function Layout({ children }) {
       <Overlay />
       <ConfirmModal />
 
-      <div className="p-2 md:px-20 flex flex-col w-full overscroll-contain bg-snow">
+      <div className="p-2 md:px-20 mt-14 flex flex-col w-full overscroll-contain">
         {children}
       </div>
     </>

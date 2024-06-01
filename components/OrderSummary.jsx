@@ -31,7 +31,7 @@ export default function OrderSummary({
     paymentFocus,
     setPaymentFocus,
     setPaymentInput,
-    setOverlay
+    setOverlay,
   } = stateFunc();
 
   useEffect(() => {
@@ -169,7 +169,7 @@ export default function OrderSummary({
   );
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOverlay(true)
+    setOverlay(true);
 
     if (
       isCustomer &&
@@ -229,7 +229,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.name && paymentFocus.name && paymentInput.name
-                ? 'block space-y-1'
+                ? "block space-y-1"
                 : "hidden"
             }
           >
@@ -255,7 +255,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.card && paymentFocus.card && paymentInput.card
-                ? 'block space-y-1'
+                ? "block space-y-1"
                 : "hidden"
             }
           >
@@ -278,7 +278,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.exp && paymentFocus.exp && paymentInput.exp
-                ? 'block space-y-1'
+                ? "block space-y-1"
                 : "hidden"
             }
           >
@@ -303,7 +303,7 @@ export default function OrderSummary({
           <div
             className={
               !validPaymentInputs.cvc && paymentFocus.cvc && paymentInput.cvc
-                ? 'block space-y-1'
+                ? "block space-y-1"
                 : "hidden"
             }
           >
@@ -345,8 +345,7 @@ export default function OrderSummary({
       <div className="flex justify-between items-center mt-5">
         <h5 className="font-[500] text-lg">Total</h5>
         <h5 className="font-bold text-lg">
-          $
-          {totalPrice - (totalPrice * 10 / 100).toFixed(2)}
+          ${(totalPrice - (totalPrice * 10) / 100).toFixed(2)}
         </h5>
       </div>
       <span className="flex justify-center items-center">

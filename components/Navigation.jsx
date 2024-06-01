@@ -4,7 +4,7 @@ import Link from "next/link";
 import { stateFunc } from "./stateContent/UseStateContext";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { navOptions } from "@/constants/footerLists";
+import { Featured, jordan, kids, men, sales } from "@/constants/footerLists";
 
 export default function Navigation() {
   const {
@@ -117,12 +117,12 @@ export default function Navigation() {
     <>
       <div
         ref={searchRefBox}
-        className={`fixed top-0 left-0 h-72 w-screen bg-white z-[600] px-10 py-2 ${
+        className={`fixed top-0 left-0 h-72 w-screen bg-white z-[600] px-10 py-2 nav ${
           activeSearch ? "active-search" : "inactive-search"
         }`}
       >
         <div className="flex justify-center items-center w-full relative">
-          <div className="logo absolute left-10 text-2xl">FOOTERR</div>
+          <div className="logo absolute left-10 text-2xl">STEPSTYLE</div>
 
           <div
             className={`bg-cardBg flex items-center space-x-3 rounded-3xl p-2 w-[656px] desktop-search-input ${
@@ -216,17 +216,19 @@ export default function Navigation() {
         }}
       >
         <Link href="/" className="logo text-2xl">
-          FOOTERR
+          STEPSTYLE
         </Link>
-        <div className="flex items-center justify-between w-2/3">
+        <div className="flex items-center space-x-8 nav-links">
           <ul className="flex item-center space-x-5 m-0 p-0">
             <li className="float-left dropdown" ref={ref}>
-              <Link href="/">New & Featured</Link>
+              <Link href="/">
+                <h2>New & Featured</h2>
+              </Link>
 
-              <div className="absolute left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
-                <div className="mt-12 flex justify-between w-full">
-                  {navOptions.map((option, idx) => (
-                    <ul className="m-0 p-0" key={idx}>
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {Featured.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
                       <h2 className="mb-2">{option.heading}</h2>
 
                       {option.options.map((list) => (
@@ -241,64 +243,182 @@ export default function Navigation() {
             </li>
           </ul>
 
-          <div className="flex items-center space-x-5">
-            <div
-              className={`bg-cardBg relative w-36 h-8 p-2 rounded-3xl flex item-center space-x-2 ${
-                activeSearch
-                  ? "initial-search-active"
-                  : "initial-search-inactive"
-              }`}
-            >
-              <div className="w-6 h-full flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  version="1.1"
-                  viewBox="-5.0 -10.0 110.0 135.0"
-                  className="w-full"
-                >
-                  <g>
-                    <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
-                    <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
-                  </g>
-                </svg>
-              </div>
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
+              <Link href="/">
+                <h2>Men</h2>
+              </Link>
 
-              <input
-                type="text"
-                placeholder="Search"
-                value={initialInput}
-                onChange={handleInitialSearch}
-                className="text-sm w-2/3"
-              />
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {men.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
+              <Link href="/">
+                <h2>Women</h2>
+              </Link>
+
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {men.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
+              <Link href="/">
+                <h2>Kids</h2>
+              </Link>
+
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {kids.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
+              <Link href="/">
+                <h2>Jordan</h2>
+              </Link>
+
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {jordan.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="flex item-center space-x-5 m-0 p-0">
+            <li className="float-left dropdown" ref={ref}>
+              <Link href="/">
+                <h2>Sale</h2>
+              </Link>
+
+              <div className="fixed left-0 top-0 w-full z-[-300] dropdown-content bg-white py-4 px-[20%]">
+                <div className="mt-12 flex justify-evenly flex-wrap w-full">
+                  {sales.map((option, idx) => (
+                    <ul className="m-0 p-0 mt-12" key={idx}>
+                      <h2 className="mb-2">{option.heading}</h2>
+
+                      {option.options.map((list) => (
+                        <li key={list} className="mb-1">
+                          {list}
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex items-center space-x-5">
+          <div
+            className={`bg-cardBg relative w-36 h-8 p-2 rounded-3xl flex item-center space-x-2 ${
+              activeSearch ? "initial-search-active" : "initial-search-inactive"
+            }`}
+          >
+            <div className="w-6 h-full flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                viewBox="-5.0 -10.0 110.0 135.0"
+                className="w-full"
+              >
+                <g>
+                  <path d="m47.398 78.398c-8.3008 0-16.102-3.1992-21.898-9.1016-5.8984-5.8008-9.1016-13.602-9.1016-21.898 0-8.3008 3.1992-16.102 9.1016-21.898 5.8984-5.8008 13.602-9.1016 21.898-9.1016 8.3008 0 16.102 3.1992 21.898 9.1016 5.8984 5.8984 9.1016 13.602 9.1016 21.898 0 8.3008-3.1992 16.102-9.1016 21.898-5.7969 5.9023-13.598 9.1016-21.898 9.1016zm0-56.797c-6.8984 0-13.398 2.6992-18.301 7.6016-4.8984 4.8984-7.6016 11.398-7.6016 18.301 0 6.8984 2.6992 13.398 7.6016 18.301 4.8984 4.8984 11.398 7.6016 18.301 7.6016 6.8984 0 13.398-2.6992 18.301-7.6016 4.8984-4.8984 7.6016-11.398 7.6016-18.301s-2.6992-13.504-7.5-18.402c-4.9023-4.8008-11.402-7.5-18.402-7.5z" />
+                  <path d="m65.746 69.336 3.6055-3.6055 14.141 14.141-3.6055 3.6055z" />
+                </g>
+              </svg>
             </div>
 
-            <div className="flex items-center space-x-5">
-              <div className="w-6 h-6 flex items-center justify-center cursor-pointer">
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 28 28"
-                  className="w-full h-full"
-                >
-                  <title>Watch List</title>
-                  <path d="M26 9.312c0-4.391-2.969-5.313-5.469-5.313-2.328 0-4.953 2.516-5.766 3.484-0.375 0.453-1.156 0.453-1.531 0-0.812-0.969-3.437-3.484-5.766-3.484-2.5 0-5.469 0.922-5.469 5.313 0 2.859 2.891 5.516 2.922 5.547l9.078 8.75 9.063-8.734c0.047-0.047 2.938-2.703 2.938-5.563zM28 9.312c0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281s-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313z"></path>
-                </svg>
-              </div>
+            <input
+              type="text"
+              placeholder="Search"
+              value={initialInput}
+              onChange={handleInitialSearch}
+              className="text-sm w-2/3"
+            />
+          </div>
 
-              <div className="w-6 h-6 cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  height={25}
-                  width={25}
-                  id="shopping-bag"
-                  onClick={openCart}
-                  // fill={checkScrollPos ? "#FFFFFF" : "#000000"}
-                  // style={{ transition: "fill .3s ease-in-out" }}
-                >
-                  <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
-                </svg>
-              </div>
+          <div className="flex items-center space-x-5">
+            <div className="w-6 h-6 flex items-center justify-center cursor-pointer">
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 28 28"
+                className="w-full h-full"
+              >
+                <title>Watch List</title>
+                <path d="M26 9.312c0-4.391-2.969-5.313-5.469-5.313-2.328 0-4.953 2.516-5.766 3.484-0.375 0.453-1.156 0.453-1.531 0-0.812-0.969-3.437-3.484-5.766-3.484-2.5 0-5.469 0.922-5.469 5.313 0 2.859 2.891 5.516 2.922 5.547l9.078 8.75 9.063-8.734c0.047-0.047 2.938-2.703 2.938-5.563zM28 9.312c0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281s-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313z"></path>
+              </svg>
+            </div>
+
+            <div className="w-6 h-6 cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                height={25}
+                width={25}
+                id="shopping-bag"
+                onClick={openCart}
+                // fill={checkScrollPos ? "#FFFFFF" : "#000000"}
+                // style={{ transition: "fill .3s ease-in-out" }}
+              >
+                <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
+              </svg>
             </div>
           </div>
         </div>
@@ -319,7 +439,7 @@ export default function Navigation() {
             href={`/`}
             style={{ color: checkScrollPos ? "#fe5d26" : "#000000" }}
           >
-            FOOTERR
+            STEPSTYLE
           </Link>
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { stateFunc } from "./stateContent/UseStateContext";
 
 const sizes = [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12];
@@ -10,6 +10,8 @@ export default function ShoeSizes({
   setShoeSizes,
 }) {
   const { setOverlay } = stateFunc();
+
+  const [selected, setSelected] = useState("");
 
   const closeShoeSizeModal = () => {
     setOverlay(false);
@@ -37,6 +39,7 @@ export default function ShoeSizes({
   }, [toggleShoeSize, onClose]);
 
   const selectSize = (size) => {
+    setSelected(size);
     setShoeSizes(size);
     setToggleShoeSize(false);
     setOverlay(false);
@@ -72,6 +75,7 @@ export default function ShoeSizes({
           {sizes.map((size) => (
             <div
               key={size}
+              style={{ border: size === selected ? "1px solid #000" : "none" }}
               onClick={() => selectSize(size)}
               className="border border-primaryColor flex items-center justify-center p-2 hover:border-black"
             >

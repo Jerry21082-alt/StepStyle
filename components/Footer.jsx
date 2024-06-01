@@ -4,14 +4,13 @@ import {
   supportList,
   trendingList,
 } from "@/constants/footerLists";
-import Link from "next/link";
 
 const DarkFooter = () => {
   const fullYear = new Date().getFullYear();
   return (
     <footer className="flex flex-col justify-center w-full left-0 bottom-0 z-[-2] bg-black relative">
       <div className="logo text-secondaryColor text-md md:text-2xl p-4 md:px-20">
-        FOOTERR
+        STEPSTYLE
       </div>
       <section className="flex flex-col md:flex-row items-start justify-start md:justify-between p-4 md:p-20 space-y-10 md:space-y-0">
         <ul className="m-0 flex flex-col space-y-4 text-gray">

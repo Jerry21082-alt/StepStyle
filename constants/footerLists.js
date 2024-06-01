@@ -32,10 +32,10 @@ export const aboutList = [
   "Press",
   "Instagram",
   "Facebook",
-  "X",
+  "Twitter",
 ];
 
-export const navOptions = [
+export const Featured = [
   {
     heading: "New & Featured",
     options: ["New Arrivals", "Best Sellers", "New & Upcoming Drops"],
@@ -72,5 +72,96 @@ export const navOptions = [
       "Member Rewards",
       "Buying Guides",
     ],
+  },
+];
+
+export const men = [
+  {
+    heading: "New & Featured",
+    options: ["New Arrivals", "Best Sellers", "All Sales"],
+  },
+  {
+    heading: "Shoes",
+    options: [
+      "All Shoes",
+      "Life Style",
+      "Jordan",
+      "Dunk",
+      "Lifestyle Running",
+      "Air Max",
+      "Air Force 1",
+      "Training Gym",
+    ],
+  },
+  {
+    heading: "Shop By Sport",
+    options: [
+      "Basketball",
+      "Running",
+      "Golf",
+      "Soccer",
+      "Football",
+      "Air Max",
+      "Swimming",
+      "Training Gym",
+    ],
+  },
+];
+
+export const kids = [
+  {
+    heading: "New & Featured",
+    options: ["New Arrivals", "Best Sellers", "All Sales"],
+  },
+  {
+    heading: "Shoes by Size",
+    options: ["Big Kids (1Y - 7Y)", "Little Kids (1C - 3Y)", "Baby & Toddler"],
+  },
+];
+
+export const jordan = [
+  {
+    heading: "New & Featured",
+    options: ["New Arrivals", "Best Sellers", "All Sales"],
+  },
+  {
+    heading: "Men",
+    options: ["Shop All", "Shoes", "AJ1", "Clothing", "Basketball"],
+  },
+  {
+    heading: "Women",
+    options: ["Shop All", "Shoes", "AJ1", "Clothing", "Basketball"],
+  },
+  {
+    heading: "Kids",
+    options: [
+      "Shop All",
+      "Shoes",
+      "AJ1",
+      "Clothing",
+      "Basketball",
+      "Big Kids",
+      "Little Kids",
+      "Baby & Toddler",
+    ],
+  },
+];
+
+export const sales = [
+  {
+    heading: "Sale: Upto 40% Off",
+    options: ["Sale Shoe"],
+  },
+  {
+    heading: "Men",
+    options: ["Shoes", "Shop All"],
+  },
+  {
+    heading: "Women",
+    options: ["Shoes", "Shop All"],
+  },
+  {
+    heading: "Kids",
+    options: ["Shoes", "Shop All"],
   },
 ];

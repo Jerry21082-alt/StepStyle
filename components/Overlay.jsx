@@ -4,7 +4,7 @@ export default function Overlay() {
   const { overlay } = stateFunc();
   return (
     <div
-      className={`fixed bg-darkOverlay bottom-0 left-0  w-screen z-[101] overlay ${
+      className={`fixed bottom-0 left-0  w-screen z-[101] overlay ${
         overlay ? "active-overlay" : "inactive-overlay"
       }`}
     ></div>

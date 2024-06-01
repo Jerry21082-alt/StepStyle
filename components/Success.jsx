@@ -19,9 +19,9 @@ export default function Success() {
   }, []);
 
   return (
-    <div className="z-[1000] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div className="z-[1000] fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2">
       {isLoading ? (
-        <div className="text-secondaryColor z-[500] fixed top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] animation-container">
+        <div>
           <div className="flex items-center gap-1 w-full loader">
             <div className="circle"></div>
             <div className="circle"></div>

@@ -87,8 +87,14 @@ export default function ProductDetails({ params }) {
     5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12,
   ];
 
+  const [selected, setSelected] = useState("");
   const [shoeSizes, setShoeSizes] = useState(8);
   const [toggleShoeSize, setToggleShoeSize] = useState(false);
+
+  const handleShoeSelect = (size) => {
+    setShoeSizes(size);
+    setSelected(size);
+  };
 
   const sizeRef = useRef();
 
@@ -155,7 +161,7 @@ export default function ProductDetails({ params }) {
                 ))}
               </div>
             </div>
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center space-x-1">
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex md:hidden items-center space-x-1">
               {slides.length > 1 &&
                 slides.map((circle, idx) => (
                   <div
@@ -165,6 +171,26 @@ export default function ProductDetails({ params }) {
                     }`}
                   />
                 ))}
+            </div>
+            <div className="hidden md:block absolute bottom-1/3 left-1/2 -translate-x-1/2">
+              <div className="flex items-center space-x-4">
+                {productDetails.photos.map((photo, idx) => (
+                  <div
+                    className={`w-16 ${
+                      idx == currentIndex ? "img-current" : "img-not-current"
+                    }`}
+                    key={idx}
+                  >
+                    <Image
+                      src={`/${photo}`}
+                      alt="product image"
+                      width={500}
+                      height={500}
+                      className="w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
             <div
               className={`w-10 h-10 bg-buttonColor rounded-full absolute top-1/2 right-6 -translate-y-1/2 items-center justify-center cursor-pointer active:scale-75 transition ${
@@ -297,7 +323,13 @@ export default function ProductDetails({ params }) {
                 {sizes.map((item) => (
                   <div
                     key={item}
-                    onClick={() => setShoeSizes(item)}
+                    onClick={() => handleShoeSelect(item)}
+                    style={{
+                      border:
+                        selected === item
+                          ? "1px solid #000"
+                          : "1px solid #edede9",
+                    }}
                     className="border border-primaryColor flex items-center justify-center p-2 hover:border-black cursor-pointer"
                   >
                     {item}
