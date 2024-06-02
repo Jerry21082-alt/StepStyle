@@ -30,7 +30,9 @@ export default function ProductSearch() {
         {handleProductFilterSearch().map((list, idx) => (
           <div
             className={`flex ${
-              !searchInput.length ? "hide-search-results" : "show-search-results"
+              !searchInput.length
+                ? "hide-search-results"
+                : "show-search-results"
             }`}
             key={idx}
           >
@@ -38,7 +40,7 @@ export default function ProductSearch() {
               className={`w-40 h-28 bg-white rounded-xl p-2 flex justify-center items-center`}
             >
               <Image
-                src={`/${list.photos.main}`}
+                src={`/${list.photos[0]}`}
                 width={500}
                 height={500}
                 alt="product image"

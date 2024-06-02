@@ -45,7 +45,7 @@ export default function CheckOutPage() {
       <div className="flex flex-col md:flex-row space-x-0 md:space-x-9 w-full">
         <div>
           <div className="w-full md:w-[55vw] border-2 border-primaryColor border-solid rounded-md p-3">
-            <h5 className="font-bold text-lg">Review Item and shipping</h5>
+            <h5 className="text-xl">Review Item and shipping</h5>
             {isMounted &&
               checkoutProducts.map((product) => (
                 <div key={product.id} className="flex items-start mt-5">
@@ -91,13 +91,15 @@ export default function CheckOutPage() {
               }}
               onClick={() => setIscustomer((prev) => !prev)}
             >
-              <BsCheck color="#fff" />
+              {isCustomer && <BsCheck color="#fff" />}
             </div>
 
             <p className="text-sm ml-2">Returning Customer?</p>
           </div>
+
           <DeliveryInfo isCustomer={isCustomer} setIscustomer={setIscustomer} />
         </div>
+
         <OrderSummary
           productDetails={checkoutProducts}
           quantity={getQuantity}

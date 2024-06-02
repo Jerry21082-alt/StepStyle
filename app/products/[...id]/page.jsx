@@ -135,7 +135,7 @@ export default function ProductDetails({ params }) {
     <>
       <Layout>
         <div className="w-full flex flex-col space-y-5 md:space-y-0 space-x-0 md:space-x-12 md:flex-row">
-          <AspectRatioContainer className="rounded-lg bg-white relative w-full">
+          <AspectRatioContainer className="rounded-lg bg-white relative w-full overflow-hidden">
             <div
               className="slider-container"
               onTouchStart={handleTouchStart}
@@ -236,19 +236,19 @@ export default function ProductDetails({ params }) {
                 onClick={() => setToggleDescription((x) => !x)}
               >
                 <div className="flex-1">
-                  <p className={toggleDescription ? "hidden" : ""}>
+                  <span className={toggleDescription ? "hidden" : ""}>
                     {productDetails.description.length > 60
                       ? `${productDetails.description.substring(0, 60)}...`
                       : productDetails.description}
-                  </p>
+                  </span>
 
-                  <p
+                  <span
                     className={
                       toggleDescription ? "inline-block mt-2" : "hidden"
                     }
                   >
                     {productDetails.description}
-                  </p>
+                  </span>
                 </div>
 
                 <div className="w-5 h-5 cursor-pointer">

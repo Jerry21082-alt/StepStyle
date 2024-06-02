@@ -178,10 +178,198 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`${isCustomer ? "hidden" : null} mt-5 flex flex-col gap-2`}
+      className={`${
+        isCustomer ? "hidden" : null
+      } mt-5 flex flex-col gap-2 justify-center`}
     >
-      <div className="md:flex justify-between">
-        <div className="flex flex-col">
+      <div className="w-full flex flex-col md:flex-row items-center space-x-2">
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="first-name">First Name**</label>
+
+          <div
+            className={
+              !validInput.firstName && focus.firstName && formInput.firstName
+                ? null
+                : "hidden"
+            }
+          >
+            <ErrMessage
+              message={`Please enter a valid name using only letters`}
+            />
+          </div>
+
+          <input
+            type="text"
+            id="first-name"
+            value={formInput.firstName}
+            onChange={handleFirstNameChange}
+            onFocus={handleFirstNameFocus}
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="last-name">Last Name**</label>
+
+          <div
+            className={
+              !validInput.lastName && focus.lastName && formInput.lastName
+                ? null
+                : "hidden"
+            }
+          >
+            <ErrMessage
+              message={`Please enter a valid name using only letters`}
+            />
+          </div>
+
+          <input
+            type="text"
+            id="last-name"
+            value={formInput.lastName}
+            onChange={handleLastNameChange}
+            onFocus={handleLastNameFocus}
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col space-y-1">
+        <label htmlFor="address">Address**</label>
+
+        <div
+          className={
+            !validInput.address && focus.address && formInput.address
+              ? null
+              : "hidden"
+          }
+        >
+          <ErrMessage
+            message={`Please enter a valid address. Address must not include '/><:_^'`}
+          />
+        </div>
+
+        <input
+          type="text"
+          value={formInput.address}
+          onChange={handleAddressNameChange}
+          onFocus={handleAddressFocus}
+          id="address"
+          className="border border-primaryColor p-2 w-full block"
+        />
+      </div>
+
+      <div className="w-full flex flex-col md:flex-row items-center space-x-2">
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="city">City**</label>
+
+          <div
+            className={
+              !validInput.city && focus.city && formInput.city ? null : "hidden"
+            }
+          >
+            <ErrMessage
+              message={`Please enter a valid city or town. Must not include '/><:_^'`}
+            />
+          </div>
+
+          <input
+            type="text"
+            value={formInput.city}
+            onChange={handleCityChange}
+            onFocus={handleCityNameFocus}
+            id="city"
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="zip">Zip Code**</label>
+
+          <div
+            className={
+              !validInput.zip && focus.zip && formInput.zip ? null : "hidden"
+            }
+          >
+            <ErrMessage
+              message={`Please enter a valid zip code. Must be five numbers from 0-9`}
+            />
+          </div>
+
+          <input
+            type="text"
+            value={formInput.zip}
+            onChange={handleZipChange}
+            onFocus={handleZipFocus}
+            id="zip"
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col md:flex-row items-center space-x-2">
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="phone">Phone**</label>
+
+          <div
+            className={
+              !validInput.phone && focus.phone && formInput.phone
+                ? null
+                : "hidden"
+            }
+          >
+            <ErrMessage message={`Must be a number of 12 digits`} />
+          </div>
+
+          <input
+            type="number"
+            required={false}
+            value={formInput.phone}
+            onChange={handlePhoneChange}
+            onFocus={handlePhoneFocus}
+            id="phone"
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+
+        <div className="w-full flex flex-col space-y-1">
+          <label htmlFor="email">Email**</label>
+
+          <div
+            className={
+              !validInput.email && focus.email && formInput.email
+                ? null
+                : "hidden"
+            }
+          >
+            <ErrMessage
+              message={`Please enter a valid email address. Must include @ symbol`}
+            />
+          </div>
+
+          <input
+            type="email"
+            value={formInput.email}
+            onChange={handleMailChange}
+            onFocus={handleMailFocus}
+            id="email"
+            className="border border-primaryColor p-2 w-full block"
+          />
+        </div>
+      </div>
+
+      <button
+        onClick={() => setIscustomer(false)}
+        className={
+          !validInputs
+            ? " bg-primaryColor rounded-2xl py-2 text-md font-[500] mt-5 md:w-[20%]"
+            : " bg-secondaryColor rounded-2xl py-2 text-md text-snow font-bold mt-5 md:w-[20%]"
+        }
+        disabled={!validInputs ? true : false}
+      >
+        Save
+      </button>
+      {/* <div className="flex items-center space-x-2">
+        <div className="flex flex-col w-1/2">
           <label className="font-medium text-sm" htmlFor="firstname">
             First Name*
           </label>
@@ -197,7 +385,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             />
           </div>
           <input
-            className="border border-primaryColor p-2 md:w-[28vw]"
+            className="border border-primaryColor p-2 w-full block"
             type="text"
             value={formInput.firstName}
             onChange={handleFirstNameChange}
@@ -206,7 +394,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
           />
         </div>
 
-        <span className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 w-1/2">
           <label className="font-medium text-sm" htmlFor="lastname">
             Last Name*
           </label>
@@ -222,17 +410,17 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             />
           </div>
           <input
-            className="border border-primaryColor p-2 outline-none md:w-[28vw]"
+            className="border border-primaryColor p-2 outline-none w-full block"
             type="text"
             value={formInput.lastName}
             onChange={handleLastNameChange}
             onFocus={handleLastNameFocus}
             id="lastname"
           />
-        </span>
+        </div>
       </div>
 
-      <span className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1">
         <label className="font-medium text-sm" htmlFor="address">
           Address*
         </label>
@@ -255,10 +443,10 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
           onFocus={handleAddressFocus}
           id="address"
         />
-      </span>
+      </div>
 
       <div className="md:flex justify-between">
-        <span className="flex flex-col gap-1">
+        <div className="flex flex-col w-1/2">
           <label className="font-medium text-sm" htmlFor="city">
             City/Town*
           </label>
@@ -272,16 +460,16 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             />
           </div>
           <input
-            className="border border-primaryColor p-2 outline-none md:w-[28vw]"
+            className="border border-primaryColor p-2 outline-none w-full"
             type="text"
             value={formInput.city}
             onChange={handleCityChange}
             onFocus={handleCityNameFocus}
             id="city"
           />
-        </span>
+        </div>
 
-        <span className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 w-1/2">
           <label className="font-medium text-sm" htmlFor="zipcode">
             Zip Code*
           </label>
@@ -302,7 +490,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
             onFocus={handleZipFocus}
             id="zipcode"
           />
-        </span>
+        </div>
       </div>
 
       <div className="md:flex justify-between">
@@ -365,7 +553,7 @@ export default function UserInfoInputs({ isCustomer, setIscustomer }) {
         disabled={!validInputs ? true : false}
       >
         Save
-      </button>
+      </button> */}
     </form>
   );
 }

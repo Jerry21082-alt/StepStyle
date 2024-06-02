@@ -75,7 +75,10 @@ export default function ShoeSizes({
           {sizes.map((size) => (
             <div
               key={size}
-              style={{ border: size === selected ? "1px solid #000" : "none" }}
+              style={{
+                border:
+                  size === selected ? "1px solid #000" : "1px solid #edede9",
+              }}
               onClick={() => selectSize(size)}
               className="border border-primaryColor flex items-center justify-center p-2 hover:border-black"
             >

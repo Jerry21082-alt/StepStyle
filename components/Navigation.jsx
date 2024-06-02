@@ -16,6 +16,7 @@ export default function Navigation() {
     height,
     setOpenProductSearch,
     setOverlay,
+    watchList,
   } = stateFunc();
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -489,7 +490,7 @@ export default function Navigation() {
           </div>
 
           <div className="">
-            <Link className="w-6 h-6 block" href="/watchlist">
+            <Link className="w-6 h-6 block relative" href="/watchlist">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -500,17 +501,16 @@ export default function Navigation() {
               >
                 <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"></path>
               </svg>
-              {/* <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 28 28"
-                fill={checkScrollPos ? "#FFFFFF" : "#000000"}
-                style={{ transition: "fill .3s ease-in-out" }}
-                className="w-full h-full"
+
+              <div
+                className="absolute -top-1 -left-1 text-xs"
+                style={{
+                  color: checkScrollPos ? "#FFFFFF" : "#000000",
+                  transition: "color 0.3s ease-in-out",
+                }}
               >
-                <title>heart</title>
-                <path d="M14 26c-0.25 0-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313 0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281z"></path>
-              </svg> */}
+                {watchList.length}
+              </div>
             </Link>
           </div>
 
