@@ -556,6 +556,7 @@ label {
 .overlay.inactive-overlay {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .slider-container {

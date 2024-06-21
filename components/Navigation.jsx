@@ -429,7 +429,7 @@ export default function Navigation() {
               </svg>
 
               <span className="absolute top-0 -right-2">
-                {cartItems.length}
+                {isMounted && cartItems.length}
               </span>
             </div>
           </div>
