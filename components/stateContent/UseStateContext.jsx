@@ -26,7 +26,6 @@ export default function UseStateContext({ children }) {
     mail: "Alien007@spaceship.com",
   });
 
-  const [quantity, setQuantity] = useState(1);
   const [toggleCart, setToggleCart] = useState(false);
   const [openProductSearch, setOpenProductSearch] = useState(false);
   const [isInputFocus, setIsInputFocus] = useState(false);
@@ -97,16 +96,6 @@ export default function UseStateContext({ children }) {
   });
 
   const [orderSuccess, setOrderSuccess] = useState(false);
-
-  const incQty = () => {
-    setQuantity((prevQty) => prevQty + 1);
-  };
-
-  const decQty = () => {
-    if (quantity - 1 < 1) {
-      setQuantity(1);
-    } else setQuantity((prevQty) => prevQty - 1);
-  };
 
   const addToCart = (product) => {
     const updatedCartItems = [...cartItems, product];
@@ -203,10 +192,6 @@ export default function UseStateContext({ children }) {
       value={{
         toggleCart,
         setToggleCart,
-        quantity,
-        setQuantity,
-        incQty,
-        decQty,
         userInfo,
         formInput,
         setFormInput,

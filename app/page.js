@@ -1,20 +1,15 @@
 "use client";
 
-import { Footer, Hero } from "@/components";
 import GiveAway from "@/components/GiveAway";
 import Overlay from "@/components/Overlay";
 import ProductReel from "@/components/ProductReel";
 import Slider from "@/components/Slider";
 import TopBrands from "@/components/TopBrands";
-import {
-  products,
-  newArrivals,
-  trending,
-  flashSales,
-} from "@/constants/mockProducts";
+import { newArrivals, trending, flashSales } from "@/constants/mockProducts";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import { useEffect, useState } from "react";
 import Collection from "@/components/Collection";
+import { Hero } from "@/components";
 
 export default function Home() {
   const { searchFocus, recentlyViewed } = stateFunc();

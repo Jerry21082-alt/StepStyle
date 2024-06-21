@@ -2,13 +2,12 @@
 
 import OrderSummary from "@/components/OrderSummary";
 import DeliveryInfo from "@/components/DeliveryInfo";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { stateFunc } from "@/components/stateContent/UseStateContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import Success from "@/components/Success";
-import Overlay from "@/components/Overlay";
 import Layout from "@/components/Layout";
 import AspectRatioContainer from "@/components/AspectRatioContainer";
 import { products } from "@/constants/mockProducts";
@@ -109,7 +108,6 @@ export default function CheckOutPage() {
         />
 
         {orderSuccess && <Success />}
-        {orderSuccess && <Overlay />}
       </div>
     </Layout>
   );

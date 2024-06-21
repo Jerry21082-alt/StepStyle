@@ -15,23 +15,33 @@ import ShoeSizes from "@/components/ShoeSizes";
 export default function ProductDetails({ params }) {
   const { id } = params;
 
-  const {
-    incQty,
-    quantity,
-    decQty,
-    setQuantity,
-    cartItems,
-    addToCart,
-    setNotify,
-    setNotifyMsg,
-    setOverlay,
-  } = stateFunc();
+  const { cartItems, addToCart, setNotify, setNotifyMsg, setOverlay } =
+    stateFunc();
 
   const [toggleDescription, setToggleDescription] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+
+  const incQty = () => {
+    setQuantity((prevQty) => {
+      if (prevQty + 1 > productDetails.items) {
+        setNotify(true);
+        setNotifyMsg(`Only ${productDetails.items} items left!`);
+        return productDetails.items;
+      } else {
+        return prevQty + 1;
+      }
+    });
+  };
+
+  const decQty = () => {
+    if (quantity - 1 < 1) {
+      setQuantity(1);
+    } else setQuantity((prevQty) => prevQty - 1);
+  };
 
   const [productDetails] = products.filter(
     (product_detail) => product_detail.id == id
@@ -340,13 +350,17 @@ export default function ProductDetails({ params }) {
 
             <div className="flex items-center space-x-4 mt-8">
               <div className="flex items-center bg-primaryColor py-1 px-4 space-x-4">
-                <FaMinus onClick={decQty} size={10} cursor="pointer" />
-                <span className="font-bold text-sm">{quantity}</span>
-                <FaPlus onClick={incQty} size={10} cursor="pointer" />
+                <FaMinus onClick={decQty} size={15} cursor="pointer" />
+                <span className="font-bold">{quantity}</span>
+                <FaPlus onClick={incQty} size={15} cursor="pointer" />
               </div>
 
               <span>
-                only <span className="text-secondaryColor">12</span> items left!
+                only{" "}
+                <span className="text-secondaryColor">
+                  {productDetails.items}
+                </span>{" "}
+                items left!
               </span>
             </div>
 

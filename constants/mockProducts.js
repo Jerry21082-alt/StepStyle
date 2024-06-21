@@ -11,6 +11,7 @@ export const newArrivals = [
     sku: "304292 706",
     color: "University Gold/University Gold-Black",
     releaseDate: "8/8/15",
+    items: 3,
     photos: [
       "sneakers/nikes/SB DUNK LOW PRO 'IOWA'.jpg",
       "sneakers/nikes/SB DUNK LOW PRO 'IOWA'2.jpg",
@@ -33,6 +34,7 @@ export const newArrivals = [
       "Classic tennis shoe featuring a minimalist design and leather upper.",
     color: "White/Green",
     releaseDate: "2021-12-10",
+    items: 5,
     photos: [
       "sneakers/nikes/SWAROVSKI X WMNS AIR MAX 97 LX 'SILVER BULLET'.jpg",
     ],
@@ -53,6 +55,7 @@ export const newArrivals = [
     sku: "SKU: 626969 030",
     color: "lack/White/Cool Grey/Pure Platinum",
     releaseDate: "8/24/13",
+    items: 8,
     photos: ["sneakers/nikes/AIR JORDAN 4 RETRO 'FEAR' 2013.jpg"],
     isOffer: true,
   },
@@ -70,6 +73,7 @@ export const newArrivals = [
     sku: "DA1469 200 24",
     color: "Veneer/Autumn Green/Deep Purple",
     releaseDate: "4/25/24",
+    items: 13,
     photos: [
       "sneakers/nikes/DUNK LOW SP RETRO 'VENEER' 2024 2.jpg",
       "sneakers/nikes/DUNK LOW SP RETRO 'VENEER' 2024 3.jpg",
@@ -91,6 +95,7 @@ export const newArrivals = [
     sku: "FV5029 141",
     color: "Off-White/Military Blue/Neutral Grey",
     releaseDate: "5/4/24",
+    items: 10,
     photos: [
       "sneakers/nikes/jordan_4_retro.jpg",
       "sneakers/nikes/JORDAN 4 RETRO 'MILITARY BLUE' 2024.jpg",
@@ -113,6 +118,7 @@ export const newArrivals = [
     sku: "FZ8117 100",
     color: "Sail/Muslin/Dark Mocha",
     releaseDate: "4/30/24",
+    items: 17,
     photos: [
       "sneakers/nikes/jordan_jumpman.jpg",
       "sneakers/nikes/Jordan Jumpman Jack TR 'Sail'.jpg",
@@ -135,6 +141,7 @@ export const newArrivals = [
     sku: "HP8739",
     color: "Onyx/Onyx/Onyx",
     releaseDate: "",
+    items: 3,
     photos: [
       "sneakers/adidas/yeezy_foam.jpg",
       "sneakers/adidas/YEEZY FOAM RUNNER 'ONYX'.jpg",
@@ -155,6 +162,7 @@ export const newArrivals = [
     description: "",
     color: "Black/Pure Silver",
     releaseDate: "5/31/23",
+    items: 7,
     photos: [
       "sneakers/asics/gell_1130.jpg",
       "sneakers/asics/GEL 1130 'BLACK PURE SILVER'.jpg",
@@ -180,6 +188,7 @@ export const trending = [
     color: "Coral/Coral/Core Black",
     sku: "SKU: IF1863",
     releaseDate: "4/4/24",
+    items: 12,
     photos: [
       "sneakers/adidas/ae_1.jpg",
       "sneakers/adidas/AE 1 'GEORGIA RED CLAY'.jpg",
@@ -202,6 +211,7 @@ export const trending = [
     color: "Stadium Grey/Metallic Silver/Tour Yellow",
     sku: "FQ3548 001",
     releaseDate: "4/13/24",
+    items: 14,
     photos: [
       "sneakers/nikes/kobe_8.jpg",
       "sneakers/nikes/KOBE 8 PROTRO 'VENICE BEACH' 2024.jpg",
@@ -223,6 +233,7 @@ export const trending = [
       "Part of a motorsport-based collection with the New York rapper, the A$AP Rocky x PUMA Inhale OG 'Summer Melon' reimagines a 2000 original. These sneakers have a cream-colored mesh upper with red-and-black no-sew overlays. Synthetic leather bolsters the heel and toe areas, while a gradient Formstrip adorns the side panel. A compression-molded foam midsole keeps every step soft and lightweight.",
     color: "Summer Melon/High Risk Red",
     releaseDate: "5/3/24",
+    items: 19,
     photos: ["sneakers/puma/asap_x.jpg"],
     isOffer: false,
   },
@@ -239,6 +250,7 @@ export const trending = [
     color: "Fluro Green/Lime Squeeze",
     sku: "X1030SL",
     releaseDate: "12/21/22",
+    items: 2,
     photos: [
       "sneakers/puma/nick_x.jpg",
       "sneakers/puma/NICKELODEON X MB.02 'SLIME'.jpg",
@@ -259,6 +271,7 @@ export const trending = [
     color: "Silver Metallic/Black/Dawn Glow",
     sku: "M1000SL",
     releaseDate: "4/24/24",
+    items: 4,
     photos: [
       "sneakers/nb/nb_1000.jpg",
       "sneakers/nb/NEW BALANCE 1000 'SILVER METALLIC'.jpg",
@@ -282,6 +295,7 @@ export const trending = [
     color: "Black/Solar Flare/Total Crimson Abyss",
     sku: "FN0344 001",
     releaseDate: "5/22/24",
+    items: 4,
     photos: [
       "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'.jpg",
       "sneakers/nikes/J. BALVIN X JORDAN 3 RETRO 'RIO'2.jpg",
@@ -307,6 +321,7 @@ export const flashSales = [
     sku: "DH6927 017",
     color: "Black/Tour Yellow",
     releaseDate: "5/13/23",
+    items: 5,
     photos: [
       "sneakers/nikes/air_jordan_4.jpg",
       "sneakers/nikes/AIR JORDAN 4 RETRO 'THUNDER' 2023.jpg",
@@ -328,6 +343,7 @@ export const flashSales = [
     sku: " BD7633",
     color: "Collegiate Navy/Clear Sky/Gum",
     releaseDate: "8/26/20",
+    items: 8,
     photos: [
       "sneakers/adidas/hand_ball_spezial.jpg",
       "sneakers/adidas/HANDBALL SPEZIAL 'NAVY GUM'.jpg",
@@ -351,6 +367,7 @@ export const flashSales = [
     color: "Onyx/Onyx/Onyx",
     sku: "HQ4540",
     releaseDate: " 6/20/22",
+    items: 6,
     photos: [
       "sneakers/adidas/yeezy_boost.jpg",
       "sneakers/adidas/YEEZY BOOST 350 V2 'ONYX'.jpg",
@@ -372,6 +389,7 @@ export const flashSales = [
       "The Futura Laboratories x Nike Dunk Low SB 'Bleached Aqua' showcases a teal suede Swoosh contrasting the white canvas upper, bolstered with multicolor canvas overlays wrapped in Futura's abstract graphics. The artist's signature makes its way to the lateral side, while the FL logo adorns the other side. Both brand logos appear on the stuffed tongue tag, while a blue translucent rubber outsole keeps the traction smooth underfoot.",
     color: "Bleached Aqua/Geode Teal/White",
     releaseDate: "5/22/24",
+    items: 14,
     photos: [
       "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA'.jpg",
       "sneakers/nikes/FUTURA LABORATORIES X DUNK LOW SB 'BLEACHED AQUA' 2.jpg",

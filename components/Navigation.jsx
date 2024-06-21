@@ -24,6 +24,9 @@ export default function Navigation() {
   const [cartLength, setCartLength] = useState(false);
   const [activeSearch, setActiveSearch] = useState(false);
   const [initialInput, setInitialInput] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => setIsMounted(true), []);
 
   const pathname = usePathname();
   const searchRef = useRef();
@@ -509,7 +512,7 @@ export default function Navigation() {
                   transition: "color 0.3s ease-in-out",
                 }}
               >
-                {watchList.length}
+                {isMounted && watchList.length}
               </div>
             </Link>
           </div>

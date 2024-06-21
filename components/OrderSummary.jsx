@@ -167,6 +167,7 @@ export default function OrderSummary({
       <p>{price}</p>
     </div>
   );
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setOverlay(true);
@@ -322,22 +323,24 @@ export default function OrderSummary({
       <div className="mt-5 flex flex-col gap-2 border-b border-primaryColor py-4">
         <SubTotal
           title={`Sub Total`}
-          price={`$${quantity ? totalPrice * quantity : totalPrice}`}
+          price={`$${
+            quantity ? (totalPrice * quantity).toFixed(2) : totalPrice
+          }`}
         />
         <SubTotal
           title={`Tax(10%)`}
           price={
             quantity
-              ? `$${(totalPrice * quantity * 10) / 100}`
-              : `$${(totalPrice * 10) / 100}`
+              ? `$${((totalPrice * quantity * 10) / 100).toFixed(2)}`
+              : `$${((totalPrice * 10) / 100).toFixed(2)}`
           }
         />
         <SubTotal
           title={`Coupon Discount`}
           price={`-$${
             quantity
-              ? (totalPrice * quantity * 10) / 100
-              : `$${(totalPrice * 10) / 100}`
+              ? ((totalPrice * quantity * 10) / 100).toFixed(2)
+              : (totalPrice * 10) / 100
           }`}
         />
         <SubTotal title={`Shipping Cost`} price={`-$0.00`} />
@@ -345,7 +348,11 @@ export default function OrderSummary({
       <div className="flex justify-between items-center mt-5">
         <h5 className="font-[500] text-lg">Total</h5>
         <h5 className="font-bold text-lg">
-          ${(totalPrice - (totalPrice * 10) / 100).toFixed(2)}
+          {`$${
+            quantity
+              ? (totalPrice * quantity - (totalPrice * 10) / 100).toFixed(2)
+              : totalPrice
+          }`}
         </h5>
       </div>
       <span className="flex justify-center items-center">
