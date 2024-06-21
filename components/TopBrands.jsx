@@ -28,7 +28,7 @@ export default function TopBrands() {
       <h2 className="pl-2 md:pl-20 text-2xl md:text-5xl">BRANDS</h2>
       <div className="flex items-center justify-center flex-wrap p-2 md:py-4 md:px-20 space-x-2 md:space-x-6 w-full">
         {brandIcons.map((icon, idx) => (
-          <div className="w-24">
+          <div className="w-24" key={idx}>
             <div key={idx} dangerouslySetInnerHTML={{ __html: icon }} />
           </div>
         ))}

@@ -19,7 +19,6 @@ export default function Cart() {
     setOverlay,
     clearCart,
     setOpenConfirmModal,
-    confirm,
   } = stateFunc();
 
   const totalPrice = getTotalPrice().toFixed(2);
@@ -32,6 +31,23 @@ export default function Cart() {
   }
 
   const onClose = () => setToggleCart(false);
+
+  const closeCart = () => {
+    setToggleCart(false);
+    setOverlay(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (ev) => {
+      if (cartRef.current && !cartRef.current.contains(ev.target)) {
+        closeCart();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [toggleCart, closeCart]);
 
   useEffect(() => {
     const handleCartClose = (ev) => {
@@ -50,14 +66,10 @@ export default function Cart() {
     setOverlay(true);
   };
 
-  const closeCart = () => {
-    setToggleCart(false);
-    setOverlay(false);
-  };
-
   return (
     <div
-      className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[1000] overflow-y-auto transition-transform ${
+      ref={cartRef}
+      className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[500] overflow-y-auto transition-transform ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
     >

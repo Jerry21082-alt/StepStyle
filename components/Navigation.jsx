@@ -398,7 +398,7 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-5">
-            <div className="w-6 h-6 flex items-center justify-center cursor-pointer">
+            <div className="w-6 h-6 flex items-center justify-center cursor-pointer relative">
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -408,9 +408,13 @@ export default function Navigation() {
                 <title>Watch List</title>
                 <path d="M26 9.312c0-4.391-2.969-5.313-5.469-5.313-2.328 0-4.953 2.516-5.766 3.484-0.375 0.453-1.156 0.453-1.531 0-0.812-0.969-3.437-3.484-5.766-3.484-2.5 0-5.469 0.922-5.469 5.313 0 2.859 2.891 5.516 2.922 5.547l9.078 8.75 9.063-8.734c0.047-0.047 2.938-2.703 2.938-5.563zM28 9.312c0 3.75-3.437 6.891-3.578 7.031l-9.734 9.375c-0.187 0.187-0.438 0.281-0.688 0.281s-0.5-0.094-0.688-0.281l-9.75-9.406c-0.125-0.109-3.563-3.25-3.563-7 0-4.578 2.797-7.313 7.469-7.313 2.734 0 5.297 2.156 6.531 3.375 1.234-1.219 3.797-3.375 6.531-3.375 4.672 0 7.469 2.734 7.469 7.313z"></path>
               </svg>
+
+              <span className="absolute top-0 -right-3">
+                {watchList.length}
+              </span>
             </div>
 
-            <div className="w-6 h-6 cursor-pointer">
+            <div className="w-6 h-6 cursor-pointer relative">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -423,6 +427,10 @@ export default function Navigation() {
               >
                 <path d="M20,7.85A1,1,0,0,0,19,7H17A5,5,0,0,0,7,7H5a1,1,0,0,0-1,.85l-2,13A1,1,0,0,0,3,22H21a1,1,0,0,0,1-1.15ZM12,4a3,3,0,0,1,3,3H9A3,3,0,0,1,12,4Z"></path>
               </svg>
+
+              <span className="absolute top-0 -right-2">
+                {cartItems.length}
+              </span>
             </div>
           </div>
         </div>

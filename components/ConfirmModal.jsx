@@ -20,7 +20,7 @@ export default function ConfirmModal() {
 
   return (
     <div
-      className={`fixed top-1/3 left-1/2 -translate-x-1/2 bg-black z-[700] w-1/2 p-4 flex justify-center flex-col space-y-4 ${
+      className={`fixed top-1/3 left-1/2 -translate-x-1/2 bg-black z-[2000] w-1/2 p-4 flex justify-center flex-col space-y-4 ${
         openConfirmModal ? "open-confirm-modal" : "close-confirm-modal"
       }`}
     >
