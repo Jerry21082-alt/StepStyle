@@ -24,7 +24,6 @@ export default function Cart() {
   const totalPrice = getTotalPrice().toFixed(2);
 
   const ids = [];
-  const cartRef = useRef(null);
 
   for (let item of cartItems) {
     ids.push(item.id);
@@ -36,18 +35,6 @@ export default function Cart() {
     setToggleCart(false);
     setOverlay(false);
   };
-
-  useEffect(() => {
-    const handleClickOutside = (ev) => {
-      if (cartRef.current && !cartRef.current.contains(ev.target)) {
-        closeCart();
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [toggleCart, closeCart]);
 
   useEffect(() => {
     const handleCartClose = (ev) => {
@@ -68,7 +55,6 @@ export default function Cart() {
 
   return (
     <div
-      ref={cartRef}
       className={`w-screen md:w-2/5 h-screen fixed p-2 md:p-10 top-0 right-0 bg-snow z-[400] md:z-[501] overflow-y-auto transition-transform ${
         toggleCart ? "open-cart" : "close-cart"
       }`}
