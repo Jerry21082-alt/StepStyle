@@ -3,6 +3,12 @@ import "../styles/global.css";
 import "../styles/typography.css";
 import UseStateContext from "@/components/stateContent/UseStateContext";
 
+export const metadata = {
+  title: "StepStyle.",
+  description:
+    "Step Style is a comprehensive and dynamic shoe e-commerce web application",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
